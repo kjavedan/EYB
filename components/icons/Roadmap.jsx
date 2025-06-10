@@ -1,0 +1,162 @@
+import { motion } from "framer-motion";
+
+export default function RoadmapIcon() {
+  return (
+    <motion.svg
+      width="368"
+      height="367"
+      viewBox="0 0 368 367"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      initial="hidden"
+      whileInView="visible" // Start animation when the SVG comes into view
+      viewport={{ once: true, amount: 0.5 }} // Ensures animation triggers once
+    >
+      {/* Bottom-left circle with arrow (starts first) */}
+      <motion.circle
+        cx="35"
+        cy="258"
+        r="33.5"
+        stroke="white"
+        strokeWidth="3"
+        variants={drawVariants}
+      />
+
+      {/* Arrow */}
+      <motion.path
+        d="M35.5 247.708V269.292M35.5 247.708L44.75 256.958M35.5 247.708L26.25 256.958"
+        stroke="white"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        variants={drawVariants}
+      />
+
+      {/* Bottom-left line */}
+      <motion.line
+        x1="34.5"
+        y1="223.006"
+        x2="34.5"
+        y2="143"
+        stroke="white"
+        strokeWidth="3"
+        variants={drawVariants}
+      />
+
+      {/* Top-left circle */}
+      <motion.circle
+        cx="35"
+        cy="109"
+        r="33.5"
+        stroke="white"
+        strokeWidth="3"
+        variants={drawVariants}
+      />
+
+      {/* Center-left line */}
+      <motion.line
+        x1="183.5"
+        y1="223.006"
+        x2="183.5"
+        y2="143"
+        stroke="white"
+        strokeWidth="3"
+        variants={drawVariants}
+      />
+
+      {/* Top-center circle */}
+      <motion.circle
+        cx="184"
+        cy="109"
+        r="33.5"
+        stroke="white"
+        strokeWidth="3"
+        variants={drawVariants}
+      />
+
+      {/* Bottom-center circle */}
+      <motion.circle
+        cx="184"
+        cy="258"
+        r="33.5"
+        stroke="white"
+        strokeWidth="3"
+        variants={drawVariants}
+      />
+
+      {/* Center-right line */}
+      <motion.line
+        x1="332.5"
+        y1="223.006"
+        x2="332.5"
+        y2="143"
+        stroke="white"
+        strokeWidth="3"
+        variants={drawVariants}
+      />
+
+      {/* Bottom-right circle */}
+      <motion.circle
+        cx="333"
+        cy="258"
+        r="33.5"
+        stroke="white"
+        strokeWidth="3"
+        variants={drawVariants}
+      />
+
+      {/* Top-right circle */}
+      <motion.circle
+        cx="333"
+        cy="109"
+        r="33.5"
+        stroke="white"
+        strokeWidth="3"
+        variants={drawVariants}
+      />
+
+      {/* Inner small circle */}
+      <motion.circle
+        cx="333"
+        cy="109"
+        r="18.5"
+        stroke="white"
+        strokeWidth="3"
+        variants={drawVariants}
+      />
+
+      {/* Top path */}
+      <motion.path
+        d="M185 74C185 54.374 176.993 35.5518 162.74 21.6741C148.487 7.79641 129.156 1.48172e-06 109 0C88.8436 -1.48172e-06 69.5127 7.7964 55.2599 21.6741C41.0071 35.5518 33 54.374 33 74H36.4334C36.4334 55.2606 44.0788 37.2887 57.6877 24.038C71.2966 10.7873 89.7542 3.34306 109 3.34306C128.246 3.34306 146.703 10.7873 160.312 24.038C173.921 37.2887 181.567 55.2606 181.567 74H185Z"
+        fill="#D9D9D9"
+        variants={fillVariants}
+      />
+
+      {/* Bottom path */}
+      <motion.path
+        d="M336 293C336 312.626 327.993 331.448 313.74 345.326C299.487 359.204 280.156 367 260 367C239.844 367 220.513 359.204 206.26 345.326C192.007 331.448 184 312.626 184 293H187.433C187.433 311.739 195.079 329.711 208.688 342.962C222.297 356.213 240.754 363.657 260 363.657C279.246 363.657 297.703 356.213 311.312 342.962C324.921 329.711 332.567 311.739 332.567 293H336Z"
+        fill="#D9D9D9"
+        variants={fillVariants}
+      />
+    </motion.svg>
+  );
+}
+
+// Variants for stroke animations
+const drawVariants = {
+  hidden: { pathLength: 0, opacity: 0 },
+  visible: (i) => ({
+    pathLength: 1,
+    opacity: 1,
+    transition: { duration: 1.5, delay: i * 0.5, ease: "easeOut" }, // Staggered animation
+  }),
+};
+
+// Variants for fill animations
+const fillVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 1.5, delay: 1 },
+  },
+};
