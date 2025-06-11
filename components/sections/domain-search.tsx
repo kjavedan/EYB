@@ -51,6 +51,8 @@ export default function DomainSearch() {
     setLoading(true)
     setResult(null)
 
+    console.log(process.env.NEXT_PUBLIC_RAPIDAPI_KEY)
+
     const url = `https://domainr.p.rapidapi.com/v2/status?domain=${encodeURIComponent(domain)}`
     const options = {
       method: "GET",
@@ -142,7 +144,7 @@ export default function DomainSearch() {
 
         {popupVisible && (
           <motion.div
-            className="fixed inset-0 z-100 flex items-center justify-center bg-black bg-opacity-75"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-75"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
