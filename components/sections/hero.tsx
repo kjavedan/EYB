@@ -19,7 +19,7 @@ export default function Hero() {
         <h1 className="heading text-center font-[var(--font-primary)] max-w-screen-xl mx-auto text-[45px] leading-[80px] lg:text-5xl lg:leading-[80px] xl:text-8xl xl:leading-[150px] font-900">
           <span className="text-white">
             {t("hero.title.part1", { defaultValue: "We Take Businesses" })}
-          </span>
+        </span>
           <span className="store-section relative block mx-2 lg:mr-4">
             <motion.span
               initial={{ rotate: -25 }}
