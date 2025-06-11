@@ -5,22 +5,22 @@
       "part2": "Websites"
     },
     "cta": "Start now",
-    "subtitle": "see if I can help you"
+    "subtitle": "see if We can help you"
   },
   "services": {
-    "title": "Our services",
+    "title": "Services",
     "items": {
       "personal_business": {
         "title": "Personal & Business Websites",
-        "description": "Website to showcase your personal brand or business and reach more people."
+        "description": "Landing pages & Websites to showcase your brand"
       },
       "store_owners": {
-        "title": "Store Owners",
-        "description": "You have a physical store but no website to reach more customers."
+        "title": "E-Commerce Stores",
+        "description": "We take your ideas and make them a reality"
       },
       "product_sellers": {
-        "title": "Product Sellers",
-        "description": "You sell your own product via WhatsApp and want a professional online store."
+        "title": "Ads",
+        "description": "We create content and run effective marketing campaigns"
       }
     }
   },
@@ -40,11 +40,11 @@
     "role":{
       "khaled": "Software Engineer & E-commerce Specialist",
       "faiz": "Digital Marketing Specialist",
-      "sajad": "Sajad - Content Creator and Designer"
+      "sajad": "Content Creator and Designer"
     }
   },
   "contact": {
-    "title": "Contact Me",
+    "title": "Contact Us",
     "subtitle": "Have more questions?",
     "email": "devkhaledjavdan@gmail.com",
     "message": "We would love to hear from you :)",
@@ -54,7 +54,7 @@
       "linkedin": "Connect on LinkedIn"
     },
     "whatsapp": {
-      "message": "Hi Khaled! I'm interested in starting a project with you. Can you share more details?"
+      "message": "Hi Khaled! We're interested in starting a project with you. Can you share more details?"
     }
   },
   "pricing": {
@@ -216,51 +216,51 @@
       },
       "support": {
         "question": "What kind of support do you offer after the website is live?",
-        "answer": "I offer ongoing support including updates, troubleshooting, and training for managing your website. Each package comes with a specific duration of free support, and additional support can be arranged as needed."
+        "answer": "We offer ongoing support including updates, troubleshooting, and training for managing your website. Each package comes with a specific duration of free support, and additional support can be arranged as needed."
       },
       "customization": {
         "question": "Can the website be customized to fit my specific business needs?",
-        "answer": "Absolutely! I tailor each website to meet the unique requirements of your business, ensuring it aligns with your goals and brand identity."
+        "answer": "Absolutely! We tailor each website to meet the unique requirements of your business, ensuring it aligns with your goals and brand identity."
       },
       "training": {
         "question": "Do you provide training for managing the website?",
-        "answer": "Yes, I provide training sessions to help you and your team manage and update your website efficiently, empowering you to take control of your online presence."
+        "answer": "Yes, we provide training sessions to help you and your team manage and update your website efficiently, empowering you to take control of your online presence."
       },
       "pricing": {
         "question": "Are these are fixed prices?",
-        "answer": "No. After our meeting and understanding your needs, I will provide a more accurate quote tailored to your business goals."
+        "answer": "No. After our meeting and understanding your needs, we will provide a more accurate quote tailored to your business goals."
       },
       "why_me": {
         "question": "Why should I pick you instead of a well-known agency?",
-        "answer": "I value my work and choose my clients carefully because, for me, it's not about the numbers—it's about building strong, ongoing relationships. I pay attention to the smallest details in my work, ensuring every aspect of your project is crafted to the highest standards. I understand this level of dedication might not be for everyone, but for those who appreciate high-quality work, it makes all the difference. With me, you get personalized attention, flexibility, and a partnership that goes beyond just delivering a website."
+        "answer": "We value our work and choose our clients carefully because, for us, it's not about the numbers—it's about building strong, ongoing relationships. We pay attention to the smallest details in our work, ensuring every aspect of your project is crafted to the highest standards. We understand this level of dedication might not be for everyone, but for those who appreciate high-quality work, it makes all the difference. With us, you get personalized attention, flexibility, and a partnership that goes beyond just delivering a website."
       },
       "platforms": {
         "question": "What platforms do you specialize in for building websites?",
-        "answer": "For websites and custom solutions, I use modern technologies like Next.js, React, and Vue for the frontend, and Node.js with MongoDB for the backend. For e-commerce stores, I specialize in Shopify, where I can either use pre-built templates or create fully customized designs to give your store a unique look."
+        "answer": "For websites and custom solutions, we use modern technologies like Next.js, React, and Vue for the frontend, and Node.js with MongoDB for the backend. For e-commerce stores, we specialize in Shopify, where we can either use pre-built templates or create fully customized designs to give your store a unique look."
       },
       "design_approach": {
         "question": "Do you offer custom design, or do you use templates?",
-        "answer": "I offer both custom designs and template-based solutions, depending on your needs and budget. Custom designs provide a unique look tailored to your brand, while templates offer a faster and more cost-effective option."
+        "answer": "We offer both custom designs and template-based solutions, depending on your needs and budget. Custom designs provide a unique look tailored to your brand, while templates offer a faster and more cost-effective option."
       },
       "post_launch": {
         "question": "What happens if I need changes or updates after the project is finished?",
-        "answer": "I offer post-launch support and maintenance services. If you need changes or updates, we can arrange ongoing support or a separate maintenance package to ensure your website remains up-to-date and functional."
+        "answer": "We offer post-launch support and maintenance services. If you need changes or updates, we can arrange ongoing support or a separate maintenance package to ensure your website remains up-to-date and functional."
       },
       "ecommerce": {
         "question": "Do you handle e-commerce functionality, such as payment processing and product management?",
-        "answer": "Yes, I handle all aspects of e-commerce functionality, including payment processing, product management, order tracking, and more. I ensure that your online store is fully equipped to handle transactions smoothly and securely."
+        "answer": "Yes, we handle all aspects of e-commerce functionality, including payment processing, product management, order tracking, and more. We ensure that your online store is fully equipped to handle transactions smoothly and securely."
       },
       "process": {
         "question": "What is the process for starting a project with you?",
-        "answer": "The process begins with a consultation to understand your needs and goals. After that, I provide a detailed proposal outlining the project scope, timeline, and cost. Once agreed, I begin the design and development phases, keeping you involved and updated throughout the process."
+        "answer": "The process begins with a consultation to understand your needs and goals. After that, we provide a detailed proposal outlining the project scope, timeline, and cost. Once agreed, we begin the design and development phases, keeping you involved and updated throughout the process."
       },
       "integrations": {
         "question": "Can you integrate third-party services or APIs into my website?",
-        "answer": "Absolutely, I can integrate various third-party services and APIs into your website to enhance its functionality. Whether it's a payment gateway, analytics tool, or any other service, I ensure seamless integration."
+        "answer": "Absolutely, we can integrate various third-party services and APIs into your website to enhance its functionality. Whether it's a payment gateway, analytics tool, or any other service, we ensure seamless integration."
       },
       "mobile_friendly": {
         "question": "How do you ensure that my website is mobile-friendly and responsive?",
-        "answer": "I follow responsive design principles and thoroughly test the website on different devices and screen sizes. This ensures that your website provides an optimal user experience on desktops, tablets, and smartphones."
+        "answer": "We follow responsive design principles and thoroughly test the website on different devices and screen sizes. This ensures that your website provides an optimal user experience on desktops, tablets, and smartphones."
       }
     }
   },
@@ -288,14 +288,14 @@
     }
   },
   "testimonials": {
-    "title": "What Our Clients Say"
+    "title": "Testimonials"
   },
   "workProcess": {
     "title": "How we work?",
     "steps": {
       "meeting": {
         "title": "Set Up a Meeting",
-        "description": "I'll connect however you prefer—messaging, online, or in person."
+        "description": "We'll connect however you prefer—messaging, online, or in person."
       },
       "goals": {
         "title": "Understand Customer Goals",
@@ -311,7 +311,7 @@
       },
       "training": {
         "title": "Training & Setup",
-        "description": "I'll show you how to manage everything—from activating your bank account to receive payments, tracking sales and analytics to updating products and handling orders on any device."
+        "description": "We'll show you how to manage everything—from activating your bank account to receive payments, tracking sales and analytics to updating products and handling orders on any device."
       },
       "launch": {
         "title": "Launch Your Website",
@@ -347,15 +347,15 @@
     "items": {
       "expertise": {
         "label": "Expertise in technology",
-        "description": "I handle the tech side for you and teach what you need"
+        "description": "We handle the tech side for you and teach what you need"
       },
       "security": {
         "label": "Security",
-        "description": "I make sure your website stays safe and secure 24/7."
+        "description": "We make sure your website stays safe and secure 24/7."
       },
       "design": {
         "label": "Design",
-        "description": "I give your site a personality that speaks for itself."
+        "description": "We give your site a personality that speaks for itself."
       }
     },
     "bottom_text": {

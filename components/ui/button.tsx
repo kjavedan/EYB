@@ -29,7 +29,7 @@ export default function Button({ text = "start_now", className, disabled, childr
 
   return (
     <motion.button
-      whileHover={{ scale: !disabled && 1.1 }}
+      whileHover={{ scale: disabled ? 1 : 1.1 }}
       onClick={handleClick}
       className={`btn__primary mx-auto mt-8 ${className} disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-[#4A5568]`}
       disabled={disabled}

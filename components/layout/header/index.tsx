@@ -11,7 +11,7 @@ export function Header() {
   return (
     <header
       style={{ direction: "ltr" }}
-      className="bg-[--bg-color] sticky top-0 z-10 w-full z-1 flex items-center justify-between after:content-['']"
+      className="bg-[--bg-color] sticky top-0 z-20 w-full z-1 flex items-center justify-between after:content-['']"
     >
       <motion.div
         initial={{ opacity: 0, y: 10 }}

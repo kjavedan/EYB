@@ -96,11 +96,11 @@ select {
 
 h1,
 h2 {
-  background: var(--title-gradient);
+  /* background: var(--title-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
+  text-fill-color: transparent; */
   font-weight: 900;
   margin-left: auto;
   margin-right: auto;

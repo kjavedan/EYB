@@ -107,7 +107,7 @@ export default function DomainSearch() {
   return (
     <section className="py-20">
       <div className="flex flex-col max-w-2xl mx-auto px-4">
-        <h2 className="text-center text-4xl max-w-full mx-auto leading-[70px] lg:text-5xl xl:text-6xl lg:leading-[100px] xl:leading-[110px]">
+        <h2 className="text-center text-3xl max-w-full mx-auto leading-[50px] lg:text-4xl xl:text-5xl lg:leading-[80px] xl:leading-[90px]">
           {t("domainSearch.title")}
         </h2>
 
