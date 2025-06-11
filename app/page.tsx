@@ -21,7 +21,7 @@ export default function HomePage() {
       <div className="container mx-auto">
         <Header />
 
-        <main className="px-4 max-w-screen-xl mx-auto">
+        <main className="px-4 max-w-screen-xl pt-16 mx-auto">
           <Hero />
           <Service />
           <Concerns />
