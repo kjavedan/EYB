@@ -3,6 +3,7 @@
 import { Icon } from "@iconify/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 type Testimonial = {
   quote: string;
@@ -23,6 +24,9 @@ export const AnimatedTestimonials = ({
   autoplay?: boolean;
 }) => {
   const [active, setActive] = useState(0);
+  const { i18n } = useTranslation();
+  const isRTL = i18n.language === 'ar';
+
 
   const handleNext = () => {
     setActive((prev) => (prev + 1) % testimonials.length);
@@ -48,7 +52,7 @@ export const AnimatedTestimonials = ({
   };
   return (
     <div className="mx-auto max-w-sm px-4 py-10 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">
-      <div className="relative grid grid-cols-1 gap-6 md:gap-20 md:grid-cols-2">
+      <div className="relative grid grid-cols-1 gap-6 md:gap-32 md:grid-cols-2">
         <div>
           <div className="relative h-80 w-full">
             <AnimatePresence>
@@ -89,7 +93,7 @@ export const AnimatedTestimonials = ({
                     width={500}
                     height={500}
                     draggable={false}
-                    className="h-full w-full rounded-3xl object-cover object-center"
+                    className="aspect-square w-[85%] md:w-full mx-auto rounded-3xl object-cover object-center"
                   />
                 </motion.div>
               ))}
@@ -117,10 +121,10 @@ export const AnimatedTestimonials = ({
             }}
           >
             {/* <div className="text-sm font-medium">{testimonials[active].projectType}</div> */}
-            <h3 className="text-2xl font-bold text-black dark:text-white">
+            <h3 className="text-2xl font-bold text-white">
               {testimonials[active].name}
             </h3>
-            <p className="text-sm text-gray-500 dark:text-neutral-500">
+            <p className="text-sm text-gray-500 dark:text-neutral-500 mt-2">
               {testimonials[active].designation}
             </p>
             
@@ -176,15 +180,21 @@ export const AnimatedTestimonials = ({
           <div className="flex gap-4 pt-12">
             <button
               onClick={handlePrev}
-              className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
+              className="group/button flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
             >
-              <Icon icon="mdi:chevron-left" className="h-5 w-5 text-black dark:text-neutral-400" />
+              <Icon 
+                icon={isRTL ? "mdi:chevron-right" : "mdi:chevron-left"} 
+                className="h-7 w-7 text-black dark:text-neutral-400" 
+              />
             </button>
             <button
               onClick={handleNext}
-              className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
+              className="group/button flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
             >
-              <Icon icon="mdi:chevron-right" className="h-5 w-5 text-black dark:text-neutral-400" />
+              <Icon 
+                icon={isRTL ? "mdi:chevron-left" : "mdi:chevron-right"} 
+                className="h-7 w-7 text-black dark:text-neutral-400" 
+              />
             </button>
           </div>
         </div>

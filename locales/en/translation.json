@@ -230,10 +230,6 @@
         "question": "Are these are fixed prices?",
         "answer": "No. After our meeting and understanding your needs, we will provide a more accurate quote tailored to your business goals."
       },
-      "why_me": {
-        "question": "Why should I pick you instead of a well-known agency?",
-        "answer": "We value our work and choose our clients carefully because, for us, it's not about the numbers—it's about building strong, ongoing relationships. We pay attention to the smallest details in our work, ensuring every aspect of your project is crafted to the highest standards. We understand this level of dedication might not be for everyone, but for those who appreciate high-quality work, it makes all the difference. With us, you get personalized attention, flexibility, and a partnership that goes beyond just delivering a website."
-      },
       "platforms": {
         "question": "What platforms do you specialize in for building websites?",
         "answer": "For websites and custom solutions, we use modern technologies like Next.js, React, and Vue for the frontend, and Node.js with MongoDB for the backend. For e-commerce stores, we specialize in Shopify, where we can either use pre-built templates or create fully customized designs to give your store a unique look."
@@ -288,7 +284,33 @@
     }
   },
   "testimonials": {
-    "title": "Testimonials"
+    "title": "Testimonials",
+    "items": {
+      "1": {
+        "quote": "The team is so professional and accountable — I didn't expect them to care about my website this much. They treated it like it was their own.",
+        "name": "Peter",
+        "designation": "Owner",
+        "address": "Dubai, UAE"
+      },
+      "2": {
+        "quote": " They understood my requirements perfectly and were blazing fast and responsive from day one. I've been recommending them to all my friends ever since.",
+        "name": "Gaya",
+        "designation": "Owner",
+        "address": "Dubai, UAE"
+      },
+      "3": {
+        "quote": " This young team is marvelous — incredibly creative and ahead of the curve. I was so concerned about the design, but I couldn't believe it: I didn't need to change a single thing when I saw the first draft.",
+        "name": "Mahmood Alamarzooqi",
+        "designation": "Owner",
+        "address": "Sharjah, UAE"
+      },
+      "4": {
+        "quote": "The team's pricing was incredibly reasonable, and the automation they implemented saved both me and my customers countless hours of manual work. Their solution was exactly what we needed to streamline our operations.",
+        "name": "Ibrahim",
+        "designation": "Owner",
+        "address": "Iran"
+      }
+    }
   },
   "workProcess": {
     "title": "How we work?",
