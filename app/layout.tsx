@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { I18nProvider } from "@/components/providers/i18n-provider"
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -221,6 +222,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <I18nProvider>{children}</I18nProvider>
+        <Analytics />
       </body>
     </html>
   )
