@@ -204,7 +204,7 @@
     }
   },
   "faq": {
-    "title": "Frequently Asked Questions",
+    "title": "FAQs",
     "questions": {
       "starter_example": {
         "question": "Can you show me an example of a Starter package website?",

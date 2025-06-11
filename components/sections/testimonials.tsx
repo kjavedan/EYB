@@ -1,6 +1,5 @@
 "use client"
 
-import { Icon } from "@iconify/react"
 import Button from "@/components/ui/button"
 import { useTranslation } from "react-i18next"
 import { AnimatedTestimonials } from "../ui/animated-testimonials"
