@@ -1,6 +1,6 @@
 "use client";
 
-import type React from "react";
+import React from "react";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -156,7 +156,18 @@ export default function DomainSearch() {
 									🎉{" "}
 									{t("domainSearch.search.available", {
 										domain: result?.domain,
-									})}
+									})
+										.split(result?.domain)
+										.map((part, index, array) => (
+											<React.Fragment key={`domain-part-${index}-${part}`}>
+												{part}
+												{index < array.length - 1 && (
+													<span className="text-[--secondary-color]">
+														{result?.domain}
+													</span>
+												)}
+											</React.Fragment>
+										))}
 								</h4>
 								<p className="text-xl my-4">{t("domainSearch.search.claim")}</p>
 								<Button text={"buy_now"} />

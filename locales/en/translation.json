@@ -1,395 +1,411 @@
 {
-  "hero": {
-    "title": {
-      "part1": "We Build Cool",
-      "part2": "Websites"
-    },
-    "cta": "Start now",
-    "subtitle": "see if We can help you"
-  },
-  "services": {
-    "title": "Services",
-    "items": {
-      "personal_business": {
-        "title": "Personal & Business Websites",
-        "description": "Landing pages & Websites to showcase your brand"
-      },
-      "store_owners": {
-        "title": "E-Commerce Stores",
-        "description": "We take your ideas and make them a reality"
-      },
-      "product_sellers": {
-        "title": "Ads",
-        "description": "We create content and run effective marketing campaigns"
-      }
-    }
-  },
-  "about": {
-    "title": {
-      "part1": "Meet",
-      "part2": "The Team"
-    },
-    "description": {
-      "part1": "We're three friends brought together by our shared passion for creativity, building, and meaningful connection. Each of us specializes in a different field—web development, digital marketing, and content creation—and together, we craft top-tier digital experiences for business owners. Whether it's a website, an eCommerce store, or compelling digital content, we combine our skills to help your brand stand out online."
-    },
-    "name":{
-      "khaled": "Khaled",
-      "faiz": "Faiz",
-      "sajad": "Sajad"
-    }, 
-    "role":{
-      "khaled": "Software Engineer & E-commerce Specialist",
-      "faiz": "Digital Marketing Specialist",
-      "sajad": "Content Creator and Designer"
-    }
-  },
-  "contact": {
-    "title": "Contact Us",
-    "subtitle": "Have more questions?",
-    "email": "devkhaledjavdan@gmail.com",
-    "message": "We would love to hear from you :)",
-    "social": {
-      "instagram": "Follow us on Instagram",
-      "whatsapp": "Chat on WhatsApp",
-      "linkedin": "Connect on LinkedIn"
-    },
-    "whatsapp": {
-      "message": "Hi Khaled! We're interested in starting a project with you. Can you share more details?"
-    }
-  },
-  "pricing": {
-    "title": "Pricing",
-    "options": {
-      "website": "Website",
-      "store": "Store"
-    },
-    "spots": {
-      "single": "spot available",
-      "multiple": "spots available"
-    },
-    "packages": {
-      "website": {
-        "starter": {
-          "title": "Starter",
-          "duration": "1-2 weeks delivery",
-          "description": "Perfect for starting personal or business websites.",
-          "features": [
-            "1 responsive page",
-            "Social media links",
-            "Basic subscription system",
-            "Domain setup",
-            "1 custom feature",
-            "Hosting setup",
-            "1 month free support",
-            "2 revisions"
-          ]
-        },
-        "growth": {
-          "title": "Growth",
-          "duration": "3-4 weeks delivery",
-          "description": "Ideal for businesses aiming to grow with custom solutions.",
-          "features": [
-            "5 responsive pages",
-            "Social media links",
-            "Advanced subscription system",
-            "Analytics setup",
-            "Custom design",
-            "Domain setup",
-            "3 custom features",
-            "Professional email setup",
-            "Hosting setup",
-            "3 months free support",
-            "English and Arabic languages",
-            "3 revisions"
-          ]
-        },
-        "elite": {
-          "title": "Elite",
-          "duration": "8 weeks delivery",
-          "description": "Premium custom designs & solutions for top-tier businesses.",
-          "features": [
-            "15 responsive pages",
-            "Ai integration",
-            "Payment processing setup",
-            "Social media links",
-            "Advanced subscription system",
-            "User system",
-            "Analytics setup",
-            "Admin panel",
-            "Custom design",
-            "Custom solutions",
-            "Domain setup",
-            "Professional email setup",
-            "Hosting setup",
-            "6 months free support",
-            "4 languages",
-            "5 revisions"
-          ]
-        }
-      },
-      "store": {
-        "starter": {
-          "title": "Starter",
-          "duration": "1-2 weeks delivery",
-          "description": "Ideal for launching your first Shopify store with essential features.",
-          "features": [
-            "Responsive design",
-            "E-commerce functionality",
-            "Payment processing setup",
-            "Search, sort, and Filters functionality",
-            "Opt-in form integration",
-            "Autoresponder integration",
-            "Speed optimization",
-            "Hosting setup",
-            "Domain setup",
-            "Social media icons",
-            "Number of pages: 5+",
-            "English and Arabic languages",
-            "Plugins/extensions installation: 3",
-            "Number of products: 500+",
-            "1 month free support"
-          ]
-        },
-        "growth": {
-          "title": "Growth",
-          "duration": "3-4 weeks delivery",
-          "description": "A complete Shopify store with additional features to enhance functionality and user experience.",
-          "features": [
-            "Responsive design",
-            "Design customization",
-            "E-commerce functionality",
-            "Search, sort, and Filters functionality",
-            "Payment processing setup",
-            "Opt-in form integration",
-            "Autoresponder integration",
-            "Speed optimization",
-            "Hosting setup",
-            "Domain setup",
-            "Social media icons",
-            "Number of pages: 15+",
-            "Plugins/extensions installation: 6",
-            "English and Arabic languages",
-            "Number of products: 1000+",
-            "Reviews integration",
-            "3 month free support"
-          ]
-        },
-        "elite": {
-          "title": "Elite",
-          "duration": "6-8 weeks delivery",
-          "description": "A high-end Shopify store tailored for specific niches, packed with premium features to boost sales.",
-          "features": [
-            "Responsive design",
-            "Design customization",
-            "E-commerce functionality",
-            "Search, sort, and Filters functionality",
-            "Payment processing setup",
-            "Opt-in form integration",
-            "Autoresponder integration",
-            "Speed optimization",
-            "Hosting setup",
-            "Domain setup",
-            "Social media icons",
-            "SEO optimization",
-            "Newsletter popup",
-            "Number of pages: 100+",
-            "Plugins/extensions installation: 10",
-            "4+ languages",
-            "Number of products: 10000+",
-            "6 month free support",
-            "Reviews integration"
-          ]
-        }
-      }
-    }
-  },
-  "faq": {
-    "title": "FAQs",
-    "questions": {
-      "starter_example": {
-        "question": "Can you show me an example of a Starter package website?",
-        "answer": "Yes, this website that you are scrolling right now is an example of a Starter package, which is perfect for starting personal or business websites."
-      },
-      "development_time": {
-        "question": "How long does it take to develop a website?",
-        "answer": "The timeline depends on the package chosen and specific project requirements. Typically, a Starter package takes 1-2 weeks to deliver, while more complex sites may take longer."
-      },
-      "support": {
-        "question": "What kind of support do you offer after the website is live?",
-        "answer": "We offer ongoing support including updates, troubleshooting, and training for managing your website. Each package comes with a specific duration of free support, and additional support can be arranged as needed."
-      },
-      "customization": {
-        "question": "Can the website be customized to fit my specific business needs?",
-        "answer": "Absolutely! We tailor each website to meet the unique requirements of your business, ensuring it aligns with your goals and brand identity."
-      },
-      "training": {
-        "question": "Do you provide training for managing the website?",
-        "answer": "Yes, we provide training sessions to help you and your team manage and update your website efficiently, empowering you to take control of your online presence."
-      },
-      "pricing": {
-        "question": "Are these are fixed prices?",
-        "answer": "No. After our meeting and understanding your needs, we will provide a more accurate quote tailored to your business goals."
-      },
-      "platforms": {
-        "question": "What platforms do you specialize in for building websites?",
-        "answer": "For websites and custom solutions, we use modern technologies like Next.js, React, and Vue for the frontend, and Node.js with MongoDB for the backend. For e-commerce stores, we specialize in Shopify, where we can either use pre-built templates or create fully customized designs to give your store a unique look."
-      },
-      "design_approach": {
-        "question": "Do you offer custom design, or do you use templates?",
-        "answer": "We offer both custom designs and template-based solutions, depending on your needs and budget. Custom designs provide a unique look tailored to your brand, while templates offer a faster and more cost-effective option."
-      },
-      "post_launch": {
-        "question": "What happens if I need changes or updates after the project is finished?",
-        "answer": "We offer post-launch support and maintenance services. If you need changes or updates, we can arrange ongoing support or a separate maintenance package to ensure your website remains up-to-date and functional."
-      },
-      "ecommerce": {
-        "question": "Do you handle e-commerce functionality, such as payment processing and product management?",
-        "answer": "Yes, we handle all aspects of e-commerce functionality, including payment processing, product management, order tracking, and more. We ensure that your online store is fully equipped to handle transactions smoothly and securely."
-      },
-      "process": {
-        "question": "What is the process for starting a project with you?",
-        "answer": "The process begins with a consultation to understand your needs and goals. After that, we provide a detailed proposal outlining the project scope, timeline, and cost. Once agreed, we begin the design and development phases, keeping you involved and updated throughout the process."
-      },
-      "integrations": {
-        "question": "Can you integrate third-party services or APIs into my website?",
-        "answer": "Absolutely, we can integrate various third-party services and APIs into your website to enhance its functionality. Whether it's a payment gateway, analytics tool, or any other service, we ensure seamless integration."
-      },
-      "mobile_friendly": {
-        "question": "How do you ensure that my website is mobile-friendly and responsive?",
-        "answer": "We follow responsive design principles and thoroughly test the website on different devices and screen sizes. This ensures that your website provides an optimal user experience on desktops, tablets, and smartphones."
-      }
-    }
-  },
-  "roadmap": {
-    "title": "Roadmap",
-    "description": {
-      "part1": "When you decide to build your website, whether it's a personal site or an online store, it's natural to question the chances of success. You might wonder how long it will take and what you need to achieve your goals.",
-      "part2": "I understand these concerns, which is why I've crafted a detailed roadmap for both paths. This roadmap includes timelines, expectations, requirements, and everything you need to know before making the investment. Read it carefully, and if you're ready, let's connect."
-    },
-    "buttons": {
-      "download": "Download for free",
-      "check_email": "Check your email",
-      "send_now": "Send me now",
-      "sending": "Sending..."
-    },
-    "form": {
-      "title": "Enter the email you want us to send the pdf to",
-      "placeholder": "mohammad@gmail.com",
-      "error": {
-        "invalid_email": "Please enter a valid email address.",
-        "general": "An error occurred. Please try again.",
-        "connection": "Failed to submit. Please check your connection."
-      },
-      "success": "The PDF has been sent to your email!"
-    }
-  },
-  "testimonials": {
-    "title": "Testimonials",
-    "items": {
-      "1": {
-        "quote": "The team is so professional and accountable — I didn't expect them to care about my website this much. They treated it like it was their own.",
-        "name": "Peter",
-        "designation": "Owner",
-        "address": "Dubai, UAE"
-      },
-      "2": {
-        "quote": " They understood my requirements perfectly and were blazing fast and responsive from day one. I've been recommending them to all my friends ever since.",
-        "name": "Gaya",
-        "designation": "Owner",
-        "address": "Dubai, UAE"
-      },
-      "3": {
-        "quote": " This young team is marvelous — incredibly creative and ahead of the curve. I was so concerned about the design, but I couldn't believe it: I didn't need to change a single thing when I saw the first draft.",
-        "name": "Mahmood Alamarzooqi",
-        "designation": "Owner",
-        "address": "Sharjah, UAE"
-      },
-      "4": {
-        "quote": "The team's pricing was incredibly reasonable, and the automation they implemented saved both me and my customers countless hours of manual work. Their solution was exactly what we needed to streamline our operations.",
-        "name": "Ibrahim",
-        "designation": "Owner",
-        "address": "Iran"
-      }
-    }
-  },
-  "workProcess": {
-    "title": "How we work?",
-    "steps": {
-      "meeting": {
-        "title": "Set Up a Meeting",
-        "description": "We'll connect however you prefer—messaging, online, or in person."
-      },
-      "goals": {
-        "title": "Understand Customer Goals",
-        "description": "We'll sit down together to understand your goals, vision, requirements, and pick a plan that suits you best."
-      },
-      "design": {
-        "title": "Confirm Design & Timeline",
-        "description": "We'll agree on the design, and set a delivery date."
-      },
-      "develop": {
-        "title": "Develop the Website",
-        "description": "Your site will be ready on time, with any tweaks you need."
-      },
-      "training": {
-        "title": "Training & Setup",
-        "description": "We'll show you how to manage everything—from activating your bank account to receive payments, tracking sales and analytics to updating products and handling orders on any device."
-      },
-      "launch": {
-        "title": "Launch Your Website",
-        "description": "Your site will be available for users to use it."
-      }
-    }
-  },
-  "domainSearch": {
-    "title": "Make your website official with your own domain name",
-    "search": {
-      "placeholder": "mybusiness.com",
-      "button": "Search now",
-      "checking": "Checking...",
-      "available": "Congratulations! The domain {{domain}} is available!",
-      "unavailable": "Sorry, the domain {{domain}} is already taken. Try another one.",
-      "error": "Unable to check the domain status. Please try again.",
-      "claim": "Claim it now before someone else does!",
-      "buy": "Buy now",
-      "attempts": {
-        "left": "Attempts left: {{count}}",
-        "none": "No attempts left.",
-        "max_reached": "You have reached the maximum number of attempts. Please try again later."
-      }
-    }
-  },
-  "buttons": {
-    "start_now": "Start now",
-    "free_download": "Download for free",
-    "buy_now": "Buy now"
-  },
-  "concerns": {
-    "title": "You don't need to worry about these?",
-    "items": {
-      "expertise": {
-        "label": "Expertise in technology",
-        "description": "We handle the tech side for you and teach what you need"
-      },
-      "security": {
-        "label": "Security",
-        "description": "We make sure your website stays safe and secure 24/7."
-      },
-      "design": {
-        "label": "Design",
-        "description": "We give your site a personality that speaks for itself."
-      }
-    },
-    "bottom_text": {
-      "part1": "Everything You Need to Know to Launch a Profitable Website is",
-      "part2": "Your Product or service, and your customers"
-    }
-  },
-  "navigation": {
-    "services": "Services",
-    "pricing": "Pricing",
-    "about": "About",
-    "faqs": "FAQs",
-    "contact": "Contact"
-  }
+	"hero": {
+		"title": {
+			"part1": "We Build Cool",
+			"part2": "Websites"
+		},
+		"cta": "Start now",
+		"subtitle": "see if We can help you"
+	},
+	"services": {
+		"title": "Services",
+		"items": {
+			"personal_business": {
+				"title": "Personal & Business Websites",
+				"description": "Landing pages & Websites to showcase your brand"
+			},
+			"store_owners": {
+				"title": "E-Commerce Stores",
+				"description": "We take your ideas and make them a reality"
+			},
+			"product_sellers": {
+				"title": "Ads",
+				"description": "We create content and run effective marketing campaigns"
+			}
+		}
+	},
+	"about": {
+		"title": {
+			"part1": "Meet",
+			"part2": "The Team"
+		},
+		"description": {
+			"part1": "We're three friends brought together by our shared passion for creativity, building, and meaningful connection. Each of us specializes in a different field—web development, digital marketing, and content creation—and together, we craft top-tier digital experiences for business owners. Whether it's a website, an eCommerce store, or compelling digital content, we combine our skills to help your brand stand out online."
+		},
+		"name": {
+			"khaled": "Khaled",
+			"faiz": "Faiz",
+			"sajad": "Sajad"
+		},
+		"role": {
+			"khaled": "Software Engineer & E-commerce Specialist",
+			"faiz": "Digital Marketing Specialist",
+			"sajad": "Content Creator and Designer"
+		}
+	},
+	"contact": {
+		"title": "Contact Us",
+		"subtitle": "Have more questions?",
+		"email": "devkhaledjavdan@gmail.com",
+		"message": "We would love to hear from you :)",
+		"social": {
+			"instagram": "Follow us on Instagram",
+			"whatsapp": "Chat on WhatsApp",
+			"linkedin": "Connect on LinkedIn"
+		},
+		"whatsapp": {
+			"message": "Hi Khaled! We're interested in starting a project with you. Can you share more details?"
+		}
+	},
+	"pricing": {
+		"title": "Pricing",
+		"options": {
+			"website": "Website",
+			"store": "Store"
+		},
+		"spots": {
+			"single": "spot available",
+			"multiple": "spots available"
+		},
+		"packages": {
+			"website": {
+				"starter": {
+					"title": "Starter",
+					"duration": "1-2 weeks delivery",
+					"description": "Perfect for starting personal or business websites.",
+					"features": [
+						"1 responsive page",
+						"Social media links",
+						"Basic subscription system",
+						"Domain setup",
+						"1 custom feature",
+						"Hosting setup",
+						"1 month free support",
+						"2 revisions"
+					]
+				},
+				"growth": {
+					"title": "Growth",
+					"duration": "3-4 weeks delivery",
+					"description": "Ideal for businesses aiming to grow with custom solutions.",
+					"features": [
+						"5 responsive pages",
+						"Social media links",
+						"Advanced subscription system",
+						"Analytics setup",
+						"Custom design",
+						"Domain setup",
+						"3 custom features",
+						"Professional email setup",
+						"Hosting setup",
+						"3 months free support",
+						"English and Arabic languages",
+						"3 revisions"
+					]
+				},
+				"elite": {
+					"title": "Elite",
+					"duration": "8 weeks delivery",
+					"description": "Premium custom designs & solutions for top-tier businesses.",
+					"features": [
+						"15 responsive pages",
+						"Ai integration",
+						"Payment processing setup",
+						"Social media links",
+						"Advanced subscription system",
+						"User system",
+						"Analytics setup",
+						"Admin panel",
+						"Custom design",
+						"Custom solutions",
+						"Domain setup",
+						"Professional email setup",
+						"Hosting setup",
+						"6 months free support",
+						"4 languages",
+						"5 revisions"
+					]
+				}
+			},
+			"store": {
+				"starter": {
+					"title": "Starter",
+					"duration": "1-2 weeks delivery",
+					"description": "Ideal for launching your first Shopify store with essential features.",
+					"features": [
+						"Responsive design",
+						"E-commerce functionality",
+						"Payment processing setup",
+						"Search, sort, and Filters functionality",
+						"Opt-in form integration",
+						"Autoresponder integration",
+						"Speed optimization",
+						"Hosting setup",
+						"Domain setup",
+						"Social media icons",
+						"Number of pages: 5+",
+						"English and Arabic languages",
+						"Plugins/extensions installation: 3",
+						"Number of products: 500+",
+						"1 month free support"
+					]
+				},
+				"growth": {
+					"title": "Growth",
+					"duration": "3-4 weeks delivery",
+					"description": "A complete Shopify store with additional features to enhance functionality and user experience.",
+					"features": [
+						"Responsive design",
+						"Design customization",
+						"E-commerce functionality",
+						"Search, sort, and Filters functionality",
+						"Payment processing setup",
+						"Opt-in form integration",
+						"Autoresponder integration",
+						"Speed optimization",
+						"Hosting setup",
+						"Domain setup",
+						"Social media icons",
+						"Number of pages: 15+",
+						"Plugins/extensions installation: 6",
+						"English and Arabic languages",
+						"Number of products: 1000+",
+						"Reviews integration",
+						"3 month free support"
+					]
+				},
+				"elite": {
+					"title": "Elite",
+					"duration": "6-8 weeks delivery",
+					"description": "A high-end Shopify store tailored for specific niches, packed with premium features to boost sales.",
+					"features": [
+						"Responsive design",
+						"Design customization",
+						"E-commerce functionality",
+						"Search, sort, and Filters functionality",
+						"Payment processing setup",
+						"Opt-in form integration",
+						"Autoresponder integration",
+						"Speed optimization",
+						"Hosting setup",
+						"Domain setup",
+						"Social media icons",
+						"SEO optimization",
+						"Newsletter popup",
+						"Number of pages: 100+",
+						"Plugins/extensions installation: 10",
+						"4+ languages",
+						"Number of products: 10000+",
+						"6 month free support",
+						"Reviews integration"
+					]
+				}
+			}
+		}
+	},
+	"faq": {
+		"title": "FAQs",
+		"questions": {
+			"starter_example": {
+				"question": "Can you show me an example of a Starter package website?",
+				"answer": "Yes, this website that you are scrolling right now is an example of a Starter package, which is perfect for starting personal or business websites."
+			},
+			"development_time": {
+				"question": "How long does it take to develop a website?",
+				"answer": "The timeline depends on the package chosen and specific project requirements. Typically, a Starter package takes 1-2 weeks to deliver, while more complex sites may take longer."
+			},
+			"support": {
+				"question": "What kind of support do you offer after the website is live?",
+				"answer": "We offer ongoing support including updates, troubleshooting, and training for managing your website. Each package comes with a specific duration of free support, and additional support can be arranged as needed."
+			},
+			"customization": {
+				"question": "Can the website be customized to fit my specific business needs?",
+				"answer": "Absolutely! We tailor each website to meet the unique requirements of your business, ensuring it aligns with your goals and brand identity."
+			},
+			"training": {
+				"question": "Do you provide training for managing the website?",
+				"answer": "Yes, we provide training sessions to help you and your team manage and update your website efficiently, empowering you to take control of your online presence."
+			},
+			"pricing": {
+				"question": "Are these are fixed prices?",
+				"answer": "No. After our meeting and understanding your needs, we will provide a more accurate quote tailored to your business goals."
+			},
+			"platforms": {
+				"question": "What platforms do you specialize in for building websites?",
+				"answer": "For websites and custom solutions, we use modern technologies like Next.js, React, and Vue for the frontend, and Node.js with MongoDB for the backend. For e-commerce stores, we specialize in Shopify, where we can either use pre-built templates or create fully customized designs to give your store a unique look."
+			},
+			"design_approach": {
+				"question": "Do you offer custom design, or do you use templates?",
+				"answer": "We offer both custom designs and template-based solutions, depending on your needs and budget. Custom designs provide a unique look tailored to your brand, while templates offer a faster and more cost-effective option."
+			},
+			"post_launch": {
+				"question": "What happens if I need changes or updates after the project is finished?",
+				"answer": "We offer post-launch support and maintenance services. If you need changes or updates, we can arrange ongoing support or a separate maintenance package to ensure your website remains up-to-date and functional."
+			},
+			"ecommerce": {
+				"question": "Do you handle e-commerce functionality, such as payment processing and product management?",
+				"answer": "Yes, we handle all aspects of e-commerce functionality, including payment processing, product management, order tracking, and more. We ensure that your online store is fully equipped to handle transactions smoothly and securely."
+			},
+			"process": {
+				"question": "What is the process for starting a project with you?",
+				"answer": "The process begins with a consultation to understand your needs and goals. After that, we provide a detailed proposal outlining the project scope, timeline, and cost. Once agreed, we begin the design and development phases, keeping you involved and updated throughout the process."
+			},
+			"integrations": {
+				"question": "Can you integrate third-party services or APIs into my website?",
+				"answer": "Absolutely, we can integrate various third-party services and APIs into your website to enhance its functionality. Whether it's a payment gateway, analytics tool, or any other service, we ensure seamless integration."
+			},
+			"mobile_friendly": {
+				"question": "How do you ensure that my website is mobile-friendly and responsive?",
+				"answer": "We follow responsive design principles and thoroughly test the website on different devices and screen sizes. This ensures that your website provides an optimal user experience on desktops, tablets, and smartphones."
+			}
+		}
+	},
+	"roadmap": {
+		"title": "Roadmap",
+		"description": {
+			"part1": "When you decide to build your website, whether it's a personal site or an online store, it's natural to question the chances of success. You might wonder how long it will take and what you need to achieve your goals.",
+			"part2": "I understand these concerns, which is why I've crafted a detailed roadmap for both paths. This roadmap includes timelines, expectations, requirements, and everything you need to know before making the investment. Read it carefully, and if you're ready, let's connect."
+		},
+		"buttons": {
+			"download": "Download for free",
+			"check_email": "Check your email",
+			"send_now": "Send me now",
+			"sending": "Sending..."
+		},
+		"form": {
+			"title": "Enter the email you want us to send the pdf to",
+			"placeholder": "mohammad@gmail.com",
+			"error": {
+				"invalid_email": "Please enter a valid email address.",
+				"general": "An error occurred. Please try again.",
+				"connection": "Failed to submit. Please check your connection."
+			},
+			"success": "The PDF has been sent to your email!"
+		}
+	},
+	"testimonials": {
+		"title": "Testimonials",
+		"items": {
+			"1": {
+				"quote": "The team is so professional and accountable — I didn't expect them to care about my website this much. They treated it like it was their own.",
+				"name": "Peter",
+				"designation": "Owner",
+				"address": "Dubai, UAE"
+			},
+			"2": {
+				"quote": " They understood my requirements perfectly and were blazing fast and responsive from day one. I've been recommending them to all my friends ever since.",
+				"name": "Gaya",
+				"designation": "Owner",
+				"address": "Dubai, UAE"
+			},
+			"3": {
+				"quote": " This young team is marvelous — incredibly creative and ahead of the curve. I was so concerned about the design, but I couldn't believe it: I didn't need to change a single thing when I saw the first draft.",
+				"name": "Mahmood Alamarzooqi",
+				"designation": "Owner",
+				"address": "Sharjah, UAE"
+			},
+			"4": {
+				"quote": "The team's pricing was incredibly reasonable, and the automation they implemented saved both me and my customers countless hours of manual work. Their solution was exactly what we needed to streamline our operations.",
+				"name": "Ibrahim",
+				"designation": "Owner",
+				"address": "Iran"
+			}
+		}
+	},
+	"workProcess": {
+		"title": "How we work?",
+		"steps": {
+			"meeting": {
+				"title": "Set Up a Meeting",
+				"description": "We'll connect however you prefer—messaging, online, or in person."
+			},
+			"goals": {
+				"title": "Understand Customer Goals",
+				"description": "We'll sit down together to understand your goals, vision, requirements, and pick a plan that suits you best."
+			},
+			"design": {
+				"title": "Confirm Design & Timeline",
+				"description": "We'll agree on the design, and set a delivery date."
+			},
+			"develop": {
+				"title": "Develop the Website",
+				"description": "Your site will be ready on time, with any tweaks you need."
+			},
+			"training": {
+				"title": "Training & Setup",
+				"description": "We'll show you how to manage everything—from activating your bank account to receive payments, tracking sales and analytics to updating products and handling orders on any device."
+			},
+			"launch": {
+				"title": "Launch Your Website",
+				"description": "Your site will be available for users to use it."
+			}
+		}
+	},
+	"domainSearch": {
+		"title": "Make your website official with your own domain name",
+		"search": {
+			"placeholder": "mybusiness.com",
+			"button": "Search now",
+			"checking": "Checking...",
+			"available": "Congratulations! The domain {{domain}} is available!",
+			"unavailable": "Sorry, the domain {{domain}} is already taken. Try another one.",
+			"error": "Unable to check the domain status. Please try again.",
+			"claim": "Claim it now before someone else does!",
+			"buy": "Buy now",
+			"attempts": {
+				"left": "Attempts left: {{count}}",
+				"none": "No attempts left.",
+				"max_reached": "You have reached the maximum number of attempts. Please try again later."
+			}
+		}
+	},
+	"buttons": {
+		"start_now": "Start now",
+		"free_download": "Download for free",
+		"buy_now": "Buy now"
+	},
+	"concerns": {
+		"title": "You don't need to worry about these?",
+		"items": {
+			"expertise": {
+				"label": "Expertise in technology",
+				"description": "We handle the tech side for you and teach what you need"
+			},
+			"security": {
+				"label": "Security",
+				"description": "We make sure your website stays safe and secure 24/7."
+			},
+			"design": {
+				"label": "Design",
+				"description": "We give your site a personality that speaks for itself."
+			}
+		},
+		"bottom_text": {
+			"part1": "Everything You Need to Know to Launch a Profitable Website is",
+			"part2": "Your Product or service, and your customers"
+		}
+	},
+	"navigation": {
+		"services": "Services",
+		"pricing": "Pricing",
+		"about": "About",
+		"faqs": "FAQs",
+		"contact": "Contact"
+	},
+	"contact_form": {
+		"first_name": "First name",
+		"last_name": "Last name",
+		"send": "Send",
+		"subscibe": "Subscribe",
+		"email": "Email",
+		"placeholder": {
+			"first_name": "John",
+			"last_name": "Doe",
+			"email": "john.doe@example.com"
+		}
+	},
+	"subscribe": {
+		"title": "Subscribe to Our Newsletter",
+		"discount": "Get 10% Discount."
+	}
 }

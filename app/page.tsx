@@ -14,6 +14,7 @@ import {
 	PricingStructuredData,
 } from "@/components/seo/structured-data";
 import Footer from "@/components/layout/footer";
+import SubscribeForm from "@/components/subscribe-form";
 
 export default function HomePage() {
 	return (
@@ -36,7 +37,7 @@ export default function HomePage() {
 					<Testimonials />
 					<FAQs />
 				</main>
-
+				<SubscribeForm />
 				<Footer />
 			</div>
 		</>
