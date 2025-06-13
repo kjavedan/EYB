@@ -7,5 +7,6 @@
   },
   "[typescriptreact]": {
       "editor.defaultFormatter": "biomejs.biome",
-  }
+  },
+  "i18n-ally.keystyle": "nested"
 }

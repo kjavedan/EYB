@@ -131,7 +131,7 @@
 				"starter": {
 					"title": "Starter",
 					"duration": "1-2 weeks delivery",
-					"description": "Ideal for launching your first Shopify store with essential features.",
+					"description": "Ideal for launching your first online store with essential features.",
 					"features": [
 						"Responsive design",
 						"E-commerce functionality",
@@ -145,7 +145,7 @@
 						"Social media icons",
 						"Number of pages: 5+",
 						"English and Arabic languages",
-						"Plugins/extensions installation: 3",
+						"Basic plugins/extensions: 3",
 						"Number of products: 500+",
 						"1 month free support"
 					]
@@ -153,7 +153,7 @@
 				"growth": {
 					"title": "Growth",
 					"duration": "3-4 weeks delivery",
-					"description": "A complete Shopify store with additional features to enhance functionality and user experience.",
+					"description": "A complete online store with additional features to enhance functionality and user experience.",
 					"features": [
 						"Responsive design",
 						"Design customization",
@@ -167,7 +167,7 @@
 						"Domain setup",
 						"Social media icons",
 						"Number of pages: 15+",
-						"Plugins/extensions installation: 6",
+						"Advanced plugins/extensions: 6",
 						"English and Arabic languages",
 						"Number of products: 1000+",
 						"Reviews integration",
@@ -177,7 +177,7 @@
 				"elite": {
 					"title": "Elite",
 					"duration": "6-8 weeks delivery",
-					"description": "A high-end Shopify store tailored for specific niches, packed with premium features to boost sales.",
+					"description": "A high-end online store tailored for specific niches, packed with premium features to boost sales.",
 					"features": [
 						"Responsive design",
 						"Design customization",
@@ -193,7 +193,7 @@
 						"SEO optimization",
 						"Newsletter popup",
 						"Number of pages: 100+",
-						"Plugins/extensions installation: 10",
+						"Premium plugins/extensions: 10",
 						"4+ languages",
 						"Number of products: 10000+",
 						"6 month free support",
@@ -402,6 +402,15 @@
 			"first_name": "John",
 			"last_name": "Doe",
 			"email": "john.doe@example.com"
+		},
+		"success": {
+			"title": "Subscribed!",
+			"description": "Thanks {{name}}! You've successfully subscribed to our newsletter."
+		},
+		"error": {
+			"title": "Subscription Failed",
+			"description": "Sorry {{name}}, we couldn't process your subscription. Please try again.",
+			"email_exists": "This email is already subscribed to our newsletter. Please try another email address."
 		}
 	},
 	"subscribe": {

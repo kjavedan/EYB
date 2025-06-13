@@ -6,15 +6,13 @@ import {
 	Modal,
 	ModalBody,
 	ModalContent,
-	ModalFooter,
-	ModalTrigger,
 	useModal,
 } from "./ui/animated-modal";
 import { ContactForm } from "./contact-form";
 
 // Create a separate component for the modal content
 function SubscriptionModalContent() {
-	const { open, setOpen } = useModal();
+	const { setOpen } = useModal();
 	const { t } = useTranslation();
 
 	useEffect(() => {
@@ -37,7 +35,7 @@ function SubscriptionModalContent() {
 							{t("subscribe.discount", "Get 10% Discount.")}
 						</p>
 					</div>
-					<ContactForm actionTxt={"subscibe"} />
+					<ContactForm actionTxt={"subscibe"} onSuccess={() => setOpen(false)} />
 				</ModalContent>
 				{/* <ModalFooter>
 					<p className="text-sm text-center text-gray-400">

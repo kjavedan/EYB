@@ -42,10 +42,6 @@ const PricingCard = ({
 				<motion.span
 					className={`text-white w-fit text-xs font-semibold mb-4 p-2 border border-white rounded-full shadow-lg inline-block ${
 						availableSpot === 0 ? "border-gray-600 text-[--text-gray]" : ""
-					} ${
-						isHighlighted
-							? "bg-[--secondary-color] border-[--secondary-color]"
-							: ""
 					}`}
 					initial={{ opacity: 0, scale: 0.8 }}
 					animate={{ opacity: 1, scale: 1 }}
@@ -172,7 +168,7 @@ export default function Pricing() {
 							onClick={() => handleOptionChange(option)}
 							className={`relative border-none outline-none cursor-pointer px-8 py-4 rounded-full font-semibold transition-all duration-500 ${
 								activeOption === option
-									? "text-white"
+									? "text-black"
 									: "text-gray-400 hover:text-white"
 							}`}
 							whileHover={{ scale: 1.05 }}
@@ -180,7 +176,7 @@ export default function Pricing() {
 						>
 							{activeOption === option && (
 								<motion.div
-									className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"
+									className="absolute inset-0 bg-gradient-to-r bg-white rounded-full"
 									layoutId="activeTab"
 									transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
 								/>

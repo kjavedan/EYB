@@ -4,36 +4,85 @@ import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { cn } from "@/lib/utils";
 import { useTranslation } from "react-i18next";
+import { useActionState } from "react";
+import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/lib/supabase";
+import { Icon } from "@iconify/react";
+
 
 export function ContactForm({
 	actionTxt = "send",
+	onSuccess,
 }: {
 	actionTxt: string;
+	onSuccess?: () => void;
 }) {
 	const { t, i18n } = useTranslation();
 	const isRTL = i18n.language === "ar";
+	const { toast } = useToast();
 
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		console.log("Form submitted");
-	};
+	const [_, formAction, isPending] = useActionState(handleSubmit, null);
+
+	async function handleSubmit(_: unknown, formData: FormData): Promise<void> {
+		const data = Object.fromEntries(formData.entries());
+		const firstName = data.first_name as string;
+		
+		try {
+			console.log("🚀 ~ handleSubmit ~ data:", data);
+
+			const { status } = await supabase.from('users').insert(data)
+
+			
+			if(status === 201){
+
+				toast({
+					title: t("contact_form.success.title"),
+					description: t("contact_form.success.description", { name: firstName }),
+					variant: "default",
+				});
+				
+				// Call onSuccess callback if provided
+				onSuccess?.();
+			}
+
+			if(status === 409){
+				toast({
+					title: t('contact_form.error.title'),
+					description: t('contact_form.error.email_exists') ,
+					variant: 'destructive'
+				})
+			}
+			
+		} catch (error) {
+			console.log("🚀 ~ handleSubmit ~ error:", error);
+			console.error(error);
+			
+			// Show error toast
+			toast({
+				title: t("contact_form.error.title"),
+				description: t("contact_form.error.description", { name: firstName }),
+				variant: "destructive",
+			});
+		}
+	}
+
 	return (
 		<div className="shadow-input !w-full mx-auto max-w-sm rounded-none md:rounded-2xl bg-black">
-			<form onSubmit={handleSubmit} className="w-full">
+			<form action={formAction} className="w-full">
 				<div className="mb-4 flex flex-col space-y-2 md:flex-row md:space-y-0 md:gap-2">
 					<LabelInputContainer>
-						<Label htmlFor="firstname">{t("contact_form.first_name")}</Label>
+						<Label htmlFor="first_name">{t("contact_form.first_name")}</Label>
 						<Input
-							id="firstname"
+							name="first_name"
 							placeholder={t("contact_form.placeholder.first_name")}
 							type="text"
 							required
 						/>
 					</LabelInputContainer>
 					<LabelInputContainer>
-						<Label htmlFor="lastname">{t("contact_form.last_name")}</Label>
+						<Label htmlFor="last_name">{t("contact_form.last_name")}</Label>
 						<Input
-							id="lastname"
+							name="last_name"
 							placeholder={t("contact_form.placeholder.last_name")}
 							type="text"
 						/>
@@ -42,7 +91,7 @@ export function ContactForm({
 				<LabelInputContainer className="mb-4">
 					<Label htmlFor="email">{t("contact_form.email")}</Label>
 					<Input
-						id="email"
+						name="email"
 						placeholder={t("contact_form.placeholder.email")}
 						type="email"
 						required
@@ -53,10 +102,18 @@ export function ContactForm({
 					className="group/btn mt-6 relative block h-10 w-full rounded-xl bg-gradient-to-br  font-medium text-white bg-zinc-800 from-zinc-900 to-zinc-900 shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"
 					type="submit"
 					style={{ direction: "ltr" }}
+					disabled={isPending}
 				>
-					{isRTL
+
+					{isPending? 
+					<Icon
+						icon={"line-md:loading-loop"}
+						className="mx-auto"
+						/>:
+					isRTL
 						? `← ${t(`contact_form.${actionTxt}`)}`
 						: `${t(`contact_form.${actionTxt}`)} →`}
+
 					<BottomGradient />
 				</button>
 
