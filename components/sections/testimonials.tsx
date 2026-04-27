@@ -1,66 +1,108 @@
 "use client";
 
-import Button from "@/components/ui/button";
+import Image from "next/image";
+import Link from "next/link";
+import { Icon } from "@iconify/react";
 import { useTranslation } from "react-i18next";
-import { AnimatedTestimonials } from "../ui/animated-testimonials";
 
-import aiyifenSrc from "@/assets/images/aiyifen.webp";
-import jojoshpoSrc from "@/assets/images/jojoshop.jpg";
-import honeySrc from "@/assets/images/honey.webp";
-import plumbingSrc from "@/assets/images/plumbing.png";
+import Button from "@/components/ui/button";
+import { projects } from "@/lib/projects";
+
+const COLS = 3;
 
 export default function Testimonials() {
 	const { t } = useTranslation();
 
-	const testimonials = [
-		{
-			quote: t("testimonials.items.1.quote"),
-			name: t("testimonials.items.1.name"),
-			designation: t("testimonials.items.1.designation"),
-			src: aiyifenSrc.src,
-			projectType: "Ecommerce",
-			domainName: "aiyifen.com",
-			siteUrl: "https://aiyifen.com",
-			address: t("testimonials.items.1.address"),
-		},
-		{
-			quote: t("testimonials.items.2.quote"),
-			name: t("testimonials.items.2.name"),
-			designation: t("testimonials.items.2.designation"),
-			src: jojoshpoSrc.src,
-			projectType: "Ecommerce",
-			domainName: "jojooshop.com",
-			siteUrl: "https://shop.khaled-javdan.com",
-			address: t("testimonials.items.2.address"),
-		},
-		{
-			quote: t("testimonials.items.3.quote"),
-			name: t("testimonials.items.3.name"),
-			designation: t("testimonials.items.3.designation"),
-			src: honeySrc.src,
-			projectType: "Ecommerce",
-			domainName: "healthyplus.ae",
-			siteUrl: "https://honey-store-ruddy.vercel.app/",
-			address: t("testimonials.items.3.address"),
-		},
-		{
-			quote: t("testimonials.items.4.quote"),
-			name: t("testimonials.items.4.name"),
-			designation: t("testimonials.items.4.designation"),
-			src: plumbingSrc.src,
-			projectType: "Automation",
-			domainName: "ibrahim-shop.com",
-			siteUrl: "https://mehragan-shop.vercel.app",
-			address: t("testimonials.items.4.address"),
-		},
-	];
+	const lastRowStart = Math.floor((projects.length - 1) / COLS) * COLS;
 
 	return (
 		<section id="Testimonials" className="pb-20 flex flex-col">
 			<h2 className="text-center text-4xl leading-[50px] lg:text-5xl xl:text-6xl lg:leading-[70px] xl:leading-[90px]">
 				{t("testimonials.title")}
 			</h2>
-			<AnimatedTestimonials testimonials={testimonials} />
+
+			<div className="relative flex flex-col w-full items-center mt-12 max-w-screen-xl mx-auto grid-wrapper">
+				<div className="text-white grid grid-cols-1 lg:grid-cols-3 w-full relative grid-container">
+					{projects.map((project, index) => {
+						const name = t(`testimonials.items.${project.i18nKey}.name`);
+						const designation = t(
+							`testimonials.items.${project.i18nKey}.designation`,
+						);
+						const address = t(
+							`testimonials.items.${project.i18nKey}.address`,
+						);
+						const quote = t(`testimonials.items.${project.i18nKey}.quote`);
+
+						const isLastItem = index === projects.length - 1;
+						const isLastInRow =
+							(index + 1) % COLS === 0 || isLastItem;
+						const isInLastRow = index >= lastRowStart;
+
+						return (
+							<div key={project.slug} className="relative">
+								{/* Mobile horizontal divider — between stacked items */}
+								{!isLastItem && (
+									<div className="absolute bottom-0 start-0 w-full h-[1px] lg:hidden bg-gradient-to-r from-black via-[#5E5E5E] to-black" />
+								)}
+								{/* Desktop vertical divider — between columns in same row */}
+								{!isLastInRow && (
+									<div className="hidden lg:block absolute top-0 end-0 h-full w-[1px] bg-gradient-to-b from-black via-[#5E5E5E] to-black" />
+								)}
+								{/* Desktop horizontal divider — between rows */}
+								{!isInLastRow && (
+									<div className="hidden lg:block absolute bottom-0 start-0 w-full h-[1px] bg-gradient-to-r from-black via-[#5E5E5E] to-black" />
+								)}
+
+								<Link
+									href={`/projects/${project.slug}`}
+									className="group flex flex-col h-full p-6 lg:p-8 gap-4"
+								>
+									<div className="relative aspect-[16/10] overflow-hidden bg-zinc-900">
+										<Image
+											src={project.image}
+											alt={project.domainName}
+											fill
+											className="object-cover transition-transform duration-500 group-hover:scale-105"
+											sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+										/>
+										<div className="absolute top-3 left-3 px-3 py-1 bg-black/60 backdrop-blur-sm border border-white/20 rounded-full">
+											<span className="text-xs font-semibold text-white">
+												{project.projectType}
+											</span>
+										</div>
+									</div>
+
+									<div>
+										<h3 className="text-lg font-semibold text-white">
+											{project.domainName}
+										</h3>
+										<p className="text-xs text-[--text-gray] mt-0.5">
+											{name} · {designation} · {address}
+										</p>
+									</div>
+
+									<p className="text-sm text-[--text-gray] line-clamp-3 leading-relaxed">
+										“{quote}”
+									</p>
+
+									<div className="mt-auto flex items-center gap-1 text-sm font-medium text-white/70 group-hover:text-white transition-colors">
+										<span>
+											{t("testimonials.view_project", {
+												defaultValue: "View project",
+											})}
+										</span>
+										<Icon
+											icon="mdi:arrow-right"
+											className="w-4 h-4 rtl:rotate-180 transition-transform group-hover:translate-x-1"
+										/>
+									</div>
+								</Link>
+							</div>
+						);
+					})}
+				</div>
+			</div>
+
 			<Button className="mt-20" />
 		</section>
 	);

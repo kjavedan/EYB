@@ -6,7 +6,8 @@ import { cn } from "@/lib/utils";
 import { useTranslation } from "react-i18next";
 import { useActionState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/lib/supabase";
+import { subscribe } from "@/app/actions/subscribe";
+import { contact } from "@/app/actions/contact";
 import { Icon } from "@iconify/react";
 
 
@@ -27,40 +28,43 @@ export function ContactForm({
 		const data = Object.fromEntries(formData.entries());
 		const firstName = data.first_name as string;
 		
+		const flow = actionTxt === "subscibe" ? "subscribe" : "contact";
+
 		try {
-			console.log("🚀 ~ handleSubmit ~ data:", data);
+			const result =
+				flow === "subscribe"
+					? await subscribe(formData)
+					: await contact(formData);
 
-			const { status } = await supabase.from('users').insert(data)
-
-			
-			if(status === 201){
-
+			if (result.ok) {
 				toast({
-					title: t("contact_form.success.title"),
-					description: t("contact_form.success.description", { name: firstName }),
+					title: t(`contact_form.success.${flow}.title`),
+					description: t(`contact_form.success.${flow}.description`, {
+						name: firstName,
+					}),
 					variant: "default",
 				});
-				
-				// Call onSuccess callback if provided
 				onSuccess?.();
+				return;
 			}
 
-			if(status === 409){
+			if (result.reason === "duplicate") {
 				toast({
-					title: t('contact_form.error.title'),
-					description: t('contact_form.error.email_exists') ,
-					variant: 'destructive'
-				})
+					title: t(`contact_form.error.${flow}.title`),
+					description: t("contact_form.error.subscribe.email_exists"),
+					variant: "destructive",
+				});
+				return;
 			}
-			
+
+			throw new Error("form submission failed");
 		} catch (error) {
-			console.log("🚀 ~ handleSubmit ~ error:", error);
 			console.error(error);
-			
-			// Show error toast
 			toast({
-				title: t("contact_form.error.title"),
-				description: t("contact_form.error.description", { name: firstName }),
+				title: t(`contact_form.error.${flow}.title`),
+				description: t(`contact_form.error.${flow}.description`, {
+					name: firstName,
+				}),
 				variant: "destructive",
 			});
 		}

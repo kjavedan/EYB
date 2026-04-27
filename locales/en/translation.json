@@ -1,24 +1,24 @@
 {
 	"hero": {
 		"title": {
-			"part1": "We Build Cool",
-			"part2": "Websites"
+			"part1": "We Build the Tools.",
+			"part2": "You Grow the Business."
 		},
-		"cta": "Start now",
-		"subtitle": "see if We can help you"
+		"cta": "Schedule a call",
+		"subtitle": "Websites, mobile apps, and custom software designed to take the busywork off your plate."
 	},
 	"services": {
 		"title": "Services",
 		"items": {
-			"personal_business": {
-				"title": "Personal & Business Websites",
-				"description": "Landing pages & Websites to showcase your brand"
+			"web_development": {
+				"title": "Web Development",
+				"description": "Landing pages, business websites & e-commerce stores built to convert"
 			},
-			"store_owners": {
-				"title": "E-Commerce Stores",
-				"description": "We take your ideas and make them a reality"
+			"mobile_development": {
+				"title": "Mobile Development",
+				"description": "Custom iOS & Android apps tailored to your business"
 			},
-			"product_sellers": {
+			"ads": {
 				"title": "Ads",
 				"description": "We create content and run effective marketing campaigns"
 			}
@@ -59,147 +59,56 @@
 	},
 	"pricing": {
 		"title": "Pricing",
-		"options": {
-			"website": "Website",
-			"store": "Store"
-		},
 		"spots": {
-			"single": "spot available",
-			"multiple": "spots available"
+			"single": "spot left this month",
+			"multiple": "spots left this month"
 		},
+		"guarantee_heading": "What you can expect",
 		"packages": {
-			"website": {
-				"starter": {
-					"title": "Starter",
-					"duration": "1-2 weeks delivery",
-					"description": "Perfect for starting personal or business websites.",
-					"features": [
-						"1 responsive page",
-						"Social media links",
-						"Basic subscription system",
-						"Domain setup",
-						"1 custom feature",
-						"Hosting setup",
-						"1 month free support",
-						"2 revisions"
-					]
-				},
-				"growth": {
-					"title": "Growth",
-					"duration": "3-4 weeks delivery",
-					"description": "Ideal for businesses aiming to grow with custom solutions.",
-					"features": [
-						"5 responsive pages",
-						"Social media links",
-						"Advanced subscription system",
-						"Analytics setup",
-						"Custom design",
-						"Domain setup",
-						"3 custom features",
-						"Professional email setup",
-						"Hosting setup",
-						"3 months free support",
-						"English and Arabic languages",
-						"3 revisions"
-					]
-				},
-				"elite": {
-					"title": "Elite",
-					"duration": "8 weeks delivery",
-					"description": "Premium custom designs & solutions for top-tier businesses.",
-					"features": [
-						"15 responsive pages",
-						"Ai integration",
-						"Payment processing setup",
-						"Social media links",
-						"Advanced subscription system",
-						"User system",
-						"Analytics setup",
-						"Admin panel",
-						"Custom design",
-						"Custom solutions",
-						"Domain setup",
-						"Professional email setup",
-						"Hosting setup",
-						"6 months free support",
-						"4 languages",
-						"5 revisions"
-					]
-				}
+			"launchpad": {
+				"title": "Launchpad",
+				"price": "4,999 AED",
+				"duration": "~2 weeks",
+				"description": "A clean, professional website to give your business a real online presence. A good fit if you mainly need to look credible and capture inquiries.",
+				"features": [
+					"Custom-designed landing page or up to 5 pages",
+					"Responsive design that works on every screen",
+					"Contact form + WhatsApp & Cal.com integration",
+					"Basic on-page SEO setup",
+					"Hosting and domain configured for you",
+					"30 days of post-launch tweaks included"
+				],
+				"guarantee": "Fixed scope, fixed price, and a clear delivery date. We stay reachable after launch."
 			},
-			"store": {
-				"starter": {
-					"title": "Starter",
-					"duration": "1-2 weeks delivery",
-					"description": "Ideal for launching your first online store with essential features.",
-					"features": [
-						"Responsive design",
-						"E-commerce functionality",
-						"Payment processing setup",
-						"Search, sort, and Filters functionality",
-						"Opt-in form integration",
-						"Autoresponder integration",
-						"Speed optimization",
-						"Hosting setup",
-						"Domain setup",
-						"Social media icons",
-						"Number of pages: 5+",
-						"English and Arabic languages",
-						"Basic plugins/extensions: 3",
-						"Number of products: 500+",
-						"1 month free support"
-					]
-				},
-				"growth": {
-					"title": "Growth",
-					"duration": "3-4 weeks delivery",
-					"description": "A complete online store with additional features to enhance functionality and user experience.",
-					"features": [
-						"Responsive design",
-						"Design customization",
-						"E-commerce functionality",
-						"Search, sort, and Filters functionality",
-						"Payment processing setup",
-						"Opt-in form integration",
-						"Autoresponder integration",
-						"Speed optimization",
-						"Hosting setup",
-						"Domain setup",
-						"Social media icons",
-						"Number of pages: 15+",
-						"Advanced plugins/extensions: 6",
-						"English and Arabic languages",
-						"Number of products: 1000+",
-						"Reviews integration",
-						"3 month free support"
-					]
-				},
-				"elite": {
-					"title": "Elite",
-					"duration": "6-8 weeks delivery",
-					"description": "A high-end online store tailored for specific niches, packed with premium features to boost sales.",
-					"features": [
-						"Responsive design",
-						"Design customization",
-						"E-commerce functionality",
-						"Search, sort, and Filters functionality",
-						"Payment processing setup",
-						"Opt-in form integration",
-						"Autoresponder integration",
-						"Speed optimization",
-						"Hosting setup",
-						"Domain setup",
-						"Social media icons",
-						"SEO optimization",
-						"Newsletter popup",
-						"Number of pages: 100+",
-						"Premium plugins/extensions: 10",
-						"4+ languages",
-						"Number of products: 10000+",
-						"6 month free support",
-						"Reviews integration"
-					]
-				}
+			"growth_engine": {
+				"title": "Growth Engine",
+				"price": "14,999 AED",
+				"duration": "3–4 weeks",
+				"description": "For when you want your website to do more than just exist. We add the lead-capture and ad pieces that turn traffic into actual conversations.",
+				"features": [
+					"Everything in Launchpad",
+					"Up to 10 pages or a basic e-commerce store",
+					"Email capture + automated follow-up sequences",
+					"First ad campaign set up on Meta or Google",
+					"Analytics and conversion tracking installed",
+					"Admin dashboard so you can update content yourself"
+				],
+				"guarantee": "Weekly check-ins during the build, and we stay involved post-launch to tune what's working."
+			},
+			"custom_build": {
+				"title": "Custom Build",
+				"price": "Based on scope",
+				"duration": "Varies by project",
+				"description": "For teams replacing manual work with software, or launching a product idea. We need to understand the size and scope of what you're building before we can quote a price and timeline.",
+				"features": [
+					"Custom web or mobile app (iOS + Android)",
+					"Internal tools, dashboards, and automations",
+					"Integrations with your CRM, payments, etc.",
+					"Admin panel built around your workflow",
+					"Full source code and ownership transfer",
+					"3 months of post-launch support included"
+				],
+				"guarantee": "Weekly demos throughout the build. If a milestone isn't right, we fix it before moving on."
 			}
 		}
 	},
@@ -284,33 +193,42 @@
 		}
 	},
 	"testimonials": {
-		"title": "Testimonials",
+		"title": "Projects",
+		"view_project": "View project",
 		"items": {
 			"1": {
 				"quote": "The team is so professional and accountable — I didn't expect them to care about my website this much. They treated it like it was their own.",
 				"name": "Peter",
 				"designation": "Owner",
-				"address": "Dubai, UAE"
+				"address": "Dubai, UAE",
+				"description": ""
 			},
 			"2": {
 				"quote": " They understood my requirements perfectly and were blazing fast and responsive from day one. I've been recommending them to all my friends ever since.",
 				"name": "Gaya",
 				"designation": "Owner",
-				"address": "Dubai, UAE"
+				"address": "Dubai, UAE",
+				"description": ""
 			},
 			"3": {
 				"quote": " This young team is marvelous — incredibly creative and ahead of the curve. I was so concerned about the design, but I couldn't believe it: I didn't need to change a single thing when I saw the first draft.",
 				"name": "Mahmood Alamarzooqi",
 				"designation": "Owner",
-				"address": "Sharjah, UAE"
+				"address": "Sharjah, UAE",
+				"description": ""
 			},
 			"4": {
 				"quote": "The team's pricing was incredibly reasonable, and the automation they implemented saved both me and my customers countless hours of manual work. Their solution was exactly what we needed to streamline our operations.",
 				"name": "Ibrahim",
 				"designation": "Owner",
-				"address": "Iran"
+				"address": "Iran",
+				"description": ""
 			}
 		}
+	},
+	"project_detail": {
+		"back": "Back to projects",
+		"visit_site": "Visit live site"
 	},
 	"workProcess": {
 		"title": "How we work?",
@@ -360,7 +278,7 @@
 		}
 	},
 	"buttons": {
-		"start_now": "Start now",
+		"start_now": "Schedule a call",
 		"free_download": "Download for free",
 		"buy_now": "Buy now"
 	},
@@ -404,13 +322,25 @@
 			"email": "john.doe@example.com"
 		},
 		"success": {
-			"title": "Subscribed!",
-			"description": "Thanks {{name}}! You've successfully subscribed to our newsletter."
+			"subscribe": {
+				"title": "Subscribed!",
+				"description": "Thanks {{name}}! Check your inbox for your 10% discount."
+			},
+			"contact": {
+				"title": "Message received!",
+				"description": "Thanks {{name}}! We'll be in touch shortly."
+			}
 		},
 		"error": {
-			"title": "Subscription Failed",
-			"description": "Sorry {{name}}, we couldn't process your subscription. Please try again.",
-			"email_exists": "This email is already subscribed to our newsletter. Please try another email address."
+			"subscribe": {
+				"title": "Subscription failed",
+				"description": "Sorry {{name}}, we couldn't process your subscription. Please try again.",
+				"email_exists": "This email is already subscribed. Please try another email address."
+			},
+			"contact": {
+				"title": "Something went wrong",
+				"description": "Sorry {{name}}, we couldn't send your message. Please try again."
+			}
 		}
 	},
 	"subscribe": {

@@ -163,8 +163,8 @@ section {
 	position: absolute;
 	content: "";
 	background-color: var(--button-hover-bg);
-	width: 410px;
-	height: 350px;
+	width: 200%;
+	height: 300%;
 	z-index: -1;
 	border-radius: 50%;
 }
@@ -189,7 +189,7 @@ section {
 
 .btn__primary:hover::before {
 	top: -100%;
-	left: -15%;
+	left: -50%;
 }
 
 .btn__primary--small {

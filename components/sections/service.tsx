@@ -8,17 +8,17 @@ import Button from "@/components/ui/button";
 const servicesData = [
 	{
 		id: 1,
-		key: "personal_business",
+		key: "web_development",
 		icon: "fluent-mdl2:website",
 	},
 	{
 		id: 2,
-		key: "store_owners",
-		icon: "basil:shopping-bag-outline",
+		key: "mobile_development",
+		icon: "akar-icons:mobile-device",
 	},
 	{
 		id: 3,
-		key: "product_sellers",
+		key: "ads",
 		icon: "hugeicons:marketing",
 	},
 ];
@@ -79,10 +79,10 @@ export default function Service() {
 								{index < servicesData.length - 1 && (
 									<>
 										{/* Horizontal Divider for Small Screens */}
-										<div className="absolute bottom-0 start-0 w-full h-[1px] lg:hidden bg-gradient-to-r from-black via-[#5E5E5E] to-black"></div>
+										<div className="absolute bottom-0 start-0 w-full h-[1px] lg:hidden bg-gradient-to-r from-black via-[#5E5E5E] to-black" />
 
 										{/* Vertical Divider for Large Screens */}
-										<div className="hidden lg:block absolute top-0 end-0 h-full w-[1px] bg-gradient-to-b from-black via-[#5E5E5E] to-black"></div>
+										<div className="hidden lg:block absolute top-0 end-0 h-full w-[1px] bg-gradient-to-b from-black via-[#5E5E5E] to-black" />
 									</>
 								)}
 

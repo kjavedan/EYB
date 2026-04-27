@@ -13,18 +13,13 @@ interface ButtonProps {
   [key: string]: any
 }
 
+const SCHEDULING_URL = "https://cal.com/khaled-2wiu0n/30min"
+
 export default function Button({ text = "start_now", className, disabled, children, ...others }: ButtonProps) {
   const { t } = useTranslation()
 
-  const message = t("contact.whatsapp.message", {
-    defaultValue: "Hi Khaled! I'm interested in starting a project with you. Can you share more details?",
-  })
-
-  const phoneNumber = "971502597949"
-  const encodedMessage = encodeURIComponent(message)
-
   const handleClick = () => {
-    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank")
+    window.open(SCHEDULING_URL, "_blank")
   }
 
   return (

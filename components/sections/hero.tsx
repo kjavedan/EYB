@@ -10,17 +10,24 @@ import { useTranslation } from "react-i18next";
 export default function Hero() {
   const { t } = useTranslation();
 
+  const part2 = t("hero.title.part2", { defaultValue: "Online" });
+  const part2Words = part2.split(" ");
+  const part2Before = part2Words.slice(0, 2).join(" ");
+  const part2After = part2Words.slice(2).join(" ");
+
   return (
     <section
       id="hero"
       className="h-100dvh flex items-center justify-center lg:max-h-[900px] pb-0 pt-0"
     >
       <div className="flex flex-col mt-[-100px] lg:mt-[0px]">
-        <h1 className="heading text-center font-[var(--font-primary)] max-w-screen-xl mx-auto text-[45px] leading-[80px] lg:text-5xl lg:leading-[80px] xl:text-8xl xl:leading-[150px] font-900">
+        <h1 className="heading text-center font-[var(--font-primary)] max-w-screen-xl mx-auto text-[40px] leading-[60px] lg:text-4xl lg:leading-[60px] xl:text-6xl xl:leading-[90px] font-900">
           <span className="text-white">
             {t("hero.title.part1", { defaultValue: "We Take Businesses" })}
         </span>
           <span className="store-section relative block mx-2 lg:mr-4">
+            <span className="font-black text-white">{part2Before} </span>
+
             <motion.span
               initial={{ rotate: -25 }}
               animate={{ rotate: 0 }}
@@ -37,19 +44,17 @@ export default function Hero() {
                   ease: "easeInOut",
                 },
               }}
-              style={{ display: "inline-block" }}
+              style={{ display: "inline-block", verticalAlign: "middle" }}
             >
               <Icon
-                icon="hugeicons:store-04"
+                icon="streamline:money-graph-arrow-increase-ascend-growth-up-arrow-stats-graph-right-grow"
                 id="store-icon"
-                className="lg:w-20 lg:h-20 me-2 text-white"
-                aria-label="Online store icon"
+                className="lg:w-16 lg:h-16 me-4 text-white"
+                aria-label="Growth icon"
               />
             </motion.span>
 
-            <span className="font-black text-white">
-              {t("hero.title.part2", { defaultValue: "Online" })}
-            </span>
+            <span className="font-black text-white">{part2After}</span>
 
             <Underline
               viewBox={"-25 -5 250 18"}
@@ -58,12 +63,14 @@ export default function Hero() {
           </span>
         </h1>
 
+        <p className="mt-6 mx-auto max-w-2xl px-6 text-center text-lg lg:text-xl xl:text-2xl text-[--text-gray] leading-relaxed">
+          {t("hero.subtitle", { defaultValue: "see if I can help you" })}
+        </p>
+
         <Button>{t("hero.cta", { defaultValue: "Start now" })}</Button>
+
         <div className="flex flex-col items-center mt-12">
-          <span className="text-[--text-gray]">
-            {t("hero.subtitle", { defaultValue: "see if I can help you" })}
-          </span>
-          <div className="w-fit mt-3">
+          <div className="w-fit">
             <ArrowDown className={"relative"} color={"gray"} />
           </div>
         </div>
