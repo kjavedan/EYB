@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Icon } from "@iconify/react";
+import { SectionHeading } from "@/components/section-heading";
 import Button from "@/components/ui/button";
+import { Icon } from "@iconify/react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const FAQItem = ({
@@ -17,19 +18,20 @@ const FAQItem = ({
 
 	return (
 		<div className="relative w-full">
-			<div
-				className="relative py-8 cursor-pointer w-full"
+			<button
+				type="button"
+				className="relative py-8 cursor-pointer w-full text-left bg-transparent border-0 p-0"
 				onClick={() => setIsOpen(!isOpen)}
 			>
 				{/* Question */}
 				<div className="relative flex justify-between gap-4 items-center ">
-					<h4 className="text-xl text-white">{question}</h4>
+					<h4 className="text-xl text-[--text-color]">{question}</h4>
 					<motion.div
 						className="ms-2"
 						animate={{ rotate: isOpen ? 45 : 0 }}
 						transition={{ duration: 0.2 }}
 					>
-						<Icon icon="mdi:plus" className="text-white text-2xl" />
+						<Icon icon="mdi:plus" className="text-[--text-color] text-2xl" />
 					</motion.div>
 				</div>
 
@@ -47,8 +49,8 @@ const FAQItem = ({
 						</motion.div>
 					)}
 				</AnimatePresence>
-			</div>
-			<div className="w-full h-[1px] bg-gradient-to-r from-black via-[#5E5E5E] to-black"></div>
+			</button>
+			<div className="w-full h-[1px] bg-gradient-to-r from-[--bg-color] via-[--border-color] to-[--bg-color]" />
 		</div>
 	);
 };
@@ -72,12 +74,10 @@ export default function FAQs() {
 	];
 
 	return (
-		<section id="faqs" className="bg-black">
+		<section id="faqs" className="bg-[--bg-color]">
 			<div className="w-full">
 				{/* Title */}
-				<h2 className="text-center text-4xl leading-[50px] lg:text-5xl xl:text-6xl lg:leading-[70px] xl:leading-[90px]">
-					{t("faq.title")}
-				</h2>
+				<SectionHeading>{t("faq.title")}</SectionHeading>
 
 				{/* FAQ Items */}
 				<div className="mt-8 w-full max-w-4xl mx-auto text-start">

@@ -1,10 +1,10 @@
 "use client";
 
+import Loading from "@/app/loading";
+import i18n from "@/lib/i18n";
 import type React from "react";
 import { useEffect, useState } from "react";
 import { I18nextProvider } from "react-i18next";
-import i18n from "@/lib/i18n";
-import Loading from "@/app/loading";
 
 export function I18nProvider({ children }: { children: React.ReactNode }) {
 	const [isInitialized, setIsInitialized] = useState(false);
@@ -37,6 +37,18 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
 		};
 
 		initI18n();
+
+		// Always keep document.dir / document.lang in sync with the active
+		// language — even if the language changes from somewhere else (e.g.
+		// the language selector dropdown).
+		const handleLanguageChanged = (lng: string) => {
+			document.documentElement.dir = lng === "ar" ? "rtl" : "ltr";
+			document.documentElement.lang = lng;
+		};
+		i18n.on("languageChanged", handleLanguageChanged);
+		return () => {
+			i18n.off("languageChanged", handleLanguageChanged);
+		};
 	}, []);
 
 	// Show loading or render children

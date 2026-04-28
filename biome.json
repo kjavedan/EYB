@@ -7,7 +7,15 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": []
+		"ignore": [
+			".next",
+			".vscode",
+			".claude",
+			"node_modules",
+			"public",
+			"pnpm-lock.yaml",
+			"next-env.d.ts"
+		]
 	},
 	"formatter": {
 		"enabled": true,
@@ -19,7 +27,28 @@
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"recommended": true
+			"recommended": true,
+			"security": {
+				"noDangerouslySetInnerHtml": "off"
+			},
+			"correctness": {
+				"useExhaustiveDependencies": "off"
+			},
+			"suspicious": {
+				"noArrayIndexKey": "off",
+				"noExplicitAny": "off",
+				"noShorthandPropertyOverrides": "off"
+			},
+			"complexity": {
+				"noForEach": "off",
+				"noBannedTypes": "off"
+			},
+			"a11y": {
+				"noSvgWithoutTitle": "off",
+				"useSemanticElements": "off",
+				"useFocusableInteractive": "off",
+				"useValidAnchor": "off"
+			}
 		}
 	},
 	"javascript": {

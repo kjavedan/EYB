@@ -10,25 +10,78 @@
 	box-sizing: border-box;
 }
 
-/* Root Variables */
+/* ---------- Theme tokens ----------------------------------------------------
+   Light is the default; `.dark` (set by next-themes on <html>) overrides.
+   Tokens prefixed with `--bg-`, `--text-`, `--border-` are semantic and are
+   what new code should consume. The legacy `--text-white`, `--text-gray`
+   names are kept as aliases so existing components don't break.
+--------------------------------------------------------------------------- */
 :root {
-	--bg-color: #000000;
-	--text-white: #ffffff;
-	--text-gray: #9b9b9b;
-	--accent-blue: #007bff;
-	--primary-color: #ffffff;
+	/* Surface */
+	--bg-color: #ffffff;
+	--bg-elevated: #f5f5f5;
+	--bg-overlay: rgba(0, 0, 0, 0.04);
+
+	/* Text */
+	--text-color: #0a0a0a;
+	--text-muted: #6b6b6b;
+
+	/* Border / dividers */
+	--border-color: #e5e5e5;
+	--divider-from: #ffffff;
+	--divider-via: #c4c4c4;
+
+	/* Brand / accent */
 	--secondary-color: #344fff;
-	--title-gradient: linear-gradient(90deg, #ffffff, #484848);
-	--line-gradient-horizontal: linear-gradient(to right, #000, #5e5e5e, #000);
-	--line-gradient-vertical: linear-gradient(to bottom, #000, #5e5e5e, #000);
+	--accent-blue: #007bff;
 	--icon-gradient: linear-gradient(90deg, #344fff, #1f2f99);
-	--font-primary: "Playpen Sans Arabic", sans-serif;
-	--text-color: #ffffff;
-	--border-color: #5e5e5e;
-	--button-bg: #ffffff;
-	--button-text: #000000;
+
+	/* Buttons (primary CTA) */
+	--button-bg: #0a0a0a;
+	--button-text: #ffffff;
 	--button-hover-bg: #344fff;
 	--button-hover-text: #ffffff;
+
+	/* Legacy aliases — do not use in new code */
+	--text-white: var(--text-color);
+	--text-gray: var(--text-muted);
+	--primary-color: var(--text-color);
+
+	/* Gradients composed from the surface tokens */
+	--line-gradient-horizontal: linear-gradient(
+		to right,
+		var(--divider-from),
+		var(--divider-via),
+		var(--divider-from)
+	);
+	--line-gradient-vertical: linear-gradient(
+		to bottom,
+		var(--divider-from),
+		var(--divider-via),
+		var(--divider-from)
+	);
+	--title-gradient: linear-gradient(90deg, #0a0a0a, #5a5a5a);
+
+	/* Type */
+	--font-primary: "Playpen Sans Arabic", sans-serif;
+}
+
+.dark {
+	--bg-color: #000000;
+	--bg-elevated: #18181b;
+	--bg-overlay: rgba(255, 255, 255, 0.04);
+
+	--text-color: #ffffff;
+	--text-muted: #9b9b9b;
+
+	--border-color: #5e5e5e;
+	--divider-from: #000000;
+	--divider-via: #5e5e5e;
+
+	--button-bg: #ffffff;
+	--button-text: #000000;
+
+	--title-gradient: linear-gradient(90deg, #ffffff, #484848);
 }
 
 html {
@@ -107,7 +160,10 @@ h2 {
 	margin-right: auto;
 }
 
-section {
+/* Full-screen section treatment — opt-in via `.home-page` on the
+   landing-page <main>. Internal pages don't get this so their <section>
+   tags behave like normal block elements. */
+.home-page section {
 	padding-top: 60px;
 	padding-bottom: 60px;
 	min-height: 800px;
@@ -117,14 +173,14 @@ section {
 }
 
 @media (min-width: 1024px) {
-	section {
+	.home-page section {
 		padding-top: 80px;
 		padding-bottom: 80px;
 	}
 }
 
 @media (min-width: 1280px) {
-	section {
+	.home-page section {
 		padding-top: 100px;
 		padding-bottom: 100px;
 	}

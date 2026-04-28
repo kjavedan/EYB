@@ -2,11 +2,11 @@
 
 import React from "react";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Icon } from "@iconify/react";
-import dynamic from "next/dynamic";
 import Button from "@/components/ui/button";
+import { Icon } from "@iconify/react";
+import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { PlaceholdersAndVanishInput } from "../ui/placeholders-and-vanish-input";
 
@@ -55,10 +55,10 @@ export default function DomainSearch() {
 		console.log(process.env.NEXT_PUBLIC_RAPIDAPI_KEY);
 
 		const url = `https://domainr.p.rapidapi.com/v2/status?domain=${encodeURIComponent(domain)}`;
-		const options = {
+		const options: RequestInit = {
 			method: "GET",
 			headers: {
-				"x-rapidapi-key": process.env.NEXT_PUBLIC_RAPIDAPI_KEY,
+				"x-rapidapi-key": process.env.NEXT_PUBLIC_RAPIDAPI_KEY ?? "",
 				"x-rapidapi-host": "domainr.p.rapidapi.com",
 			},
 		};
@@ -134,17 +134,17 @@ export default function DomainSearch() {
 
 				{popupVisible && (
 					<motion.div
-						className="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-75"
+						className="fixed inset-0 z-[100] flex items-center justify-center bg-[--bg-color] bg-opacity-75"
 						initial={{ opacity: 0, scale: 0.8 }}
 						animate={{ opacity: 1, scale: 1 }}
 						exit={{ opacity: 0, scale: 0.8 }}
 						transition={{ type: "spring", stiffness: 500, damping: 30 }}
 					>
-						<div className="relative bg-black p-4 text-center h-full w-full flex items-center justify-center">
+						<div className="relative bg-[--bg-color] p-4 text-center h-full w-full flex items-center justify-center">
 							<div
 								onClick={closePopup}
 								onKeyDown={(e) => e.key === "Enter" && closePopup()}
-								className="absolute top-4 right-4 text-white text-2xl cursor-pointer"
+								className="absolute top-4 right-4 text-[--text-color] text-2xl cursor-pointer"
 							>
 								<Icon icon={"material-symbols:close-rounded"} />
 							</div>
@@ -152,7 +152,7 @@ export default function DomainSearch() {
 								{typeof window !== "undefined" && (
 									<Confetti width={width} height={height} />
 								)}
-								<h4 className="text-3xl leading-[50px] lg:text-5xl lg:leading-[90px] max-w-4xl text-white">
+								<h4 className="text-3xl leading-[50px] lg:text-5xl lg:leading-[90px] max-w-4xl text-[--text-color]">
 									🎉{" "}
 									{t("domainSearch.search.available", {
 										domain: result?.domain,

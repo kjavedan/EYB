@@ -1,48 +1,32 @@
 "use server";
 
-import { sql } from "@/lib/db";
-import {
-	contactEmailHtml,
-	FROM_ADDRESS,
-	resend,
-} from "@/lib/email";
+import { FROM_ADDRESS, contactEmailHtml, resend } from "@/lib/email";
+import { createUser } from "@/lib/repos/users";
+import { contactSchema, formDataToObject } from "@/lib/validation";
 
 export type ContactResult =
 	| { ok: true }
 	| { ok: false; reason: "duplicate" | "error" };
 
 export async function contact(formData: FormData): Promise<ContactResult> {
-	const first_name = (formData.get("first_name") as string | null)?.trim();
-	const last_name = (formData.get("last_name") as string | null)?.trim() || null;
-	const email = (formData.get("email") as string | null)?.trim().toLowerCase();
-
-	if (!first_name || !email) {
+	const parsed = contactSchema.safeParse(formDataToObject(formData));
+	if (!parsed.success) {
 		return { ok: false, reason: "error" };
 	}
 
-	try {
-		await sql`
-			INSERT INTO users (first_name, last_name, email)
-			VALUES (${first_name}, ${last_name}, ${email})
-		`;
-	} catch (err: unknown) {
-		const code = (err as { code?: string })?.code;
-		if (code === "23505") {
-			// Existing user reaching out again is fine — keep going and send the email.
-		} else {
-			console.error("contact insert error:", err);
-			return { ok: false, reason: "error" };
-		}
-	}
+	const result = await createUser(parsed.data);
+	if (!result.ok) return { ok: false, reason: "error" };
+	// Duplicate is fine on the contact flow — they already exist as a lead,
+	// we just want to acknowledge their new message.
 
 	const { error } = await resend.emails.send(
 		{
 			from: FROM_ADDRESS,
-			to: [email],
+			to: [parsed.data.email],
 			subject: "Thanks for reaching out — I'll be in touch soon",
-			html: contactEmailHtml(first_name),
+			html: contactEmailHtml(parsed.data.first_name),
 		},
-		{ idempotencyKey: `contact-ack/${email}/${Date.now()}` },
+		{ idempotencyKey: `contact-ack/${parsed.data.email}/${Date.now()}` },
 	);
 
 	if (error) {

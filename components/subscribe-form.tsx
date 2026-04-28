@@ -2,16 +2,13 @@
 
 import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import {
-	Modal,
-	ModalBody,
-	ModalContent,
-	useModal,
-} from "./ui/animated-modal";
-import { ContactForm } from "./contact-form";
 
-const SUBSCRIBED_KEY = "eyb_newsletter_subscribed";
-const DISMISSED_KEY = "eyb_newsletter_dismissed_session";
+import { STORAGE_KEYS } from "@/lib/config";
+import { ContactForm } from "./contact-form";
+import { Modal, ModalBody, ModalContent, useModal } from "./ui/animated-modal";
+
+const SUBSCRIBED_KEY = STORAGE_KEYS.newsletterSubscribed;
+const DISMISSED_KEY = STORAGE_KEYS.newsletterDismissedSession;
 
 function SubscriptionModalContent() {
 	const { open, setOpen } = useModal();
@@ -62,14 +59,14 @@ function SubscriptionModalContent() {
 		<ModalBody className="min-h-0">
 			<ModalContent>
 				<div className="space-y-2 mb-8">
-					<h2 className="text-2xl font-bold text-white">
+					<h2 className="text-2xl font-bold text-[--text-color]">
 						{t("subscribe.title", "Subscribe to Our Newsletter")}
 					</h2>
-					<p className="text-gray-300 text-sm">
+					<p className="text-[--text-muted] text-sm">
 						{t("subscribe.discount", "Get 10% Discount.")}
 					</p>
 				</div>
-				<ContactForm actionTxt={"subscibe"} onSuccess={handleSuccess} />
+				<ContactForm flow="subscribe" onSuccess={handleSuccess} />
 			</ModalContent>
 		</ModalBody>
 	);

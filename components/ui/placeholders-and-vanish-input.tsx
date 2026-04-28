@@ -1,9 +1,9 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
-import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Icon } from "@iconify/react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export function PlaceholdersAndVanishInput({
 	loading,
@@ -63,7 +63,9 @@ export function PlaceholdersAndVanishInput({
 		ctx.clearRect(0, 0, 800, 800);
 		const computedStyles = getComputedStyle(inputRef.current);
 
-		const fontSize = parseFloat(computedStyles.getPropertyValue("font-size"));
+		const fontSize = Number.parseFloat(
+			computedStyles.getPropertyValue("font-size"),
+		);
 		ctx.font = `${fontSize * 2}px ${computedStyles.fontFamily}`;
 		ctx.fillStyle = "#FFF";
 		ctx.fillText(value, 16, 40);
@@ -73,9 +75,9 @@ export function PlaceholdersAndVanishInput({
 		const newData: any[] = [];
 
 		for (let t = 0; t < 800; t++) {
-			let i = 4 * t * 800;
+			const i = 4 * t * 800;
 			for (let n = 0; n < 800; n++) {
-				let e = i + 4 * n;
+				const e = i + 4 * n;
 				if (
 					pixelData[e] !== 0 &&
 					pixelData[e + 1] !== 0 &&
@@ -108,7 +110,7 @@ export function PlaceholdersAndVanishInput({
 	}, [value, draw]);
 
 	const animate = (start: number) => {
-		const animateFrame = (pos: number = 0) => {
+		const animateFrame = (pos = 0) => {
 			requestAnimationFrame(() => {
 				const newArr = [];
 				for (let i = 0; i < newDataRef.current.length; i++) {
@@ -131,7 +133,7 @@ export function PlaceholdersAndVanishInput({
 				if (ctx) {
 					ctx.clearRect(pos, 0, 800, 800);
 					newDataRef.current.forEach((t) => {
-						const { x: n, y: i, r: s, color: color } = t;
+						const { x: n, y: i, r: s, color } = t;
 						if (n > pos) {
 							ctx.beginPath();
 							ctx.rect(n, i, s, s);
@@ -203,14 +205,15 @@ export function PlaceholdersAndVanishInput({
 				value={value}
 				type="text"
 				className={cn(
-        "w-full relative text-sm sm:text-base z-10 bg-transparent border border-[--border-color] outline-none focus:border-none focus:ring-2 ring-[--secondary-color] text-white h-full rounded-full pl-4 sm:pl-10 pr-20",					animating && "text-transparent",
+					"w-full relative text-sm sm:text-base z-10 bg-transparent border border-[--border-color] outline-none focus:border-none focus:ring-2 ring-[--secondary-color] text-black dark:text-white h-full rounded-full pl-4 sm:pl-10 pr-20",
+					animating && "text-transparent",
 				)}
 			/>
 
 			<button
 				disabled={!value}
 				type="submit"
-				className="absolute right-4 top-1/2 z-10 -translate-y-1/2 h-12 w-12 text-2xl rounded-full  bg-zinc-300 disabled:bg-zinc-900 transition duration-200 flex items-center justify-center"
+				className="absolute right-4 top-1/2 z-10 -translate-y-1/2 h-12 w-12 text-2xl rounded-full bg-[--button-bg] disabled:opacity-40 transition duration-200 flex items-center justify-center"
 			>
 				{loading ? (
 					<Icon
@@ -228,7 +231,7 @@ export function PlaceholdersAndVanishInput({
 						strokeWidth="2"
 						strokeLinecap="round"
 						strokeLinejoin="round"
-						className="text-black h-4 w-4"
+						className="text-[--button-text] h-4 w-4"
 					>
 						<title>Submit</title>
 						<path stroke="none" d="M0 0h24v24H0z" fill="none" />

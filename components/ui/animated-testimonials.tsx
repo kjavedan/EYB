@@ -1,7 +1,7 @@
 "use client";
 
 import { Icon } from "@iconify/react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -184,6 +184,7 @@ export const AnimatedTestimonials = ({
 
 					<div className="flex gap-4 pt-12">
 						<button
+							type="button"
 							onClick={handlePrev}
 							className="group/button flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
 						>
@@ -193,6 +194,7 @@ export const AnimatedTestimonials = ({
 							/>
 						</button>
 						<button
+							type="button"
 							onClick={handleNext}
 							className="group/button flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
 						>

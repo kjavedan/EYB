@@ -1,40 +1,51 @@
 "use client";
-import type React from "react";
-import { Label } from "./ui/label";
-import { Input } from "./ui/input";
-import { cn } from "@/lib/utils";
-import { useTranslation } from "react-i18next";
-import { useActionState } from "react";
-import { useToast } from "@/hooks/use-toast";
-import { subscribe } from "@/app/actions/subscribe";
-import { contact } from "@/app/actions/contact";
-import { Icon } from "@iconify/react";
 
+import { Icon } from "@iconify/react";
+import type React from "react";
+import { useActionState } from "react";
+import { useTranslation } from "react-i18next";
+
+import { contact } from "@/app/actions/contact";
+import { subscribe } from "@/app/actions/subscribe";
+import { useToast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
+
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
+
+type Flow = "subscribe" | "contact";
+
+const FLOW_ACTIONS: Record<Flow, typeof subscribe | typeof contact> = {
+	subscribe,
+	contact,
+};
+
+const FLOW_SUBMIT_LABEL_KEY: Record<Flow, string> = {
+	// Note: the existing translation key is the typo'd "subscibe" — kept here
+	// to avoid touching every locale string. Renaming is a separate task.
+	subscribe: "contact_form.subscibe",
+	contact: "contact_form.send",
+};
 
 export function ContactForm({
-	actionTxt = "send",
+	flow = "contact",
 	onSuccess,
 }: {
-	actionTxt: string;
+	flow?: Flow;
 	onSuccess?: () => void;
 }) {
 	const { t, i18n } = useTranslation();
 	const isRTL = i18n.language === "ar";
 	const { toast } = useToast();
 
-	const [_, formAction, isPending] = useActionState(handleSubmit, null);
-
-	async function handleSubmit(_: unknown, formData: FormData): Promise<void> {
-		const data = Object.fromEntries(formData.entries());
-		const firstName = data.first_name as string;
-		
-		const flow = actionTxt === "subscibe" ? "subscribe" : "contact";
+	async function handleSubmit(
+		_state: unknown,
+		formData: FormData,
+	): Promise<void> {
+		const firstName = (formData.get("first_name") as string) ?? "";
 
 		try {
-			const result =
-				flow === "subscribe"
-					? await subscribe(formData)
-					: await contact(formData);
+			const result = await FLOW_ACTIONS[flow](formData);
 
 			if (result.ok) {
 				toast({
@@ -70,8 +81,12 @@ export function ContactForm({
 		}
 	}
 
+	const [, formAction, isPending] = useActionState(handleSubmit, null);
+
+	const submitLabel = t(FLOW_SUBMIT_LABEL_KEY[flow]);
+
 	return (
-		<div className="shadow-input !w-full mx-auto max-w-sm rounded-none md:rounded-2xl bg-black">
+		<div className="shadow-input !w-full mx-auto max-w-sm rounded-none md:rounded-2xl bg-[--bg-color]">
 			<form action={formAction} className="w-full">
 				<div className="mb-4 flex flex-col space-y-2 md:flex-row md:space-y-0 md:gap-2">
 					<LabelInputContainer>
@@ -103,20 +118,18 @@ export function ContactForm({
 				</LabelInputContainer>
 
 				<button
-					className="group/btn mt-6 relative block h-10 w-full rounded-xl bg-gradient-to-br  font-medium text-white bg-zinc-800 from-zinc-900 to-zinc-900 shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"
+					className="group/btn mt-6 relative block h-10 w-full rounded-xl font-medium bg-[--button-bg] text-[--button-text] hover:opacity-90 transition-opacity"
 					type="submit"
 					style={{ direction: "ltr" }}
 					disabled={isPending}
 				>
-
-					{isPending? 
-					<Icon
-						icon={"line-md:loading-loop"}
-						className="mx-auto"
-						/>:
-					isRTL
-						? `← ${t(`contact_form.${actionTxt}`)}`
-						: `${t(`contact_form.${actionTxt}`)} →`}
+					{isPending ? (
+						<Icon icon={"line-md:loading-loop"} className="mx-auto" />
+					) : isRTL ? (
+						`← ${submitLabel}`
+					) : (
+						`${submitLabel} →`
+					)}
 
 					<BottomGradient />
 				</button>
@@ -127,14 +140,12 @@ export function ContactForm({
 	);
 }
 
-const BottomGradient = () => {
-	return (
-		<>
-			<span className="absolute inset-x-0 -bottom-px block h-px w-full bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-0 transition duration-500 group-hover/btn:opacity-100" />
-			<span className="absolute inset-x-10 -bottom-px mx-auto block h-px w-1/2 bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-0 blur-sm transition duration-500 group-hover/btn:opacity-100" />
-		</>
-	);
-};
+const BottomGradient = () => (
+	<>
+		<span className="absolute inset-x-0 -bottom-px block h-px w-full bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-0 transition duration-500 group-hover/btn:opacity-100" />
+		<span className="absolute inset-x-10 -bottom-px mx-auto block h-px w-1/2 bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-0 blur-sm transition duration-500 group-hover/btn:opacity-100" />
+	</>
+);
 
 const LabelInputContainer = ({
 	children,
@@ -142,10 +153,8 @@ const LabelInputContainer = ({
 }: {
 	children: React.ReactNode;
 	className?: string;
-}) => {
-	return (
-		<div className={cn("flex w-full flex-col space-y-2", className)}>
-			{children}
-		</div>
-	);
-};
+}) => (
+	<div className={cn("flex w-full flex-col space-y-2", className)}>
+		{children}
+	</div>
+);

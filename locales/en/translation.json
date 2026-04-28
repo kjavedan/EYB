@@ -38,7 +38,7 @@
 			"sajad": "Sajad"
 		},
 		"role": {
-			"khaled": "Software Engineer & E-commerce Specialist",
+			"khaled": "Software Engineer",
 			"faiz": "Digital Marketing Specialist",
 			"sajad": "Content Creator and Designer"
 		}
@@ -46,7 +46,7 @@
 	"contact": {
 		"title": "Contact Us",
 		"subtitle": "Have more questions?",
-		"email": "devkhaledjavdan@gmail.com",
+		"email": "khaled@eyb.ae",
 		"message": "We would love to hear from you :)",
 		"social": {
 			"instagram": "Follow us on Instagram",
@@ -196,28 +196,28 @@
 		"title": "Projects",
 		"view_project": "View project",
 		"items": {
-			"1": {
+			"aiyifen": {
 				"quote": "The team is so professional and accountable — I didn't expect them to care about my website this much. They treated it like it was their own.",
 				"name": "Peter",
 				"designation": "Owner",
 				"address": "Dubai, UAE",
 				"description": ""
 			},
-			"2": {
+			"jojooshop": {
 				"quote": " They understood my requirements perfectly and were blazing fast and responsive from day one. I've been recommending them to all my friends ever since.",
 				"name": "Gaya",
 				"designation": "Owner",
 				"address": "Dubai, UAE",
 				"description": ""
 			},
-			"3": {
+			"healthyplus": {
 				"quote": " This young team is marvelous — incredibly creative and ahead of the curve. I was so concerned about the design, but I couldn't believe it: I didn't need to change a single thing when I saw the first draft.",
 				"name": "Mahmood Alamarzooqi",
 				"designation": "Owner",
 				"address": "Sharjah, UAE",
 				"description": ""
 			},
-			"4": {
+			"ibrahim-shop": {
 				"quote": "The team's pricing was incredibly reasonable, and the automation they implemented saved both me and my customers countless hours of manual work. Their solution was exactly what we needed to streamline our operations.",
 				"name": "Ibrahim",
 				"designation": "Owner",
@@ -228,7 +228,22 @@
 	},
 	"project_detail": {
 		"back": "Back to projects",
-		"visit_site": "Visit live site"
+		"visit_site": "Visit live site",
+		"at_a_glance": "At a glance",
+		"year": "Year",
+		"timeline": "Timeline",
+		"services_label": "Services",
+		"client_label": "Client",
+		"summary_heading": "About the business",
+		"challenge_heading": "The challenge",
+		"solution_heading": "What we built",
+		"tech_heading": "Technology used",
+		"process_heading": "How we worked",
+		"results_heading": "The results",
+		"quote_heading": "What the client said",
+		"cta_heading": "Want a similar result?",
+		"cta_body": "If you're facing the same kind of problem, the fastest way to find out if we can help is a quick call.",
+		"cta_button": "Schedule a call"
 	},
 	"workProcess": {
 		"title": "How we work?",

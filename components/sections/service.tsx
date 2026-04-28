@@ -1,9 +1,10 @@
 "use client";
 
-import { useTranslation } from "react-i18next";
-import { Icon } from "@iconify/react";
-import CircleIcon from "@/components/ui/icons/circle";
+import { SectionHeading } from "@/components/section-heading";
 import Button from "@/components/ui/button";
+import CircleIcon from "@/components/ui/icons/circle";
+import { Icon } from "@iconify/react";
+import { useTranslation } from "react-i18next";
 
 const servicesData = [
 	{
@@ -43,7 +44,7 @@ const ServiceItem = ({
 				</div>
 
 				{/* Icon */}
-				<Icon icon={icon} className="w-20 h-20 mb-2 text-white" />
+				<Icon icon={icon} className="w-20 h-20 mb-2 text-[--text-color]" />
 
 				{/* Title */}
 				<h4 className="font-bold text-xl xl:text-2xl">
@@ -65,24 +66,22 @@ export default function Service() {
 	return (
 		<section id="services" className="pb-20 flex flex-col pt-10 lg:pt-0">
 			<div className="w-full">
-				<h2 className="text-center text-4xl leading-[50px] lg:text-5xl xl:text-6xl lg:leading-[70px] xl:leading-[90px]">
-					{t("services.title")}
-				</h2>
+				<SectionHeading>{t("services.title")}</SectionHeading>
 
 				{/* Gradient Border Wrapper */}
 				<div className="relative flex flex-col w-full items-center mt-8 max-w-screen-xl mx-auto grid-wrapper">
 					{/* Flex for Large Screens */}
-					<div className="text-white flex flex-col w-full lg:flex-row relative grid-container">
+					<div className="text-[--text-color] flex flex-col w-full lg:flex-row relative grid-container">
 						{servicesData.map((service, index) => (
 							<div key={service.id} className="relative w-full lg:w-1/3">
 								{/* Gradient Divider */}
 								{index < servicesData.length - 1 && (
 									<>
 										{/* Horizontal Divider for Small Screens */}
-										<div className="absolute bottom-0 start-0 w-full h-[1px] lg:hidden bg-gradient-to-r from-black via-[#5E5E5E] to-black" />
+										<div className="absolute bottom-0 start-0 w-full h-[1px] lg:hidden bg-gradient-to-r from-[--bg-color] via-[--border-color] to-[--bg-color]" />
 
 										{/* Vertical Divider for Large Screens */}
-										<div className="hidden lg:block absolute top-0 end-0 h-full w-[1px] bg-gradient-to-b from-black via-[#5E5E5E] to-black" />
+										<div className="hidden lg:block absolute top-0 end-0 h-full w-[1px] bg-gradient-to-b from-[--bg-color] via-[--border-color] to-[--bg-color]" />
 									</>
 								)}
 

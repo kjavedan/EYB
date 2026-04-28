@@ -4,6 +4,8 @@ import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
+import { SectionHeading } from "@/components/section-heading";
+
 const PACKAGE_KEYS = ["launchpad", "growth_engine", "custom_build"] as const;
 type PackageKey = (typeof PACKAGE_KEYS)[number];
 
@@ -52,8 +54,8 @@ const PricingCard = ({
 					availableSpot === 0
 						? "border-gray-600 text-[--text-gray]"
 						: isHighlighted
-							? "bg-purple-500/20 border-purple-400/50 text-purple-200"
-							: "bg-purple-500/10 border-purple-400/25 text-purple-200/80"
+							? "bg-purple-500/20 border-purple-400/50 text-purple-700 dark:text-purple-200"
+							: "bg-purple-500/10 border-purple-400/25 text-purple-700/80 dark:text-purple-200/80"
 				}`}
 				initial={{ opacity: 0, scale: 0.8 }}
 				animate={{ opacity: 1, scale: 1 }}
@@ -72,20 +74,17 @@ const PricingCard = ({
 			<ul className="space-y-3 mb-6">
 				{features.map((feature, index) => (
 					<li key={index} className="flex items-start gap-2">
-						<Icon
-							icon="mdi:check"
-							className="w-4 h-4 mt-0.5 flex-shrink-0"
-						/>
+						<Icon icon="mdi:check" className="w-4 h-4 mt-0.5 flex-shrink-0" />
 						<span className="text-sm">{feature}</span>
 					</li>
 				))}
 			</ul>
 
-			<div className="mt-auto pt-4 border-t border-white/10">
+			<div className="mt-auto pt-4 border-t border-[--text-color]/10">
 				<div className="flex items-center gap-2 mb-2">
 					<Icon
 						icon="mdi:shield-check-outline"
-						className="w-4 h-4 flex-shrink-0 text-white"
+						className="w-4 h-4 flex-shrink-0 text-[--text-color]"
 					/>
 					<span className="text-sm font-semibold">
 						{t("pricing.guarantee_heading")}
@@ -126,19 +125,19 @@ export default function Pricing() {
 	return (
 		<section id="pricing" className="py-20">
 			<div className="w-full">
-				<h2 className="text-center text-4xl leading-[50px] lg:text-5xl xl:text-6xl lg:leading-[70px] xl:leading-[90px]">
+				<SectionHeading>
 					{t("pricing.title", { defaultValue: "Pricing" })}
-				</h2>
+				</SectionHeading>
 
 				<div className="w-full mt-12">
 					<div className="w-full overflow-hidden grid-wrapper">
-						<div className="text-white flex flex-col w-full lg:flex-row relative grid-container">
+						<div className="text-[--text-color] flex flex-col w-full lg:flex-row relative grid-container">
 							{packages.map((pkg, index) => (
 								<div key={pkg.key} className="relative w-full lg:w-1/3">
 									{index < packages.length - 1 && (
 										<>
-											<div className="absolute bottom-0 start-0 w-full h-[1px] lg:hidden bg-gradient-to-r from-black via-[#5E5E5E] to-black" />
-											<div className="hidden lg:block absolute top-0 end-0 h-full w-[1px] bg-gradient-to-b from-black via-[#5E5E5E] to-black" />
+											<div className="absolute bottom-0 start-0 w-full h-[1px] lg:hidden bg-gradient-to-r from-[--bg-color] via-[--border-color] to-[--bg-color]" />
+											<div className="hidden lg:block absolute top-0 end-0 h-full w-[1px] bg-gradient-to-b from-[--bg-color] via-[--border-color] to-[--bg-color]" />
 										</>
 									)}
 									<PricingCard

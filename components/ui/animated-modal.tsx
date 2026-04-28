@@ -43,8 +43,9 @@ export const ModalTrigger = ({
 	const { setOpen } = useModal();
 	return (
 		<button
+			type="button"
 			className={cn(
-				"px-4 py-2 rounded-mdtext-white text-center relative overflow-hidden",
+				"px-4 py-2 rounded-md text-[--text-color] text-center relative overflow-hidden",
 				className,
 			)}
 			onClick={() => setOpen(true)}
@@ -63,6 +64,8 @@ export const ModalBody = ({
 }) => {
 	const { open } = useModal();
 
+	const { setOpen } = useModal();
+
 	useEffect(() => {
 		if (open) {
 			document.body.style.overflow = "hidden";
@@ -71,8 +74,17 @@ export const ModalBody = ({
 		}
 	}, [open]);
 
+	// Close on Escape key.
+	useEffect(() => {
+		if (!open) return;
+		const onKeyDown = (event: KeyboardEvent) => {
+			if (event.key === "Escape") setOpen(false);
+		};
+		document.addEventListener("keydown", onKeyDown);
+		return () => document.removeEventListener("keydown", onKeyDown);
+	}, [open, setOpen]);
+
 	const modalRef = useRef(null);
-	const { setOpen } = useModal();
 	useOutsideClick(modalRef, () => setOpen(false));
 
 	return (
@@ -97,7 +109,7 @@ export const ModalBody = ({
 					<motion.div
 						ref={modalRef}
 						className={cn(
-							"min-h-[50%] max-h-[90%] max-w-md !bg-black border border-neutral-800 md:rounded-2xl relative z-50 flex flex-col flex-1 overflow-hidden",
+							"min-h-[50%] max-h-[90%] max-w-md !bg-[--bg-color] border border-[--border-color] md:rounded-2xl relative z-50 flex flex-col flex-1 overflow-hidden",
 							className,
 						)}
 						initial={{
@@ -174,7 +186,7 @@ const Overlay = ({ className }: { className?: string }) => {
 				opacity: 0,
 				backdropFilter: "blur(0px)",
 			}}
-			className={`fixed inset-0 h-full w-full bg-black bg-opacity-50 z-50 ${className}`}
+			className={`fixed inset-0 h-full w-full bg-[--bg-color]/50 z-50 ${className}`}
 		/>
 	);
 };
@@ -183,6 +195,7 @@ const CloseIcon = () => {
 	const { setOpen } = useModal();
 	return (
 		<button
+			type="button"
 			onClick={() => setOpen(false)}
 			className="absolute top-4 right-4 group"
 		>
@@ -196,7 +209,7 @@ const CloseIcon = () => {
 				strokeWidth="2"
 				strokeLinecap="round"
 				strokeLinejoin="round"
-				className="text-white h-4 w-4 group-hover:scale-125 group-hover:rotate-3 transition duration-200"
+				className="text-[--text-color] h-4 w-4 group-hover:scale-125 group-hover:rotate-3 transition duration-200"
 			>
 				<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 				<path d="M18 6l-12 12" />

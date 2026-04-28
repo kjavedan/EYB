@@ -2,20 +2,21 @@
 
 import { Icon } from "@iconify/react";
 import { useTranslation } from "react-i18next";
+
+import { INSTAGRAM_URL, LINKEDIN_URL, WHATSAPP_URL } from "@/lib/config";
 import { ContactForm } from "../contact-form";
+import { SectionHeading } from "../section-heading";
 
 export default function Contact() {
 	const { t } = useTranslation();
 
 	return (
-		<section id="contact">
+		<section id="contact" className="mt-40 pb-20">
 			<div className="w-full flex flex-col items-center gap-10 xl:flex-row xl:items-start xl: justify-center xl:gap-40">
 				<div className="text-center xl:text-start">
 					<p>{t("contact.subtitle")}</p>
 					{/* Title */}
-					<h2 className="text-center mt-4 text-4xl leading-[50px] lg:text-5xl xl:text-6xl lg:leading-[70px] xl:leading-[90px]">
-						{t("contact.title")}
-					</h2>
+					<SectionHeading className="mt-4">{t("contact.title")}</SectionHeading>
 				</div>
 
 				<div className="flex flex-col items-center w-full xl:w-fit">
@@ -26,36 +27,21 @@ export default function Contact() {
 						<Icon
 							icon={"ri:instagram-fill"}
 							className="hover:text-[#E4405F] cursor-pointer transition-colors duration-300"
-							onClick={() =>
-								window.open(
-									"https://www.instagram.com/khaled_javedan",
-									"_blank",
-								)
-							}
-							title={t("contact.social.instagram")}
+							onClick={() => window.open(INSTAGRAM_URL, "_blank")}
 						/>
 
 						{/* WhatsApp Icon */}
 						<Icon
 							icon={"mingcute:whatsapp-fill"}
 							className="hover:text-[#25D366] cursor-pointer transition-colors duration-300"
-							onClick={() =>
-								window.open("https://wa.me/971502597949", "_blank")
-							}
-							title={t("contact.social.whatsapp")}
+							onClick={() => window.open(WHATSAPP_URL, "_blank")}
 						/>
 
 						{/* LinkedIn Icon */}
 						<Icon
 							icon={"mage:linkedin"}
 							className="hover:text-[#0077B5] cursor-pointer transition-colors duration-300"
-							onClick={() =>
-								window.open(
-									"https://www.linkedin.com/in/khaled-javdan-790b991b3/",
-									"_blank",
-								)
-							}
-							title={t("contact.social.linkedin")}
+							onClick={() => window.open(LINKEDIN_URL, "_blank")}
 						/>
 					</div>
 				</div>
