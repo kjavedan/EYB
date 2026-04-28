@@ -18,7 +18,7 @@ export function NarrativeSection({
 	return (
 		<section className="mb-20">
 			<div className="flex items-start gap-4 lg:gap-6">
-				<div className="hidden sm:flex flex-shrink-0 w-14 h-14 rounded-2xl border border-[--text-color]/10 bg-[--text-color]/[0.02] items-center justify-center">
+				<div className="hidden sm:flex flex-shrink-0 w-14 h-14 rounded-2xl border border-[--border-color] bg-[--text-color]/[0.02] items-center justify-center">
 					<Icon
 						icon={icon}
 						className="w-7 h-7 text-purple-700 dark:text-purple-300"

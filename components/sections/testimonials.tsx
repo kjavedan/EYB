@@ -61,7 +61,7 @@ export default function Testimonials() {
 											className="object-cover transition-transform duration-500 group-hover:scale-105"
 											sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
 										/>
-										<div className="absolute top-3 left-3 px-3 py-1 bg-[--bg-color]/60 backdrop-blur-sm border border-[--text-color]/20 rounded-full">
+										<div className="absolute top-3 left-3 px-3 py-1 bg-[--bg-color]/60 backdrop-blur-sm border border-[--border-color] rounded-full">
 											<span className="text-xs font-semibold text-[--text-color]">
 												{project.projectType}
 											</span>

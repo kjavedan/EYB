@@ -52,7 +52,11 @@ export const MenuItem = ({
 			className="h-20"
 		>
 			<div className="h-full w-full text-4xl pl-8 capitalize flex font-bold items-center rounded-3xl bg-[--clr-gray] cursor-pointer">
-				<a href={link} onClick={handleClick} className="text-black font-300">
+				<a
+					href={link}
+					onClick={handleClick}
+					className="text-[--text-color] font-300"
+				>
 					{label}
 				</a>
 			</div>

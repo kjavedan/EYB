@@ -54,7 +54,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 					{project.summary}
 				</p>
 
-				<div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-[--text-color]/10 mb-20">
+				<div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-[--border-color] mb-20">
 					<Image
 						src={project.image}
 						alt={project.domainName}
@@ -80,7 +80,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 										{project.services.map((service) => (
 											<span
 												key={service}
-												className="text-xs font-medium px-2.5 py-1 rounded-full border border-[--text-color]/10 bg-[--text-color]/[0.03]"
+												className="text-xs font-medium px-2.5 py-1 rounded-full border border-[--border-color] bg-[--text-color]/[0.03]"
 											>
 												{service}
 											</span>
@@ -119,7 +119,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 						{project.techStack.map((tech) => (
 							<div
 								key={tech.name}
-								className="flex items-center gap-2 px-4 py-2 rounded-full border border-[--text-color]/10 bg-[--text-color]/[0.03]"
+								className="flex items-center gap-2 px-4 py-2 rounded-full border border-[--border-color] bg-[--text-color]/[0.03]"
 							>
 								<Icon icon={tech.icon} className="w-5 h-5" />
 								<span className="text-sm font-medium">{tech.name}</span>
@@ -134,7 +134,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 						icon="mdi:timeline-outline"
 						label={t("project_detail.process_heading")}
 					/>
-					<ol className="relative border-s border-[--text-color]/10 ms-3 space-y-8">
+					<ol className="relative border-s border-[--border-color] ms-3 space-y-8">
 						{project.process.map((step, i) => (
 							<li key={i} className="ps-8 relative">
 								<span className="absolute -start-[13px] top-0 w-6 h-6 rounded-full bg-purple-500/20 border border-purple-400/40 flex items-center justify-center text-xs font-bold text-purple-700 dark:text-purple-200">
@@ -202,7 +202,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 				</a>
 
 				{/* CTA */}
-				<section className="rounded-2xl border border-[--text-color]/10 bg-[--text-color]/[0.02] p-12 lg:p-20 text-center">
+				<section className="rounded-2xl border border-[--border-color] bg-[--text-color]/[0.02] p-12 lg:p-20 text-center">
 					<h2 className="text-2xl lg:text-3xl font-bold mb-3">
 						{t("project_detail.cta_heading")}
 					</h2>

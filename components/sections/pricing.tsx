@@ -80,7 +80,7 @@ const PricingCard = ({
 				))}
 			</ul>
 
-			<div className="mt-auto pt-4 border-t border-[--text-color]/10">
+			<div className="mt-auto pt-4 border-t border-[--border-color]">
 				<div className="flex items-center gap-2 mb-2">
 					<Icon
 						icon="mdi:shield-check-outline"

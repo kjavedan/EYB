@@ -25,7 +25,7 @@ export const MenuItem = ({ label, link }: { label: string; link: string }) => {
 			variants={variants}
 		>
 			<a
-				className="px-3 py-2 cursor-pointer text-white"
+				className="px-3 py-2 cursor-pointer text-[--text-color]"
 				href={link}
 				onClick={handleClick}
 			>

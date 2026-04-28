@@ -17,7 +17,7 @@ export type StatItem = {
 
 export function StatGrid({ items }: { items: StatItem[] }) {
 	return (
-		<div className="grid grid-cols-2 lg:grid-cols-4 rounded-2xl overflow-hidden border border-[--text-color]/10 divide-[--text-color]/10 lg:divide-x lg:divide-y-0 max-lg:divide-y max-lg:[&>*:nth-child(odd)]:border-e max-lg:[&>*:nth-child(odd)]:border-[--text-color]/10">
+		<div className="grid grid-cols-2 lg:grid-cols-4 rounded-2xl overflow-hidden border border-[--border-color] divide-[--border-color] lg:divide-x lg:divide-y-0 max-lg:divide-y max-lg:[&>*:nth-child(odd)]:border-e max-lg:[&>*:nth-child(odd)]:border-[--border-color]">
 			{items.map((item, i) => (
 				<StatCell key={i} {...item} />
 			))}
