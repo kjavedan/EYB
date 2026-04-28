@@ -209,10 +209,10 @@
 		"title": "Projects",
 		"view_project": "View project",
 		"items": {
-			"aiyifen": {
-				"quote": "The team is so professional and accountable — I didn't expect them to care about my website this much. They treated it like it was their own.",
-				"name": "Peter",
-				"designation": "Owner",
+			"streak": {
+				"quote": "One quiet app for the things you do every day — streaks, focus, todos, and ideas. Free forever, installable anywhere.",
+				"name": "EYB",
+				"designation": "In-house product",
 				"address": "Dubai, UAE",
 				"description": ""
 			},
@@ -223,6 +223,13 @@
 				"address": "Dubai, UAE",
 				"description": ""
 			},
+			"chikrice": {
+				"quote": "A personalized nutrition roadmap with daily meal plans and automatic macro tracking — your progress on autopilot.",
+				"name": "EYB",
+				"designation": "In-house product",
+				"address": "Dubai, UAE",
+				"description": ""
+			},
 			"healthyplus": {
 				"quote": " This young team is marvelous — incredibly creative and ahead of the curve. I was so concerned about the design, but I couldn't believe it: I didn't need to change a single thing when I saw the first draft.",
 				"name": "Mahmood Alamarzooqi",
@@ -230,11 +237,11 @@
 				"address": "Sharjah, UAE",
 				"description": ""
 			},
-			"ibrahim-shop": {
-				"quote": "The team's pricing was incredibly reasonable, and the automation they implemented saved both me and my customers countless hours of manual work. Their solution was exactly what we needed to streamline our operations.",
-				"name": "Ibrahim",
+			"aiyifen": {
+				"quote": "The team is so professional and accountable — I didn't expect them to care about my website this much. They treated it like it was their own.",
+				"name": "Peter",
 				"designation": "Owner",
-				"address": "Iran",
+				"address": "Dubai, UAE",
 				"description": ""
 			}
 		}

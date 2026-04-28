@@ -54,16 +54,59 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 					{project.summary}
 				</p>
 
-				<div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-[--border-color] mb-20">
-					<Image
-						src={project.image}
-						alt={project.domainName}
-						fill
-						className="object-cover"
-						priority
-						sizes="(max-width: 1024px) 100vw, 1024px"
-					/>
+				<div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-[--border-color] mb-6 bg-[--bg-elevated] group">
+					{project.videoUrl ? (
+						<video
+							src={project.videoUrl}
+							poster={project.image.src}
+							controls
+							playsInline
+							preload="metadata"
+							className="absolute inset-0 w-full h-full object-cover"
+						/>
+					) : (
+						<>
+							<Image
+								src={project.image}
+								alt={project.domainName}
+								fill
+								className="object-cover"
+								priority
+								sizes="(max-width: 1024px) 100vw, 1024px"
+							/>
+							{/* Video placeholder overlay — replaced by real video once `videoUrl` is set */}
+							<div className="absolute inset-0 flex items-center justify-center bg-black/30 transition-colors group-hover:bg-black/40">
+								<div className="flex flex-col items-center gap-3">
+									<div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-white/95 flex items-center justify-center shadow-lg">
+										<Icon
+											icon="mdi:play"
+											className="w-8 h-8 lg:w-10 lg:h-10 text-black ms-1"
+										/>
+									</div>
+									<span className="text-xs uppercase tracking-wider text-white/80 font-medium">
+										Walkthrough video coming soon
+									</span>
+								</div>
+							</div>
+						</>
+					)}
 				</div>
+
+				{project.siteUrl && project.siteUrl !== "#" && (
+					<a
+						href={project.siteUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="inline-flex items-center gap-2 px-6 py-3 bg-[--button-bg] text-[--button-text] rounded-full font-semibold hover:opacity-90 transition-colors mb-20"
+					>
+						<span>
+							{t("project_detail.visit_site", {
+								defaultValue: "Visit live site",
+							})}
+						</span>
+						<Icon icon="mdi:open-in-new" className="w-4 h-4" />
+					</a>
+				)}
 
 				{/* At-a-glance */}
 				<section className="mb-20">
@@ -186,20 +229,6 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 						</blockquote>
 					</section>
 				)}
-
-				<a
-					href={project.siteUrl}
-					target="_blank"
-					rel="noopener noreferrer"
-					className="inline-flex items-center gap-2 px-6 py-3 bg-[--button-bg] text-[--button-text] rounded-full font-semibold hover:opacity-90 transition-colors mb-20"
-				>
-					<span>
-						{t("project_detail.visit_site", {
-							defaultValue: "Visit live site",
-						})}
-					</span>
-					<Icon icon="mdi:open-in-new" className="w-4 h-4" />
-				</a>
 
 				{/* CTA */}
 				<section className="rounded-2xl border border-[--border-color] bg-[--text-color]/[0.02] p-12 lg:p-20 text-center">
