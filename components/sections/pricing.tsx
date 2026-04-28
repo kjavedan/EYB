@@ -2,6 +2,7 @@
 
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { SectionHeading } from "@/components/section-heading";
@@ -16,6 +17,47 @@ const SPOTS_BY_PACKAGE: Record<PackageKey, number> = {
 };
 
 const HIGHLIGHTED: PackageKey = "growth_engine";
+const AED_TO_USD_RATE = 3.67;
+
+type Currency = "AED" | "USD";
+
+const formatCurrency = (value: number, currency: Currency) =>
+	new Intl.NumberFormat("en-US", {
+		style: "currency",
+		currency,
+		maximumFractionDigits: 0,
+	}).format(value);
+
+const parseAmount = (value: string) => {
+	const normalized = value.replace(/[^0-9.]/g, "");
+	const amount = Number.parseFloat(normalized);
+	return Number.isNaN(amount) ? null : amount;
+};
+
+const resolvePrice = ({
+	priceAed,
+	priceUsd,
+	currency,
+}: {
+	priceAed: string;
+	priceUsd: string;
+	currency: Currency;
+}) => {
+	if (currency === "AED") {
+		return priceAed;
+	}
+
+	if (priceUsd && priceUsd !== "—") {
+		return priceUsd;
+	}
+
+	const parsedAedAmount = parseAmount(priceAed);
+	if (!parsedAedAmount) {
+		return priceAed;
+	}
+
+	return formatCurrency(parsedAedAmount / AED_TO_USD_RATE, "USD");
+};
 
 const PricingCard = ({
 	title,
@@ -100,6 +142,7 @@ const PricingCard = ({
 
 export default function Pricing() {
 	const { t, ready } = useTranslation();
+	const [currency, setCurrency] = useState<Currency>("AED");
 
 	const packages = PACKAGE_KEYS.map((key) => {
 		const features = ready
@@ -110,7 +153,17 @@ export default function Pricing() {
 		return {
 			key,
 			title: t(`pricing.packages.${key}.title`, { defaultValue: key }),
-			price: t(`pricing.packages.${key}.price`, { defaultValue: "—" }),
+			price: resolvePrice({
+				priceAed: t(`pricing.packages.${key}.price_aed`, {
+					defaultValue: t(`pricing.packages.${key}.price`, {
+						defaultValue: "—",
+					}),
+				}),
+				priceUsd: t(`pricing.packages.${key}.price_usd`, {
+					defaultValue: "",
+				}),
+				currency,
+			}),
 			duration: t(`pricing.packages.${key}.duration`, { defaultValue: "" }),
 			description: t(`pricing.packages.${key}.description`, {
 				defaultValue: "",
@@ -128,6 +181,39 @@ export default function Pricing() {
 				<SectionHeading>
 					{t("pricing.title", { defaultValue: "Pricing" })}
 				</SectionHeading>
+				<div className="mt-6 flex justify-center">
+					<div className="inline-flex rounded-full border border-[--border-color] bg-[--card-bg] p-1">
+						{(["AED", "USD"] as const).map((option) => {
+							const active = currency === option;
+							return (
+								<motion.button
+									key={option}
+									type="button"
+									onClick={() => setCurrency(option)}
+									className={`relative rounded-full px-4 py-1.5 text-xs font-semibold transition-colors ${
+										active
+											? "text-[--bg-color]"
+											: "text-[--text-gray] hover:text-[--text-color]"
+									}`}
+									whileTap={{ scale: 0.96 }}
+								>
+									{active && (
+										<motion.span
+											layoutId="currency-toggle-pill"
+											className="absolute inset-0 rounded-full bg-[--text-color]"
+											transition={{
+												type: "spring",
+												stiffness: 500,
+												damping: 35,
+											}}
+										/>
+									)}
+									<span className="relative z-10">{option}</span>
+								</motion.button>
+							);
+						})}
+					</div>
+				</div>
 
 				<div className="w-full mt-12">
 					<div className="w-full overflow-hidden grid-wrapper">

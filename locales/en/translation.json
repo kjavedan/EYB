@@ -67,31 +67,41 @@
 		"packages": {
 			"launchpad": {
 				"title": "Launchpad",
-				"price": "4,999 AED",
+				"price": "6,999 AED",
 				"duration": "~2 weeks",
 				"description": "A clean, professional website to give your business a real online presence. A good fit if you mainly need to look credible and capture inquiries.",
 				"features": [
-					"Custom-designed landing page or up to 5 pages",
-					"Responsive design that works on every screen",
-					"Contact form + WhatsApp & Cal.com integration",
-					"Basic on-page SEO setup",
-					"Hosting and domain configured for you",
-					"30 days of post-launch tweaks included"
+					"Custom-designed website up to 5 pages",
+					"Mobile-first responsive design (desktop, tablet, mobile)",
+					"Contact form + WhatsApp & Cal.com booking integration",
+					"On-page SEO, sitemap, robots.txt & schema markup",
+					"Google Analytics & Search Console setup",
+					"Open Graph tags for social sharing previews",
+					"SSL certificate, hosting and domain setup",
+					"Page speed & Core Web Vitals optimization",
+					"2 rounds of design revisions",
+					"Up to 5 royalty-free images & basic copy assistance",
+					"30 days of post-launch tweaks and bug fixes"
 				],
 				"guarantee": "Fixed scope, fixed price, and a clear delivery date. We stay reachable after launch."
 			},
 			"growth_engine": {
 				"title": "Growth Engine",
-				"price": "14,999 AED",
+				"price": "14,299 AED",
 				"duration": "3–4 weeks",
-				"description": "For when you want your website to do more than just exist. We add the lead-capture and ad pieces that turn traffic into actual conversations.",
+				"description": "For when you want your website to do more than just exist. We add the lead-capture, ads, and tracking pieces that turn traffic into actual conversations.",
 				"features": [
 					"Everything in Launchpad",
-					"Up to 10 pages or a basic e-commerce store",
-					"Email capture + automated follow-up sequences",
-					"First ad campaign set up on Meta or Google",
-					"Analytics and conversion tracking installed",
-					"Admin dashboard so you can update content yourself"
+					"Up to 12 pages, blog, or basic e-commerce store",
+					"Email capture + automated welcome & follow-up sequences",
+					"One Meta or Google ad campaign (setup, audiences & creatives)",
+					"GA4, Meta Pixel & Google Tag Manager with conversion tracking",
+					"CRM integration (HubSpot, Mailchimp, Zoho, or similar)",
+					"WhatsApp Business or live chat integration",
+					"Heatmaps & user behavior tracking (Hotjar)",
+					"Headless CMS so you can edit content yourself",
+					"Advanced technical SEO & rich-snippet schema",
+					"60 days of post-launch support + first-month performance report"
 				],
 				"guarantee": "Weekly check-ins during the build, and we stay involved post-launch to tune what's working."
 			},
@@ -102,10 +112,13 @@
 				"description": "For teams replacing manual work with software, or launching a product idea. We need to understand the size and scope of what you're building before we can quote a price and timeline.",
 				"features": [
 					"Custom web or mobile app (iOS + Android)",
-					"Internal tools, dashboards, and automations",
-					"Integrations with your CRM, payments, etc.",
+					"Backend, APIs and database design",
+					"User authentication, roles and permissions",
+					"Internal tools, dashboards and automations",
+					"Integrations with your CRM, payments, and third-party APIs",
 					"Admin panel built around your workflow",
-					"Full source code and ownership transfer",
+					"Full source code, documentation and ownership transfer",
+					"Deployment, CI/CD and monitoring setup",
 					"3 months of post-launch support included"
 				],
 				"guarantee": "Weekly demos throughout the build. If a milestone isn't right, we fix it before moving on."
