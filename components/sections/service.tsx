@@ -19,7 +19,7 @@ const servicesData = [
 	},
 	{
 		id: 3,
-		key: "ads",
+		key: "marketing",
 		icon: "hugeicons:marketing",
 	},
 ];

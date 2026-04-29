@@ -13,7 +13,7 @@ const CircleIcon = ({ number, ...others }: CircleIconProps) => {
 		visible: {
 			pathLength: 1,
 			opacity: 1,
-			transition: { duration: 2, ease: "easeOut" },
+			transition: { duration: 2, ease: "easeOut" as const },
 		},
 	};
 
@@ -23,7 +23,7 @@ const CircleIcon = ({ number, ...others }: CircleIconProps) => {
 		visible: {
 			opacity: 1,
 			scale: 1,
-			transition: { type: "spring", duration: 0.5, delay: 1.5 },
+			transition: { type: "spring" as const, duration: 0.5, delay: 1.5 },
 		},
 	};
 

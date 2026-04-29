@@ -102,6 +102,7 @@ export default function EYBLogo() {
 		}
 
 		function createInitialParticles(scale: number) {
+			if (!canvas) return;
 			const baseParticleCount = 7000; // Increased base count for higher density
 			const particleCount = Math.floor(
 				baseParticleCount *

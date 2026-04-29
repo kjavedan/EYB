@@ -233,7 +233,7 @@ export const projects: Project[] = [
 		summary:
 			"Healthy Plus is a Sharjah-based health-foods brand. Their flagship product is artisanal honey sourced from regional beekeepers. They needed a storefront that conveyed trust, authenticity, and the story behind the product.",
 		challenge:
-			"They had no online presence and were losing wholesale leads who couldn't find them on Google. The brand identity wasn't fully defined — colors and typography varied across packaging, social, and signage. They needed both a visual system AND a place to sell.",
+			"They were running the entire business through WhatsApp — sending product photos one at a time, quoting prices manually, and chasing payments by message. It worked, but it didn't look like a real brand. New customers had no way to browse the catalogue or check out on their own, and anyone searching the brand on Google found nothing to land on. They needed a proper storefront that gave the business the professionalism their product deserved.",
 		solution:
 			"We started with a brand identity refresh — typography, color palette, photography direction — then built the storefront around it. The site emphasizes provenance: each product has a story page about the beekeepers and region. Wholesale inquiries get their own dedicated form so retail and B2B customers don't get confused at checkout.",
 		techStack: [

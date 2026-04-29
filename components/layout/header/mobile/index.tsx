@@ -19,7 +19,7 @@ export default function NavMobile() {
 			clipPath: "circle(100% at calc(100% - 37px) 34px)",
 			height: typeof window !== "undefined" ? window.screen.height * 2 : 1000,
 			transition: {
-				type: "spring",
+				type: "spring" as const,
 				stiffness: 40,
 				restDelta: 2,
 			},
