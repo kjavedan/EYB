@@ -29,7 +29,10 @@ export function ScreenshotsCarousel({ images }: { images: string[] }) {
 				return;
 			}
 			const ratio = el.clientWidth / el.scrollWidth;
-			const position = el.scrollLeft / max;
+			// In RTL, modern browsers report scrollLeft as 0 at the visual start
+			// (right edge) and grow it negative as you scroll toward the end.
+			// Take the absolute value so progress reads 0→1 in both directions.
+			const position = Math.abs(el.scrollLeft) / max;
 			setProgress({ position, ratio });
 		};
 
@@ -142,8 +145,8 @@ export function ScreenshotsCarousel({ images }: { images: string[] }) {
 			{progress.ratio < 1 && (
 				<div className="mx-auto mt-5 h-1 w-40 overflow-hidden rounded-full bg-[--border-color]">
 					<div
-						className="h-full rounded-full bg-[--text-color] transition-[margin-left] duration-150 ease-out"
-						style={{ width: thumbWidth, marginLeft: thumbOffset }}
+						className="h-full rounded-full bg-[--text-color] transition-[margin-inline-start] duration-150 ease-out"
+						style={{ width: thumbWidth, marginInlineStart: thumbOffset }}
 					/>
 				</div>
 			)}

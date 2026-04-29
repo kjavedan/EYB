@@ -3,7 +3,6 @@
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { NarrativeSection } from "@/components/project/narrative-section";
@@ -16,8 +15,6 @@ import { getProjectBySlug } from "@/lib/projects";
 export default function ProjectDetail({ slug }: { slug: string }) {
 	const { t } = useTranslation();
 	const project = getProjectBySlug(slug);
-	const videoRef = useRef<HTMLVideoElement>(null);
-	const [hasStarted, setHasStarted] = useState(false);
 
 	if (!project) return null;
 
@@ -75,38 +72,18 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 
 				{project.videoUrl && (
 					<div
-						className={`relative aspect-[16/9] rounded-2xl overflow-hidden border border-[--border-color] bg-[--bg-elevated] group ${
+						className={`relative aspect-[16/9] rounded-2xl overflow-hidden border border-[--border-color] bg-[--bg-elevated] ${
 							project.screenshots?.length ? "mb-6" : "mb-20"
 						}`}
 					>
 						<video
-							ref={videoRef}
 							src={project.videoUrl}
 							poster={project.videoPoster ?? project.image.src}
 							controls
 							playsInline
 							preload="metadata"
-							onPlay={() => setHasStarted(true)}
 							className="absolute inset-0 w-full h-full object-cover"
 						/>
-						{!hasStarted && (
-							<button
-								type="button"
-								onClick={() => {
-									videoRef.current?.play();
-									setHasStarted(true);
-								}}
-								className="absolute inset-0 flex items-center justify-center bg-black/30 transition-colors hover:bg-black/40 cursor-pointer"
-								aria-label="Play video"
-							>
-								<div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-white/95 flex items-center justify-center shadow-lg">
-									<Icon
-										icon="mdi:play"
-										className="w-8 h-8 lg:w-10 lg:h-10 text-black ms-1"
-									/>
-								</div>
-							</button>
-						)}
 					</div>
 				)}
 

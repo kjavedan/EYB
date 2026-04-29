@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -105,7 +106,7 @@ export function ImageLightbox({
 			<button
 				type="button"
 				onClick={onClose}
-				className="absolute right-4 top-4 grid size-11 place-items-center rounded-full border border-white/25 bg-black/55 text-white shadow-lg shadow-black/40 backdrop-blur-md transition hover:bg-black/75 md:size-10"
+				className="absolute end-4 top-4 grid size-11 place-items-center rounded-full border border-white/25 bg-black/55 text-white shadow-lg shadow-black/40 backdrop-blur-md transition hover:bg-black/75 md:size-10"
 				aria-label="Close"
 			>
 				✕
@@ -119,10 +120,13 @@ export function ImageLightbox({
 							stop(e);
 							goTo(-1);
 						}}
-						className="absolute left-4 top-1/2 grid size-12 -translate-y-1/2 place-items-center rounded-full border border-white/25 bg-black/55 text-2xl text-white shadow-lg shadow-black/40 backdrop-blur-md transition hover:bg-black/75 md:size-10 md:text-xl"
+						className="absolute start-4 top-1/2 grid size-12 -translate-y-1/2 place-items-center rounded-full border border-white/25 bg-black/55 text-white shadow-lg shadow-black/40 backdrop-blur-md transition hover:bg-black/75 md:size-10"
 						aria-label="Previous image"
 					>
-						‹
+						<Icon
+							icon="mdi:chevron-left"
+							className="w-6 h-6 rtl:rotate-180"
+						/>
 					</button>
 					<button
 						type="button"
@@ -130,10 +134,13 @@ export function ImageLightbox({
 							stop(e);
 							goTo(1);
 						}}
-						className="absolute right-4 top-1/2 grid size-12 -translate-y-1/2 place-items-center rounded-full border border-white/25 bg-black/55 text-2xl text-white shadow-lg shadow-black/40 backdrop-blur-md transition hover:bg-black/75 md:size-10 md:text-xl"
+						className="absolute end-4 top-1/2 grid size-12 -translate-y-1/2 place-items-center rounded-full border border-white/25 bg-black/55 text-white shadow-lg shadow-black/40 backdrop-blur-md transition hover:bg-black/75 md:size-10"
 						aria-label="Next image"
 					>
-						›
+						<Icon
+							icon="mdi:chevron-right"
+							className="w-6 h-6 rtl:rotate-180"
+						/>
 					</button>
 					<div className="absolute left-1/2 top-4 -translate-x-1/2 rounded-full border border-white/25 bg-black/55 px-3 py-1 text-xs text-white shadow-lg shadow-black/40 backdrop-blur-md">
 						{index + 1} / {images.length}
