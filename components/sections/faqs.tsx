@@ -64,7 +64,6 @@ export default function FAQs() {
 		"customization",
 		"training",
 		"pricing",
-		"platforms",
 		"design_approach",
 		"post_launch",
 		"ecommerce",

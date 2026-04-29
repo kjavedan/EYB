@@ -33,10 +33,14 @@ export type Project = {
 
 	/**
 	 * Optional walkthrough video for the detail-page hero.
-	 * If present → renders a `<video>` with `image` as the poster.
+	 * If present → renders a `<video>` with `videoPoster ?? image` as the poster.
 	 * If absent → renders a video placeholder (image + play overlay).
 	 */
 	videoUrl?: string;
+	/** Optional poster image URL (e.g. `/images/x.png`) shown before the video plays. */
+	videoPoster?: string;
+	/** Optional list of in-app screenshot URLs (e.g. `/images/x.png`) for the carousel. */
+	screenshots?: string[];
 
 	/** Quick-facts panel */
 	year: string;
@@ -58,8 +62,20 @@ export const projects: Project[] = [
 		slug: "streak",
 		image: placeholderSrc,
 		projectType: "Productivity",
-		domainName: "streak.app",
-		siteUrl: "https://streak-pwa.vercel.app",
+		domainName: "Streak",
+		siteUrl: "https://streak.eyb.ae",
+		videoUrl: "/videos/streak.mp4",
+		videoPoster: "/images/streak_thumbnail.png",
+		screenshots: [
+			"/images/streak-1.png",
+			"/images/streak-2.png",
+			"/images/streak-3.png",
+			"/images/streak-4.png",
+			"/images/streak-5.png",
+			"/images/streak-6.png",
+			"/images/streak-7.png",
+			"/images/streak-8.png",
+		],
 		year: "2025",
 		timeline: "Ongoing",
 		services: ["Product design", "Engineering", "PWA"],
@@ -76,6 +92,8 @@ export const projects: Project[] = [
 			{ name: "PWA", icon: "logos:pwa" },
 			{ name: "Electron", icon: "logos:electron" },
 			{ name: "IndexedDB", icon: "mdi:database-outline" },
+			{ name: "Google auth", icon: "logos:google-icon" },
+			{ name: "Email auth", icon: "mdi:email-outline" },
 		],
 		process: [
 			{
@@ -114,60 +132,71 @@ export const projects: Project[] = [
 		],
 	},
 	{
-		slug: "jojooshop",
-		image: jojoshpoSrc,
-		projectType: "E-commerce",
-		domainName: "jojooshop.com",
-		siteUrl: "https://shop.khaled-javdan.com",
-		year: "2024",
-		timeline: "4 weeks",
-		services: ["Design", "E-commerce", "Payments"],
+		slug: "resume-maker",
+		image: placeholderSrc,
+		projectType: "AI Tool",
+		domainName: "Resume-maker",
+		siteUrl: "https://resume-maker.eyb.ae",
+		videoUrl: "/videos/resume-maker.mp4",
+		videoPoster: "/images/resume-maker_thumbnail.png",
+		year: "2025",
+		timeline: "Ongoing",
+		services: ["Product design", "Engineering", "AI integration"],
 		summary:
-			"Jojooshop sells curated everyday goods to a Dubai-based audience. They wanted a clean, fast online catalogue with the option to grow into a full storefront later.",
+			"Resume Maker tailors your resume to a specific job description in real time. Paste the JD, watch the app rewrite your bullet points, score keyword coverage, and produce a printable, ATS-ready PDF — all powered by an LLM behind the scenes.",
 		challenge:
-			"They had a list of products in a spreadsheet and customers asking where to buy. Existing platforms felt heavy and the templates didn't match how they wanted the brand to feel. They also wanted the option to add or remove items themselves without calling a developer.",
+			"Job seekers spend hours rewording the same resume for every application, often missing the keywords ATS systems actually filter on. Even when they do tailor by hand, there's no way to know how well it matches the job before hitting submit.",
 		solution:
-			"A custom-built Next.js storefront with a lightweight admin panel for self-service product management. Categorized browsing, search, and a streamlined checkout. Built with future expansion in mind — product reviews and a loyalty program can be added without a rewrite.",
+			"A two-pane editor: paste the job description on the left, watch a fully tailored resume stream into a live PDF preview on the right. Every section is editable inline, with an AI rewrite button on hover. A scoring panel calls out missing skills and keyword gaps so you can iterate before you apply. Free tier covers five tailors a month; Pro unlocks unlimited at $5/mo.",
 		techStack: [
 			{ name: "Next.js", icon: "logos:nextjs-icon" },
 			{ name: "TypeScript", icon: "logos:typescript-icon" },
 			{ name: "Tailwind CSS", icon: "logos:tailwindcss-icon" },
-			{ name: "Postgres", icon: "logos:postgresql" },
+			{ name: "Supabase", icon: "logos:supabase-icon" },
+			{ name: "OpenAI", icon: "simple-icons:openai" },
 			{ name: "Stripe", icon: "logos:stripe" },
-			{ name: "Vercel", icon: "logos:vercel-icon" },
 		],
 		process: [
 			{
-				phase: "Scope",
+				phase: "Streaming editor",
 				description:
-					"Defined the MVP — what features had to ship, what could wait. Cut the feature list in half so we could ship fast.",
-				duration: "Week 1",
+					"Built the live two-pane editor with token-by-token streaming so users see the AI think out loud as their resume rewrites itself.",
+				duration: "Phase 1",
 			},
 			{
-				phase: "Design & Build",
+				phase: "Scoring & PDF",
 				description:
-					"Designed and built in parallel — one component at a time, reviewed together every two days.",
-				duration: "Weeks 2–3",
+					"Added the keyword-coverage scoring panel and a print-perfect PDF export so the resume that ships is the one users see in the preview.",
+				duration: "Phase 2",
 			},
 			{
-				phase: "Launch",
+				phase: "Auth & payments",
 				description:
-					"Deployed, hooked up payments, trained the team on the admin panel.",
-				duration: "Week 4",
+					"Wired Supabase auth, Row-Level Security, and Stripe subscriptions for the free tier and Pro plan.",
+				duration: "Phase 3",
+			},
+			{
+				phase: "Live & iterating",
+				description:
+					"Shipped to early users; iterating on prompt quality, template variants, and an applications tracker.",
+				duration: "Phase 4",
 			},
 		],
 		results: [
-			{ value: "4 weeks", label: "From kickoff to first sale" },
-			{ value: "100%", label: "Self-service product management" },
-			{ value: "<1s", label: "Average load on 4G" },
+			{ value: "Real-time", label: "Streaming AI rewrites as you watch" },
+			{ value: "ATS-ready", label: "Keyword-matched for resume filters" },
+			{ value: "$5/mo", label: "Free tier plus simple Pro plan" },
+			{ value: "PDF export", label: "Print-perfect output, no setup" },
 		],
 	},
 	{
 		slug: "chikrice",
 		image: placeholderSrc,
 		projectType: "Health & Fitness",
-		domainName: "chikrice.app",
-		siteUrl: "#",
+		domainName: "Chikrice",
+		siteUrl: "https://chikrice.eyb.ae",
+		videoUrl: "/videos/chikrice.mp4",
+		videoPoster: "/images/chikrice_thumbnail.png",
 		year: "2025",
 		timeline: "TBD",
 		services: ["Product design", "Engineering", "Mobile"],
@@ -196,8 +225,8 @@ export const projects: Project[] = [
 		slug: "healthyplus",
 		image: honeySrc,
 		projectType: "E-commerce",
-		domainName: "healthyplus.ae",
-		siteUrl: "https://honey-store-ruddy.vercel.app/",
+		domainName: "Healthyplus",
+		siteUrl: "https://healthyplus.eyb.ae",
 		year: "2024",
 		timeline: "6 weeks",
 		services: ["Branding", "Design", "E-commerce"],
@@ -251,7 +280,7 @@ export const projects: Project[] = [
 		slug: "aiyifen",
 		image: aiyifenSrc,
 		projectType: "E-commerce",
-		domainName: "aiyifen.com",
+		domainName: "Aiyifen",
 		siteUrl: "https://aiyifen.com",
 		year: "2024",
 		timeline: "5 weeks",
@@ -307,6 +336,55 @@ export const projects: Project[] = [
 			{ value: "0", label: "Orders lost since launch" },
 			{ value: "1.4s", label: "Average page load on mobile" },
 			{ value: "EN + AR", label: "Bilingual from day one" },
+		],
+	},
+	{
+		slug: "jojooshop",
+		image: jojoshpoSrc,
+		projectType: "E-commerce",
+		domainName: "Jojooshop",
+		siteUrl: "https://jojooshop.eyb.ae",
+		year: "2024",
+		timeline: "4 weeks",
+		services: ["Design", "E-commerce", "Payments"],
+		summary:
+			"Jojooshop sells curated everyday goods to a Dubai-based audience. They wanted a clean, fast online catalogue with the option to grow into a full storefront later.",
+		challenge:
+			"They had a list of products in a spreadsheet and customers asking where to buy. Existing platforms felt heavy and the templates didn't match how they wanted the brand to feel. They also wanted the option to add or remove items themselves without calling a developer.",
+		solution:
+			"A custom-built Next.js storefront with a lightweight admin panel for self-service product management. Categorized browsing, search, and a streamlined checkout. Built with future expansion in mind — product reviews and a loyalty program can be added without a rewrite.",
+		techStack: [
+			{ name: "Next.js", icon: "logos:nextjs-icon" },
+			{ name: "TypeScript", icon: "logos:typescript-icon" },
+			{ name: "Tailwind CSS", icon: "logos:tailwindcss-icon" },
+			{ name: "Postgres", icon: "logos:postgresql" },
+			{ name: "Stripe", icon: "logos:stripe" },
+			{ name: "Vercel", icon: "logos:vercel-icon" },
+		],
+		process: [
+			{
+				phase: "Scope",
+				description:
+					"Defined the MVP — what features had to ship, what could wait. Cut the feature list in half so we could ship fast.",
+				duration: "Week 1",
+			},
+			{
+				phase: "Design & Build",
+				description:
+					"Designed and built in parallel — one component at a time, reviewed together every two days.",
+				duration: "Weeks 2–3",
+			},
+			{
+				phase: "Launch",
+				description:
+					"Deployed, hooked up payments, trained the team on the admin panel.",
+				duration: "Week 4",
+			},
+		],
+		results: [
+			{ value: "4 weeks", label: "From kickoff to first sale" },
+			{ value: "100%", label: "Self-service product management" },
+			{ value: "<1s", label: "Average load on 4G" },
 		],
 	},
 ];

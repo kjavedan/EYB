@@ -152,10 +152,6 @@
 				"question": "Are these are fixed prices?",
 				"answer": "No. After our meeting and understanding your needs, we will provide a more accurate quote tailored to your business goals."
 			},
-			"platforms": {
-				"question": "What platforms do you specialize in for building websites?",
-				"answer": "For websites and custom solutions, we use modern technologies like Next.js, React, and Vue for the frontend, and Node.js with MongoDB for the backend. For e-commerce stores, we specialize in Shopify, where we can either use pre-built templates or create fully customized designs to give your store a unique look."
-			},
 			"design_approach": {
 				"question": "Do you offer custom design, or do you use templates?",
 				"answer": "We offer both custom designs and template-based solutions, depending on your needs and budget. Custom designs provide a unique look tailored to your brand, while templates offer a faster and more cost-effective option."
@@ -241,6 +237,13 @@
 				"quote": "The team is so professional and accountable — I didn't expect them to care about my website this much. They treated it like it was their own.",
 				"name": "Peter",
 				"designation": "Owner",
+				"address": "Dubai, UAE",
+				"description": ""
+			},
+			"resume-maker": {
+				"quote": "Paste any job description and watch your resume rewrite itself — keyword-matched, ATS-ready, and exported as a clean PDF in seconds.",
+				"name": "EYB",
+				"designation": "In-house product",
 				"address": "Dubai, UAE",
 				"description": ""
 			}

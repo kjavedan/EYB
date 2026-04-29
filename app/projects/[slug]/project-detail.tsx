@@ -3,9 +3,11 @@
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { NarrativeSection } from "@/components/project/narrative-section";
+import { ScreenshotsCarousel } from "@/components/project/screenshots-carousel";
 import { SectionTitle } from "@/components/project/section-title";
 import { StatGrid } from "@/components/project/stat-grid";
 import { SCHEDULING_URL } from "@/lib/config";
@@ -14,6 +16,8 @@ import { getProjectBySlug } from "@/lib/projects";
 export default function ProjectDetail({ slug }: { slug: string }) {
 	const { t } = useTranslation();
 	const project = getProjectBySlug(slug);
+	const videoRef = useRef<HTMLVideoElement>(null);
+	const [hasStarted, setHasStarted] = useState(false);
 
 	if (!project) return null;
 
@@ -46,58 +50,15 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 					</span>
 				</div>
 
-				<h1 className="text-4xl lg:text-5xl font-bold mb-3">
-					{project.domainName}
-				</h1>
-
-				<p className="text-base lg:text-lg text-[--text-gray] mb-10 max-w-2xl leading-relaxed">
-					{project.summary}
-				</p>
-
-				<div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-[--border-color] mb-6 bg-[--bg-elevated] group">
-					{project.videoUrl ? (
-						<video
-							src={project.videoUrl}
-							poster={project.image.src}
-							controls
-							playsInline
-							preload="metadata"
-							className="absolute inset-0 w-full h-full object-cover"
-						/>
-					) : (
-						<>
-							<Image
-								src={project.image}
-								alt={project.domainName}
-								fill
-								className="object-cover"
-								priority
-								sizes="(max-width: 1024px) 100vw, 1024px"
-							/>
-							{/* Video placeholder overlay — replaced by real video once `videoUrl` is set */}
-							<div className="absolute inset-0 flex items-center justify-center bg-black/30 transition-colors group-hover:bg-black/40">
-								<div className="flex flex-col items-center gap-3">
-									<div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-white/95 flex items-center justify-center shadow-lg">
-										<Icon
-											icon="mdi:play"
-											className="w-8 h-8 lg:w-10 lg:h-10 text-black ms-1"
-										/>
-									</div>
-									<span className="text-xs uppercase tracking-wider text-white/80 font-medium">
-										Walkthrough video coming soon
-									</span>
-								</div>
-							</div>
-						</>
-					)}
-				</div>
-
-				{project.siteUrl && project.siteUrl !== "#" && (
+				<div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-3">
+					<h1 className="text-4xl lg:text-5xl font-bold !mx-0">
+						{project.domainName}
+					</h1>
 					<a
-						href={project.siteUrl}
+						href={project.siteUrl || "#"}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="inline-flex items-center gap-2 px-6 py-3 bg-[--button-bg] text-[--button-text] rounded-full font-semibold hover:opacity-90 transition-colors mb-20"
+						className="inline-flex items-center gap-2 px-6 py-3 bg-[--button-bg] text-[--button-text] rounded-full font-semibold hover:opacity-90 transition-colors whitespace-nowrap shrink-0 self-start sm:self-auto"
 					>
 						<span>
 							{t("project_detail.visit_site", {
@@ -106,6 +67,53 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 						</span>
 						<Icon icon="mdi:open-in-new" className="w-4 h-4" />
 					</a>
+				</div>
+
+				<p className="text-base lg:text-lg text-[--text-gray] mb-10 max-w-2xl leading-relaxed">
+					{project.summary}
+				</p>
+
+				{project.videoUrl && (
+					<div
+						className={`relative aspect-[16/9] rounded-2xl overflow-hidden border border-[--border-color] bg-[--bg-elevated] group ${
+							project.screenshots?.length ? "mb-6" : "mb-20"
+						}`}
+					>
+						<video
+							ref={videoRef}
+							src={project.videoUrl}
+							poster={project.videoPoster ?? project.image.src}
+							controls
+							playsInline
+							preload="metadata"
+							onPlay={() => setHasStarted(true)}
+							className="absolute inset-0 w-full h-full object-cover"
+						/>
+						{!hasStarted && (
+							<button
+								type="button"
+								onClick={() => {
+									videoRef.current?.play();
+									setHasStarted(true);
+								}}
+								className="absolute inset-0 flex items-center justify-center bg-black/30 transition-colors hover:bg-black/40 cursor-pointer"
+								aria-label="Play video"
+							>
+								<div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-white/95 flex items-center justify-center shadow-lg">
+									<Icon
+										icon="mdi:play"
+										className="w-8 h-8 lg:w-10 lg:h-10 text-black ms-1"
+									/>
+								</div>
+							</button>
+						)}
+					</div>
+				)}
+
+				{project.screenshots && project.screenshots.length > 0 && (
+					<div className="mb-20">
+						<ScreenshotsCarousel images={project.screenshots} />
+					</div>
 				)}
 
 				{/* At-a-glance */}

@@ -1,5 +1,6 @@
 "use client";
 
+import NumberFlow from "@number-flow/react";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -21,12 +22,9 @@ const AED_TO_USD_RATE = 3.67;
 
 type Currency = "AED" | "USD";
 
-const formatCurrency = (value: number, currency: Currency) =>
-	new Intl.NumberFormat("en-US", {
-		style: "currency",
-		currency,
-		maximumFractionDigits: 0,
-	}).format(value);
+type ResolvedPrice =
+	| { kind: "numeric"; amount: number; currency: Currency }
+	| { kind: "text"; value: string };
 
 const parseAmount = (value: string) => {
 	const normalized = value.replace(/[^0-9.]/g, "");
@@ -42,21 +40,31 @@ const resolvePrice = ({
 	priceAed: string;
 	priceUsd: string;
 	currency: Currency;
-}) => {
+}): ResolvedPrice => {
 	if (currency === "AED") {
-		return priceAed;
+		const amount = parseAmount(priceAed);
+		return amount !== null
+			? { kind: "numeric", amount, currency: "AED" }
+			: { kind: "text", value: priceAed };
 	}
 
 	if (priceUsd && priceUsd !== "—") {
-		return priceUsd;
+		const usdAmount = parseAmount(priceUsd);
+		if (usdAmount !== null) {
+			return { kind: "numeric", amount: usdAmount, currency: "USD" };
+		}
 	}
 
 	const parsedAedAmount = parseAmount(priceAed);
-	if (!parsedAedAmount) {
-		return priceAed;
+	if (parsedAedAmount === null) {
+		return { kind: "text", value: priceAed };
 	}
 
-	return formatCurrency(parsedAedAmount / AED_TO_USD_RATE, "USD");
+	return {
+		kind: "numeric",
+		amount: Math.round(parsedAedAmount / AED_TO_USD_RATE),
+		currency: "USD",
+	};
 };
 
 const PricingCard = ({
@@ -70,7 +78,7 @@ const PricingCard = ({
 	isHighlighted,
 }: {
 	title: string;
-	price: string;
+	price: ResolvedPrice;
 	duration: string;
 	description: string;
 	features: string[];
@@ -86,7 +94,21 @@ const PricingCard = ({
 				availableSpot === 0 ? "text-[--text-gray]" : ""
 			} ${isHighlighted ? "lg:scale-[1.02]" : ""}`}
 		>
-			<h4 className="text-4xl font-bold mb-2">{price}</h4>
+			<h4 className="text-4xl font-bold mb-2">
+				{price.kind === "numeric" ? (
+					<NumberFlow
+						value={price.amount}
+						format={{
+							style: "currency",
+							currency: price.currency,
+							maximumFractionDigits: 0,
+						}}
+						locales="en-US"
+					/>
+				) : (
+					price.value
+				)}
+			</h4>
 			<div className="flex items-center justify-between mb-4">
 				<h4 className="text-2xl font-semibold">{title}</h4>
 				<h5 className="text-xs text-[--text-gray]">{duration}</h5>
