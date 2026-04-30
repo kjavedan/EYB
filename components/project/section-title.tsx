@@ -16,7 +16,7 @@ export function SectionTitle({
 			{icon && (
 				<Icon
 					icon={icon}
-					className="w-5 h-5 text-purple-700 dark:text-purple-300"
+					className="w-5 h-5 text-brand-blue dark:text-brand-violet"
 				/>
 			)}
 			<h2 className="text-sm uppercase tracking-widest font-semibold text-[--text-gray]">

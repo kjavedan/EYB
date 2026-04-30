@@ -2,7 +2,6 @@
 
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -39,6 +38,11 @@ export default function Testimonials() {
 		[activeCategory],
 	);
 
+	const labelFor = (cat: string) =>
+		t(`testimonials.categories.${cat === ALL ? "all" : cat}`, {
+			defaultValue: cat,
+		});
+
 	const lastRowStart = Math.floor((filtered.length - 1) / COLS) * COLS;
 
 	return (
@@ -46,7 +50,7 @@ export default function Testimonials() {
 			<SectionHeading>{t("testimonials.title")}</SectionHeading>
 
 			<div className="mt-6 flex justify-center">
-				<div className="inline-flex flex-wrap justify-center gap-1 rounded-full border border-[--border-color] bg-[--card-bg] p-3 md:p-1">
+				<div className="inline-flex flex-wrap justify-center gap-1 rounded-full border border-[--border-color] bg-[--card-bg] p-1">
 					{categories.map((category) => {
 						const active = activeCategory === category;
 						return (
@@ -72,7 +76,7 @@ export default function Testimonials() {
 										}}
 									/>
 								)}
-								<span className="relative z-10">{category}</span>
+								<span className="relative z-10">{labelFor(category)}</span>
 							</motion.button>
 						);
 					})}
@@ -114,20 +118,10 @@ export default function Testimonials() {
 									className="group flex flex-col h-full p-6 lg:p-8 gap-4"
 								>
 									<div className="relative aspect-[16/10] overflow-hidden bg-[--bg-elevated]">
-										{Preview ? (
-											<Preview />
-										) : (
-											<Image
-												src={project.image}
-												alt={project.domainName}
-												fill
-												className="object-cover transition-transform duration-500 group-hover:scale-105"
-												sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-											/>
-										)}
+										{Preview && <Preview />}
 										<div className="absolute top-3 left-3 px-3 py-1 bg-black/60 backdrop-blur-sm border border-white/15 rounded-full">
 											<span className="text-xs font-semibold text-white">
-												{project.projectType}
+												{labelFor(project.projectType)}
 											</span>
 										</div>
 									</div>

@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ---------- Self-hosted Arabic primary --------------------------------------
+   English primary (Space Grotesk) and the two secondaries (Montserrat,
+   Noto Sans Arabic) are loaded as Google Fonts via next/font in
+   `app/layout.tsx`. Arabic primary is Neo Sans Arabic — drop the file(s)
+   into `public/fonts/` and the rule below picks them up; if missing, the
+   cascade falls back to Noto Sans Arabic.
+------------------------------------------------------------------------- */
+
+/* Neo Sans Arabic — Arabic primary */
+@font-face {
+	font-family: "Neo Sans Arabic";
+	src:
+		url("/fonts/NeoSansArabic.woff2") format("woff2"),
+		url("/fonts/NeoSansArabic.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Neo Sans Arabic";
+	src:
+		url("/fonts/NeoSansArabic-Bold.woff2") format("woff2"),
+		url("/fonts/NeoSansArabic-Bold.ttf") format("truetype");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
 *,
 ::before,
 ::after {
@@ -31,15 +59,29 @@
 	--divider-from: #ffffff;
 	--divider-via: #c4c4c4;
 
-	/* Brand / accent */
-	--secondary-color: #344fff;
-	--accent-blue: #007bff;
-	--icon-gradient: linear-gradient(90deg, #344fff, #1f2f99);
+	/* Brand / accent — new design system (2026)
+	   Hex tokens for direct use in CSS; rgb triplets for Tailwind opacity
+	   modifiers (e.g. `bg-brand-violet/15`). */
+	--brand-blue: #2346ff; /* Electric Blue */
+	--brand-mint: #67f2dd; /* Aqua Mint */
+	--brand-violet: #9e8cff; /* Soft Violet */
+	--brand-blue-rgb: 35 70 255;
+	--brand-mint-rgb: 103 242 221;
+	--brand-violet-rgb: 158 140 255;
+	--secondary-color: var(--brand-blue);
+	--accent-blue: var(--brand-blue);
+	--icon-gradient: linear-gradient(90deg, var(--brand-blue), var(--brand-violet));
+	--brand-gradient: linear-gradient(
+		95deg,
+		var(--brand-blue) 0%,
+		var(--brand-violet) 45%,
+		var(--brand-mint) 100%
+	);
 
 	/* Buttons (primary CTA) */
 	--button-bg: #0a0a0a;
 	--button-text: #ffffff;
-	--button-hover-bg: #344fff;
+	--button-hover-bg: var(--brand-blue);
 	--button-hover-text: #ffffff;
 
 	/* Legacy aliases — do not use in new code */
@@ -62,8 +104,27 @@
 	);
 	--title-gradient: linear-gradient(90deg, #0a0a0a, #5a5a5a);
 
-	/* Type */
-	--font-primary: "Playpen Sans Arabic", sans-serif;
+	/* Type
+	   Primary (display):
+	     EN — Poppins (Google Fonts via next/font)
+	     AR — Neo Sans Arabic (self-hosted, falls back to Noto Sans Arabic)
+	   Secondary (body):
+	     EN — Montserrat (Google Fonts via next/font)
+	     AR — Noto Sans Arabic (Google Fonts via next/font)
+	   Each cascade lists Latin fonts first, then Arabic fonts, then system,
+	   so browsers font-fall per glyph even before `dir="rtl"` is applied
+	   during hydration. Defaults to English; `[dir="rtl"]` flips below. */
+	--font-en-primary-stack: var(--font-en-primary), "Helvetica Neue", Arial,
+		"Neo Sans Arabic", var(--font-ar-secondary), system-ui, sans-serif;
+	--font-ar-primary-stack: "Neo Sans Arabic", var(--font-ar-secondary),
+		var(--font-en-primary), "Helvetica Neue", Arial, system-ui, sans-serif;
+	--font-primary: var(--font-en-primary-stack);
+	--font-secondary: var(--font-en-secondary), system-ui, sans-serif;
+}
+
+[dir="rtl"] {
+	--font-primary: var(--font-ar-primary-stack);
+	--font-secondary: var(--font-ar-secondary), system-ui, sans-serif;
 }
 
 .dark {
@@ -101,7 +162,7 @@ html {
 
 body {
 	color: var(--text-color);
-	font-family: var(--font-primary);
+	font-family: var(--font-secondary);
 	overflow-x: hidden;
 	background-color: var(--bg-color);
 	width: 100%;
@@ -131,20 +192,15 @@ li a:hover {
 	text-decoration: underline;
 }
 
+/* Primary (display) font is used for headings only.
+   Body text, buttons, inputs, links, etc. inherit the secondary font
+   from <body>. */
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
-p,
-span,
-div,
-a,
-button,
-input,
-textarea,
-select {
+h6 {
 	font-family: var(--font-primary);
 }
 
@@ -155,7 +211,7 @@ h2 {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent; */
-	font-weight: 900;
+	font-weight: 700;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -218,7 +274,7 @@ h2 {
 .btn__primary::before {
 	position: absolute;
 	content: "";
-	background-color: var(--button-hover-bg);
+	background: var(--brand-gradient);
 	width: 200%;
 	height: 300%;
 	z-index: -1;
@@ -226,7 +282,7 @@ h2 {
 }
 
 .btn__primary:disabled::before {
-	background-color: transparent;
+	background: transparent;
 }
 
 .btn__primary:hover {

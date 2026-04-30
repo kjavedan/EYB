@@ -1,6 +1,6 @@
 "use client";
 
-import logoSrc from "@/assets/images/logo.png";
+import logoSrc from "@/public/images/logo.png";
 import LanguageSelector from "@/components/ui/language-selector";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import Image from "next/image";

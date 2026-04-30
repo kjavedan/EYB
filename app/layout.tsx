@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat, Noto_Sans_Arabic, Poppins } from "next/font/google";
 import type React from "react";
 import "./globals.css";
 import { KeyboardShortcuts } from "@/components/keyboard-shortcuts";
@@ -15,7 +15,26 @@ import {
 } from "@/lib/config";
 import { Analytics } from "@vercel/analytics/next";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+	subsets: ["latin"],
+	weight: ["400", "500", "600", "700", "800", "900"],
+	variable: "--font-en-primary",
+	display: "swap",
+});
+
+const montserrat = Montserrat({
+	subsets: ["latin"],
+	weight: ["400", "500", "600", "700"],
+	variable: "--font-en-secondary",
+	display: "swap",
+});
+
+const notoSansArabic = Noto_Sans_Arabic({
+	subsets: ["arabic"],
+	weight: ["400", "500", "600", "700"],
+	variable: "--font-ar-secondary",
+	display: "swap",
+});
 
 export const metadata: Metadata = {
 	title: {
@@ -101,17 +120,15 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" suppressHydrationWarning>
+		<html
+			lang="en"
+			className={`${poppins.variable} ${montserrat.variable} ${notoSansArabic.variable}`}
+			suppressHydrationWarning
+		>
 			<head>
-				<link
-					href="https://fonts.googleapis.com/css2?family=Playpen+Sans+Arabic:wght@100..800&display=swap"
-					rel="stylesheet"
-				/>
 				<link rel="icon" href="/favicon.ico" sizes="any" />
 				<link rel="icon" href="/icon.svg" type="image/svg+xml" />
 				<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-				<link rel="manifest" href="/manifest.json" />
-				<meta name="theme-color" content="#344FFF" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 				{/* Organization Schema */}
@@ -240,7 +257,7 @@ export default function RootLayout({
 					}}
 				/>
 			</head>
-			<body className={inter.className}>
+			<body>
 				<ThemeProvider>
 					<KeyboardShortcuts />
 					<I18nProvider>{children}</I18nProvider>

@@ -24,6 +24,26 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 	const address = tk("address");
 	const quote = tk("quote");
 
+	const tField = (key: string, fallback: string) =>
+		t(`projects.${project.slug}.${key}`, { defaultValue: fallback });
+
+	const projectType = tField("projectType", project.projectType);
+	const summary = tField("summary", project.summary);
+	const challenge = tField("challenge", project.challenge);
+	const solution = tField("solution", project.solution);
+	const timeline = tField("timeline", project.timeline);
+	const year = tField("year", project.year);
+	const services = project.services.map((s, i) => tField(`services.${i}`, s));
+	const processSteps = project.process.map((step, i) => ({
+		phase: tField(`process.${i}.phase`, step.phase),
+		description: tField(`process.${i}.description`, step.description),
+		duration: tField(`process.${i}.duration`, step.duration),
+	}));
+	const resultsItems = project.results.map((r, i) => ({
+		value: tField(`results.${i}.value`, r.value),
+		label: tField(`results.${i}.label`, r.label),
+	}));
+
 	return (
 		<main className="min-h-screen text-[--text-color]">
 			<div className="max-w-screen-lg mx-auto px-4 py-12 lg:py-20">
@@ -39,8 +59,8 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 
 				{/* Header */}
 				<div className="flex flex-wrap items-center gap-3 mb-4">
-					<span className="px-3 py-1 bg-purple-500/15 border border-purple-400/30 rounded-full text-xs font-semibold text-purple-700 dark:text-purple-200">
-						{project.projectType}
+					<span className="px-3 py-1 bg-brand-violet/15 border border-brand-violet/30 rounded-full text-xs font-semibold text-brand-blue dark:text-brand-violet">
+						{projectType}
 					</span>
 					<span className="text-sm text-[--text-gray]">
 						{project.domainName}
@@ -67,7 +87,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 				</div>
 
 				<p className="text-base lg:text-lg text-[--text-gray] mb-10 max-w-2xl leading-relaxed">
-					{project.summary}
+					{summary}
 				</p>
 
 				{project.videoUrl && (
@@ -78,7 +98,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 					>
 						<video
 							src={project.videoUrl}
-							poster={project.videoPoster ?? project.image.src}
+							poster={project.videoPoster}
 							controls
 							playsInline
 							preload="metadata"
@@ -99,15 +119,15 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 					<StatGrid
 						items={[
 							{ label: t("project_detail.client_label"), value: name },
-							{ label: t("project_detail.year"), value: project.year },
-							{ label: t("project_detail.timeline"), value: project.timeline },
+							{ label: t("project_detail.year"), value: year },
+							{ label: t("project_detail.timeline"), value: timeline },
 							{
 								label: t("project_detail.services_label"),
 								children: (
 									<div className="flex flex-wrap gap-1.5">
-										{project.services.map((service) => (
+										{services.map((service, i) => (
 											<span
-												key={service}
+												key={i}
 												className="text-xs font-medium px-2.5 py-1 rounded-full border border-[--border-color] bg-[--text-color]/[0.03]"
 											>
 												{service}
@@ -127,14 +147,14 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 					number="01"
 					icon="mdi:alert-octagon-outline"
 					heading={t("project_detail.challenge_heading")}
-					body={project.challenge}
+					body={challenge}
 				/>
 
 				<NarrativeSection
 					number="02"
 					icon="mdi:lightbulb-on-outline"
 					heading={t("project_detail.solution_heading")}
-					body={project.solution}
+					body={solution}
 				/>
 
 				{/* Tech stack */}
@@ -163,9 +183,9 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 						label={t("project_detail.process_heading")}
 					/>
 					<ol className="relative border-s border-[--border-color] ms-3 space-y-8">
-						{project.process.map((step, i) => (
+						{processSteps.map((step, i) => (
 							<li key={i} className="ps-8 relative">
-								<span className="absolute -start-[13px] top-0 w-6 h-6 rounded-full bg-purple-500/20 border border-purple-400/40 flex items-center justify-center text-xs font-bold text-purple-700 dark:text-purple-200">
+								<span className="absolute -start-[13px] top-0 w-6 h-6 rounded-full bg-brand-violet/20 border border-brand-violet/40 flex items-center justify-center text-xs font-bold text-brand-blue dark:text-brand-violet">
 									{i + 1}
 								</span>
 								<div className="flex flex-wrap items-baseline gap-3 mb-1">
@@ -189,7 +209,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 						label={t("project_detail.results_heading")}
 					/>
 					<StatGrid
-						items={project.results.map((r) => ({
+						items={resultsItems.map((r) => ({
 							label: r.label,
 							value: r.value,
 							emphasis: "metric",
@@ -204,7 +224,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 							icon="mdi:format-quote-open"
 							label={t("project_detail.quote_heading")}
 						/>
-						<blockquote className="border-s-2 border-purple-400/40 ps-6">
+						<blockquote className="border-s-2 border-brand-violet/40 ps-6">
 							<p className="text-xl lg:text-2xl italic text-[--text-color] leading-relaxed">
 								“{quote}”
 							</p>

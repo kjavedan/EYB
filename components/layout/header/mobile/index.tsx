@@ -2,7 +2,7 @@
 
 import type React from "react";
 
-import logoSrc from "@/assets/images/logo.png";
+import logoSrc from "@/public/images/logo.png";
 import LanguageSelector from "@/components/ui/language-selector";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { AnimatePresence, motion, useCycle } from "framer-motion";

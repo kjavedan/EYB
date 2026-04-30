@@ -11,6 +11,9 @@ const config: Config = {
 	theme: {
 		extend: {
 			colors: {
+				"brand-blue": "rgb(var(--brand-blue-rgb) / <alpha-value>)",
+				"brand-mint": "rgb(var(--brand-mint-rgb) / <alpha-value>)",
+				"brand-violet": "rgb(var(--brand-violet-rgb) / <alpha-value>)",
 				background: "hsl(var(--background))",
 				foreground: "hsl(var(--foreground))",
 				card: {

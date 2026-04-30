@@ -118,8 +118,8 @@ const PricingCard = ({
 					availableSpot === 0
 						? "border-gray-600 text-[--text-gray]"
 						: isHighlighted
-							? "bg-purple-500/20 border-purple-400/50 text-purple-700 dark:text-purple-200"
-							: "bg-purple-500/10 border-purple-400/25 text-purple-700/80 dark:text-purple-200/80"
+							? "bg-gradient-to-r from-brand-blue/25 via-brand-violet/25 to-brand-mint/25 border-brand-violet/50 text-brand-blue dark:text-white"
+							: "bg-gradient-to-r from-brand-blue/15 via-brand-violet/15 to-brand-mint/15 border-brand-violet/30 text-brand-blue/85 dark:text-white/85"
 				}`}
 				initial={{ opacity: 0, scale: 0.8 }}
 				animate={{ opacity: 1, scale: 1 }}

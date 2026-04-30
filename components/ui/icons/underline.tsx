@@ -20,7 +20,7 @@ export default function Underline({ viewBox, ...others }: UnderlineProps) {
 			<motion.path
 				d="M-13.1345 8.52868C-13.1345 8.52868 80.6236 -5.21228 177.345 3.23635C277.003 11.9415 109 -5 38.8533 9.65386"
 				fill="none"
-				stroke="#344FFF"
+				stroke="#2346FF"
 				strokeWidth="2"
 				strokeDasharray="500"
 				strokeDashoffset="500"

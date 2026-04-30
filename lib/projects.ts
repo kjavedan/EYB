@@ -1,11 +1,3 @@
-import type { StaticImageData } from "next/image";
-
-import aiyifenSrc from "@/assets/images/aiyifen.webp";
-import honeySrc from "@/assets/images/honey.webp";
-import jojoshpoSrc from "@/assets/images/jojoshop.jpg";
-// TODO: replace with real streak / chikrice screenshots when available
-import placeholderSrc from "@/assets/images/plumbing.png";
-
 export type Tech = {
 	name: string;
 	/** Iconify icon id */
@@ -26,15 +18,14 @@ export type Result = {
 export type Project = {
 	/** URL slug. Also keys into `testimonials.items.*` for client copy. */
 	slug: string;
-	image: StaticImageData;
 	projectType: string;
 	domainName: string;
 	siteUrl: string;
 
 	/**
 	 * Optional walkthrough video for the detail-page hero.
-	 * If present → renders a `<video>` with `videoPoster ?? image` as the poster.
-	 * If absent → renders a video placeholder (image + play overlay).
+	 * If present → renders a `<video>`. The HTML5 player will use the
+	 * first frame as the poster unless `videoPoster` is set.
 	 */
 	videoUrl?: string;
 	/** Optional poster image URL (e.g. `/images/x.png`) shown before the video plays. */
@@ -60,8 +51,7 @@ export type Project = {
 export const projects: Project[] = [
 	{
 		slug: "streak",
-		image: placeholderSrc,
-		projectType: "Productivity",
+		projectType: "Software",
 		domainName: "Streak",
 		siteUrl: "https://streak.eyb.ae",
 		videoUrl: "/videos/streak.mp4",
@@ -76,7 +66,7 @@ export const projects: Project[] = [
 			"/images/streak-7.png",
 			"/images/streak-8.png",
 		],
-		year: "2025",
+		year: "2026",
 		timeline: "Ongoing",
 		services: ["Product design", "Engineering", "PWA"],
 		summary:
@@ -133,8 +123,7 @@ export const projects: Project[] = [
 	},
 	{
 		slug: "resume-maker",
-		image: placeholderSrc,
-		projectType: "AI Tool",
+		projectType: "Software",
 		domainName: "Resume-maker",
 		siteUrl: "https://resume-maker.eyb.ae",
 		videoUrl: "/videos/resume-maker.mp4",
@@ -147,7 +136,7 @@ export const projects: Project[] = [
 			"/images/resume-maker-5.png",
 			"/images/resume-maker-6.png",
 		],
-		year: "2025",
+		year: "2026",
 		timeline: "Ongoing",
 		services: ["Product design", "Engineering", "AI integration"],
 		summary:
@@ -199,8 +188,7 @@ export const projects: Project[] = [
 	},
 	{
 		slug: "chikrice",
-		image: placeholderSrc,
-		projectType: "Health & Fitness",
+		projectType: "Software",
 		domainName: "Chikrice",
 		siteUrl: "https://chikrice.khaled-javdan.com",
 		videoUrl: "/videos/chikrice.mp4",
@@ -212,32 +200,58 @@ export const projects: Project[] = [
 			"/images/chikrice-4.png",
 		],
 		year: "2025",
-		timeline: "TBD",
-		services: ["Product design", "Engineering", "Mobile"],
+		timeline: "Ongoing",
+		services: ["Product design", "Engineering", "AI integration", "PWA"],
 		summary:
-			"Chikrice generates a personalized nutrition roadmap, builds your daily meal plan, and tracks your macros so progress feels automatic. (Detailed copy coming.)",
+			"Chikrice is a mobile-first nutrition app that helps people understand calories, macros, portions, and daily consistency. It turns a fitness goal into a clear roadmap with milestones, daily targets, meal tracking, and AI-powered food suggestions.",
 		challenge:
-			"(Coming soon — placeholder while real copy is being written.)",
-		solution: "(Coming soon — placeholder while real copy is being written.)",
+			"Most people know they want to lose weight, gain muscle, or get in better shape, but they do not know how many calories they need, what macros to eat, how portions translate into calories, or how to repeat the process every day. The information is scattered, and consistency breaks when tracking feels too complicated.",
+		solution:
+			"Chikrice starts with the user's body details and goal, then generates a personalized roadmap. If the goal takes six months, the app breaks it into six milestones, each with its own calorie and macro targets. The daily dashboard lets users log the meals they ate, see how those meals affect their targets, and stay aligned with the current milestone. AI support estimates calories and macros from natural food descriptions, while smart suggestions recommend meals that fit the user's remaining daily targets. Built as a responsive PWA, Chikrice can be installed and used every day from a phone or desktop.",
 		techStack: [
-			{ name: "Next.js", icon: "logos:nextjs-icon" },
-			{ name: "TypeScript", icon: "logos:typescript-icon" },
-			{ name: "Tailwind CSS", icon: "logos:tailwindcss-icon" },
+			{ name: "React", icon: "logos:react" },
+			{ name: "Node.js", icon: "logos:nodejs-icon" },
+			{ name: "Express", icon: "simple-icons:express" },
+			{ name: "MongoDB", icon: "logos:mongodb-icon" },
+			{ name: "MUI", icon: "simple-icons:mui" },
+			{ name: "PWA", icon: "logos:pwa" },
+			{ name: "AI integration", icon: "simple-icons:openai" },
 		],
 		process: [
 			{
-				phase: "TBD",
-				description: "Process content coming soon.",
-				duration: "—",
+				phase: "Goal roadmap",
+				description:
+					"Designed the onboarding flow around body details, target weight, timeline, and activity level so the app can generate a realistic nutrition roadmap.",
+				duration: "Phase 1",
+			},
+			{
+				phase: "Milestones & targets",
+				description:
+					"Built the milestone system that breaks a long-term goal into smaller stages, each with its own calories, protein, carbs, and fat targets.",
+				duration: "Phase 2",
+			},
+			{
+				phase: "Daily dashboard",
+				description:
+					"Created the meal-tracking dashboard where users log what they ate and see remaining calories and macros for the current day.",
+				duration: "Phase 3",
+			},
+			{
+				phase: "AI food support",
+				description:
+					"Added AI-powered calorie and macro estimates from food descriptions, plus smart meal suggestions based on the user's daily targets.",
+				duration: "Phase 4",
 			},
 		],
 		results: [
-			{ value: "—", label: "Results coming soon" },
+			{ value: "Clear goal path", label: "Users know what to eat to reach their fitness goal" },
+			{ value: "Daily consistency", label: "Meals and macros become easier to track every day" },
+			{ value: "Better choices", label: "Smart suggestions help users choose food that fits their plan" },
+			{ value: "Progress awareness", label: "Users can see how each meal affects their goal" },
 		],
 	},
 	{
 		slug: "healthyplus",
-		image: honeySrc,
 		projectType: "E-commerce",
 		domainName: "Healthyplus",
 		siteUrl: "https://healthyplus.eyb.ae",
@@ -292,10 +306,16 @@ export const projects: Project[] = [
 	},
 	{
 		slug: "aiyifen",
-		image: aiyifenSrc,
 		projectType: "E-commerce",
 		domainName: "Aiyifen",
 		siteUrl: "https://aiyifen.com",
+		videoUrl: "/videos/aiyifen.mp4",
+		screenshots: [
+			"/images/aiyifen-1.png",
+			"/images/aiyifen-2.png",
+			"/images/aiyifen-3.png",
+			"/images/aiyifen-4.png",
+		],
 		year: "2024",
 		timeline: "5 weeks",
 		services: [
@@ -354,7 +374,6 @@ export const projects: Project[] = [
 	},
 	{
 		slug: "jojooshop",
-		image: jojoshpoSrc,
 		projectType: "E-commerce",
 		domainName: "Jojooshop",
 		siteUrl: "https://jojooshop.eyb.ae",
@@ -368,46 +387,53 @@ export const projects: Project[] = [
 			"/images/shop-5.png",
 		],
 		year: "2024",
-		timeline: "4 weeks",
-		services: ["Design", "E-commerce", "Payments"],
+		timeline: "Internal showcase",
+		services: ["Product design", "Full-stack engineering", "E-commerce", "Admin panel"],
 		summary:
-			"Jojooshop sells curated everyday goods to a Dubai-based audience. They wanted a clean, fast online catalogue with the option to grow into a full storefront later.",
+			"Jojooshop is an in-house e-commerce showcase built to demonstrate how far a fully custom storefront can go without relying on a template. It combines a polished shopping experience, multilingual support, custom authentication, Google OAuth, and a complete admin panel in one modern web application.",
 		challenge:
-			"They had a list of products in a spreadsheet and customers asking where to buy. Existing platforms felt heavy and the templates didn't match how they wanted the brand to feel. They also wanted the option to add or remove items themselves without calling a developer.",
+			"We built Jojooshop because many businesses want more than a basic store theme, but they need to see what a custom e-commerce build can actually include. The goal was to create a realistic, fully featured store that shows our ability to handle complex UI, multilingual flows, authentication, product management, and a smooth buying experience from end to end.",
 		solution:
-			"A custom-built Next.js storefront with a lightweight admin panel for self-service product management. Categorized browsing, search, and a streamlined checkout. Built with future expansion in mind — product reviews and a loyalty program can be added without a rewrite.",
+			"We designed and built a complete custom e-commerce platform with a responsive storefront, advanced product browsing, custom authentication, Google OAuth, and a dedicated admin panel for managing products and store content. The site supports four languages and page-direction switching, so the same interface works naturally for both LTR and RTL users. Jojooshop is not presented as a client case study; it is a working proof of the kind of modern, high-quality e-commerce experience EYB can design and engineer.",
 		techStack: [
-			{ name: "Next.js", icon: "logos:nextjs-icon" },
-			{ name: "TypeScript", icon: "logos:typescript-icon" },
-			{ name: "Tailwind CSS", icon: "logos:tailwindcss-icon" },
-			{ name: "Postgres", icon: "logos:postgresql" },
-			{ name: "Stripe", icon: "logos:stripe" },
-			{ name: "Vercel", icon: "logos:vercel-icon" },
+			{ name: "React", icon: "logos:react" },
+			{ name: "Node.js", icon: "logos:nodejs-icon" },
+			{ name: "Express", icon: "simple-icons:express" },
+			{ name: "MongoDB", icon: "logos:mongodb-icon" },
+			{ name: "Google OAuth", icon: "logos:google-icon" },
+			{ name: "Custom auth", icon: "mdi:shield-account-outline" },
 		],
 		process: [
 			{
-				phase: "Scope",
+				phase: "Showcase strategy",
 				description:
-					"Defined the MVP — what features had to ship, what could wait. Cut the feature list in half so we could ship fast.",
-				duration: "Week 1",
+					"Defined Jojooshop as a capability showcase: a realistic store that demonstrates custom design, multilingual UX, authentication, and admin workflows.",
+				duration: "Phase 1",
 			},
 			{
-				phase: "Design & Build",
+				phase: "Storefront design",
 				description:
-					"Designed and built in parallel — one component at a time, reviewed together every two days.",
-				duration: "Weeks 2–3",
+					"Designed a modern e-commerce interface with clear browsing, polished product pages, responsive layouts, and smooth direction switching across four languages.",
+				duration: "Phase 2",
 			},
 			{
-				phase: "Launch",
+				phase: "Full-stack build",
 				description:
-					"Deployed, hooked up payments, trained the team on the admin panel.",
-				duration: "Week 4",
+					"Built the React storefront, Node.js and Express backend, MongoDB data layer, custom authentication, Google OAuth, and core e-commerce flows.",
+				duration: "Phase 3",
+			},
+			{
+				phase: "Custom admin",
+				description:
+					"Created a custom admin panel so products, store content, and operational data can be managed without touching the codebase.",
+				duration: "Phase 4",
 			},
 		],
 		results: [
-			{ value: "4 weeks", label: "From kickoff to first sale" },
-			{ value: "100%", label: "Self-service product management" },
-			{ value: "<1s", label: "Average load on 4G" },
+			{ value: "Full custom build", label: "Storefront, backend, auth, and admin panel built from scratch" },
+			{ value: "4 languages", label: "Multilingual shopping experience with direction switching" },
+			{ value: "Modern UX", label: "A polished interface designed to feel like a real production store" },
+			{ value: "Reusable proof", label: "A live example of the e-commerce quality EYB can deliver" },
 		],
 	},
 ];

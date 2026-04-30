@@ -21,12 +21,12 @@ export default function Hero() {
 			className="h-100dvh flex items-center justify-center lg:max-h-[900px] pb-0 pt-0"
 		>
 			<div className="flex flex-col mt-[-100px] lg:mt-[0px]">
-				<h1 className="heading text-center font-[var(--font-primary)] max-w-screen-xl mx-auto text-[40px] leading-[60px] lg:text-4xl lg:leading-[60px] xl:text-6xl xl:leading-[90px] font-900">
+				<h1 className="heading text-center font-[var(--font-primary)] max-w-screen-xl mx-auto text-[40px] leading-[60px] md:text-5xl md:leading-[70px] lg:text-6xl lg:leading-[80px] xl:text-7xl xl:leading-[100px] 2xl:text-8xl 2xl:leading-[120px]">
 					<span className="text-[--text-color]">
 						{t("hero.title.part1", { defaultValue: "We Take Businesses" })}
 					</span>
 					<span className="store-section relative block mx-2 lg:mr-4">
-						<span className="font-black text-[--text-color]">
+						<span className="font-bold text-[--text-color]">
 							{part2Before}{" "}
 						</span>
 
@@ -56,7 +56,7 @@ export default function Hero() {
 							/>
 						</motion.span>
 
-						<span className="font-black text-[--text-color]">{part2After}</span>
+						<span className="font-bold text-[--text-color]">{part2After}</span>
 
 						<Underline
 							viewBox={"-25 -5 250 18"}

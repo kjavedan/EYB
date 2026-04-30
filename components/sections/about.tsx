@@ -4,9 +4,9 @@ import Button from "@/components/ui/button";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
-import faizSrc from "@/assets/images/faiz.jpeg";
-import khaledSrc from "@/assets/images/khaled.png";
-import sajadSrc from "@/assets/images/sajad.jpg";
+import faizSrc from "@/public/images/faiz.jpeg";
+import khaledSrc from "@/public/images/khaled.png";
+import sajadSrc from "@/public/images/sajad.jpg";
 
 export default function About() {
 	const { t } = useTranslation();

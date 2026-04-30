@@ -16,7 +16,7 @@
 			},
 			"automation": {
 				"title": "AI Automation",
-				"description": "Automate repetitive tasks with AI and focus on growing your business"
+				"description": "Automate repetitive tasks with AI and focus on growing business"
 			},
 			"marketing": {
 				"title": "Marketing",
@@ -205,6 +205,12 @@
 	"testimonials": {
 		"title": "Projects",
 		"view_project": "View project",
+		"categories": {
+			"all": "All",
+			"Websites": "Websites",
+			"Software": "Software",
+			"E-commerce": "E-commerce"
+		},
 		"items": {
 			"streak": {
 				"quote": "One quiet app for the things you do every day — streaks, focus, todos, and ideas. Free forever, installable anywhere.",
@@ -214,14 +220,14 @@
 				"description": ""
 			},
 			"jojooshop": {
-				"quote": " They understood my requirements perfectly and were blazing fast and responsive from day one. I've been recommending them to all my friends ever since.",
-				"name": "Gaya",
-				"designation": "Owner",
+				"quote": "We built Jojooshop to show what a fully custom e-commerce experience can look like when design, multilingual support, authentication, admin tools, and modern web engineering are handled properly from the start.",
+				"name": "EYB",
+				"designation": "In-house showcase",
 				"address": "Dubai, UAE",
 				"description": ""
 			},
 			"chikrice": {
-				"quote": "A personalized nutrition roadmap with daily meal plans and automatic macro tracking — your progress on autopilot.",
+				"quote": "This is the best app I could ask for. It is simple, minimal, and straight to the point. It saved me so much time and frustration — I just eat, log my food, and the app counts everything for me. Thank you EYB team for giving us an app like this for free.",
 				"name": "EYB",
 				"designation": "In-house product",
 				"address": "Dubai, UAE",
