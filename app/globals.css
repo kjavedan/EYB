@@ -13,8 +13,7 @@
 /* Neo Sans Arabic — Arabic primary */
 @font-face {
 	font-family: "Neo Sans Arabic";
-	src:
-		url("/fonts/NeoSansArabic.woff2") format("woff2"),
+	src: url("/fonts/NeoSansArabic.woff2") format("woff2"),
 		url("/fonts/NeoSansArabic.ttf") format("truetype");
 	font-weight: 400;
 	font-style: normal;
@@ -22,8 +21,7 @@
 }
 @font-face {
 	font-family: "Neo Sans Arabic";
-	src:
-		url("/fonts/NeoSansArabic-Bold.woff2") format("woff2"),
+	src: url("/fonts/NeoSansArabic-Bold.woff2") format("woff2"),
 		url("/fonts/NeoSansArabic-Bold.ttf") format("truetype");
 	font-weight: 700;
 	font-style: normal;
@@ -70,7 +68,11 @@
 	--brand-violet-rgb: 158 140 255;
 	--secondary-color: var(--brand-blue);
 	--accent-blue: var(--brand-blue);
-	--icon-gradient: linear-gradient(90deg, var(--brand-blue), var(--brand-violet));
+	--icon-gradient: linear-gradient(
+		90deg,
+		var(--brand-blue),
+		var(--brand-violet)
+	);
 	--brand-gradient: linear-gradient(
 		95deg,
 		var(--brand-blue) 0%,
@@ -244,8 +246,10 @@ h2 {
 
 .btn__primary {
 	font-family: var(--font-primary);
-	display: inline-block;
-	line-height: 2.5em;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 1.2;
 	overflow: hidden;
 	cursor: pointer;
 	z-index: 1;
@@ -257,8 +261,8 @@ h2 {
 	font-weight: 500;
 	padding-left: 4rem;
 	padding-right: 4rem;
-	padding-top: .8rem;
-	padding-bottom: .8rem;
+	padding-top: 1.2rem;
+	padding-bottom: 1.2rem;
 	font-size: 18px;
 	border: none;
 }
@@ -267,6 +271,8 @@ h2 {
 	.btn__primary {
 		padding-left: 6rem;
 		padding-right: 6rem;
+		padding-top: 1.5rem;
+		padding-bottom: 1.5rem;
 		font-size: 22px;
 	}
 }
@@ -317,6 +323,25 @@ h2 {
 		padding-left: 3rem;
 		padding-right: 3rem;
 		font-size: 18px;
+	}
+}
+
+.hero-cta-button {
+	width: min(100%, 260px);
+	min-height: 54px;
+	margin: 0;
+	padding: 1.2rem 1.75rem;
+}
+
+.hero-cta-secondary {
+	background: transparent;
+}
+
+@media (min-width: 1024px) {
+	.hero-cta-button {
+		width: 300px;
+		min-height: 58px;
+		padding: 1.5rem 2rem;
 	}
 }
 

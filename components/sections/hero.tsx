@@ -3,6 +3,7 @@
 import Button from "@/components/ui/button";
 import ArrowDown from "@/components/ui/icons/arrow-down";
 import Underline from "@/components/ui/icons/underline";
+import { WHATSAPP_URL } from "@/lib/config";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
@@ -14,6 +15,13 @@ export default function Hero() {
 	const part2Words = part2.split(" ");
 	const part2Before = part2Words.slice(0, 2).join(" ");
 	const part2After = part2Words.slice(2).join(" ");
+	const whatsappMessage = t("contact.whatsapp.message", {
+		defaultValue:
+			"Hi Khaled! We're interested in starting a project with you. Can you share more details?",
+	});
+	const whatsappHref = `${WHATSAPP_URL}?text=${encodeURIComponent(
+		whatsappMessage,
+	)}`;
 
 	return (
 		<section
@@ -69,7 +77,27 @@ export default function Hero() {
 					{t("hero.subtitle", { defaultValue: "see if I can help you" })}
 				</p>
 
-				<Button>{t("hero.cta", { defaultValue: "Start now" })}</Button>
+				<div className="mt-8 flex flex-col items-center justify-center gap-3 lg:gap-6 px-6 sm:flex-row">
+					<Button className="hero-cta-button mt-0">
+						{t("hero.cta", { defaultValue: "Schedule a call" })}
+					</Button>
+					<motion.a
+						href={whatsappHref}
+						target="_blank"
+						rel="noopener noreferrer"
+						whileHover={{ scale: 1.05 }}
+						className="hero-cta-button hero-cta-secondary group inline-flex items-center justify-center gap-2 rounded-full border border-[--border-color] text-sm font-semibold text-[--text-color] hover:border-[--brand-mint] hover:bg-[--brand-mint] hover:text-white lg:text-base"
+					>
+						<Icon
+							icon="mingcute:whatsapp-fill"
+							className="h-5 w-5 text-[#25D366] transition-colors duration-300 group-hover:text-white"
+							aria-hidden="true"
+						/>
+						<span>
+							{t("hero.whatsapp_cta", { defaultValue: "Prefer WhatsApp?" })}
+						</span>
+					</motion.a>
+				</div>
 
 				<div className="flex flex-col items-center mt-12">
 					<div className="w-fit">
