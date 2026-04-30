@@ -13,6 +13,17 @@ import sajadSrc from "@/public/images/sajad.jpg";
 
 type Social = { platform: string; icon: string; url: string };
 
+/** Each platform's hover color uses its official brand color so the icon
+    "lights up" in its own identity on hover. GitHub stays at the current
+    text color (it has no signature hue — its brand is essentially black
+    on white / white on black). */
+const SOCIAL_HOVER_COLOR: Record<string, string> = {
+	linkedin: "#0A66C2",
+	instagram: "#E4405F",
+	behance: "#1769FF",
+	github: "var(--text-color)",
+};
+
 type Member = {
 	id: number;
 	/** Used for translation lookup: `about.name.<key>` and `about.role.<key>` */
@@ -27,31 +38,59 @@ const teamMembers: Member[] = [
 		id: 1,
 		key: "khaled",
 		image: khaledSrc,
-		alt: "Khaled Javdan — Founder & Software Engineer",
+		alt: "Khaled Javdan — Software Engineer",
 		socials: [
-			{ platform: "linkedin", icon: "mdi:linkedin", url: "#" },
-			{ platform: "github", icon: "mdi:github", url: "#" },
-			{ platform: "instagram", icon: "mdi:instagram", url: "#" },
+			{
+				platform: "linkedin",
+				icon: "mdi:linkedin",
+				url: "https://www.linkedin.com/in/khaled-javdan/",
+			},
+			{
+				platform: "github",
+				icon: "mdi:github",
+				url: "https://github.com/khaled-javdan",
+			},
+			{
+				platform: "instagram",
+				icon: "mdi:instagram",
+				url: "https://www.instagram.com/khaled_javedan/",
+			},
 		],
 	},
 	{
 		id: 2,
 		key: "faiz",
 		image: faizSrc,
-		alt: "Faiz — Co-founder & Digital Marketer",
+		alt: "Faiz — Digital Marketer",
 		socials: [
-			{ platform: "linkedin", icon: "mdi:linkedin", url: "#" },
-			{ platform: "instagram", icon: "mdi:instagram", url: "#" },
+			{
+				platform: "linkedin",
+				icon: "mdi:linkedin",
+				url: "https://www.linkedin.com/in/muhammad-fahis/",
+			},
+			{
+				platform: "instagram",
+				icon: "mdi:instagram",
+				url: "https://www.instagram.com/_fa.ez/",
+			},
 		],
 	},
 	{
 		id: 3,
 		key: "sajad",
 		image: sajadSrc,
-		alt: "Sajad — Co-founder & Content Creator",
+		alt: "Sajad — Content Creator",
 		socials: [
-			{ platform: "linkedin", icon: "mdi:linkedin", url: "#" },
-			{ platform: "instagram", icon: "mdi:instagram", url: "#" },
+			{
+				platform: "linkedin",
+				icon: "mdi:linkedin",
+				url: "https://www.linkedin.com/in/sajad-tharayil-2109a2192/",
+			},
+			{
+				platform: "instagram",
+				icon: "mdi:instagram",
+				url: "https://www.instagram.com/sdwithlens/",
+			},
 		],
 	},
 	{
@@ -61,8 +100,21 @@ const teamMembers: Member[] = [
 		image: null,
 		alt: "Anshid — Designer",
 		socials: [
-			{ platform: "linkedin", icon: "mdi:linkedin", url: "#" },
-			{ platform: "instagram", icon: "mdi:instagram", url: "#" },
+			{
+				platform: "linkedin",
+				icon: "mdi:linkedin",
+				url: "https://www.linkedin.com/in/anshid-mp-64b40b222/",
+			},
+			{
+				platform: "behance",
+				icon: "mdi:behance",
+				url: "https://www.behance.net/anshidamar",
+			},
+			{
+				platform: "instagram",
+				icon: "mdi:instagram",
+				url: "https://www.instagram.com/anshidee/",
+			},
 		],
 	},
 ];
@@ -110,7 +162,13 @@ const TeamCard = ({ member }: { member: Member }) => {
 						target="_blank"
 						rel="noopener noreferrer"
 						aria-label={`${memberName} on ${social.platform}`}
-						className="text-[--text-gray] hover:text-[--text-color] transition-colors"
+						style={
+							{
+								"--social-hover":
+									SOCIAL_HOVER_COLOR[social.platform] ?? "var(--text-color)",
+							} as React.CSSProperties
+						}
+						className="text-[--text-gray] hover:text-[--social-hover] transition-colors"
 					>
 						<Icon icon={social.icon} className="w-5 h-5" />
 					</a>
