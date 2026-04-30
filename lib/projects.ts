@@ -265,53 +265,51 @@ export const projects: Project[] = [
 			"/images/healthyplus-6.png",
 			"/images/healthyplus-7.png",
 		],
-		year: "2024",
-		timeline: "6 weeks",
-		services: ["Branding", "Design", "E-commerce"],
+		year: "2025",
+		timeline: "1 week",
+		services: ["Web design", "E-commerce", "WhatsApp ordering"],
 		summary:
-			"Healthy Plus is a Sharjah-based health-foods brand. Their flagship product is artisanal honey sourced from regional beekeepers. They needed a storefront that conveyed trust, authenticity, and the story behind the product.",
+			"Healthy Plus is a honey business that was selling through Instagram and WhatsApp without a proper website. We built a minimal, affordable storefront where customers can browse available products, see prices, add items to a cart, and send a complete order through WhatsApp.",
 		challenge:
-			"They were running the entire business through WhatsApp — sending product photos one at a time, quoting prices manually, and chasing payments by message. It worked, but it didn't look like a real brand. New customers had no way to browse the catalogue or check out on their own, and anyone searching the brand on Google found nothing to land on. They needed a proper storefront that gave the business the professionalism their product deserved.",
+			"Customers had to browse Instagram, ask for prices manually, then move to WhatsApp to place an order. That created friction for buyers and extra work for the owner. The business needed a cleaner way to show products, prices, and order details without building an expensive full e-commerce system.",
 		solution:
-			"We started with a brand identity refresh — typography, color palette, photography direction — then built the storefront around it. The site emphasizes provenance: each product has a story page about the beekeepers and region. Wholesale inquiries get their own dedicated form so retail and B2B customers don't get confused at checkout.",
+			"We built a simple storefront focused on the way the business already sells. Customers can open the website, view the honey products, check prices, add items to the cart, and review the total. When they click order, the full cart details and total price are sent directly to WhatsApp, so the owner can continue the conversation and confirm delivery. It gives the business a professional online presence while keeping the ordering process familiar and affordable.",
 		techStack: [
 			{ name: "Next.js", icon: "logos:nextjs-icon" },
-			{ name: "TypeScript", icon: "logos:typescript-icon" },
-			{ name: "Tailwind CSS", icon: "logos:tailwindcss-icon" },
-			{ name: "Sanity CMS", icon: "logos:sanity" },
-			{ name: "Stripe", icon: "logos:stripe" },
-			{ name: "Vercel", icon: "logos:vercel-icon" },
+			{ name: "Firebase", icon: "logos:firebase" },
+			{ name: "WhatsApp integration", icon: "logos:whatsapp-icon" },
 		],
 		process: [
 			{
-				phase: "Brand workshop",
+				phase: "Sales flow",
 				description:
-					"Two-hour session with the founder to extract what makes the brand actually different, then translated it into a visual system.",
-				duration: "Week 1",
+					"Mapped how customers were ordering through Instagram and WhatsApp, then simplified that flow into a website-to-WhatsApp experience.",
+				duration: "Phase 1",
 			},
 			{
-				phase: "Design",
+				phase: "Minimal storefront",
 				description:
-					"Designed brand assets and the storefront together — packaging, social templates, and the website in one consistent system.",
-				duration: "Weeks 2–3",
+					"Designed a clean product catalogue where customers can see available honey products, prices, and key details without messaging first.",
+				duration: "Phase 2",
 			},
 			{
-				phase: "Build & content",
+				phase: "Cart & order",
 				description:
-					"Built the site and worked with the team to write the story pages for each product. Photography direction provided.",
-				duration: "Weeks 4–5",
+					"Built the cart experience so customers can review selected products and total price before sending the order.",
+				duration: "Phase 3",
 			},
 			{
-				phase: "Launch",
+				phase: "WhatsApp handoff",
 				description:
-					"Launched with SEO meta tags optimized for the brand name and key product searches.",
-				duration: "Week 6",
+					"Connected the order button to WhatsApp with the full product list and total, giving the owner a clear message to confirm and fulfill.",
+				duration: "Phase 4",
 			},
 		],
 		results: [
-			{ value: "Day 4", label: "First wholesale lead from Google" },
-			{ value: "+100%", label: "Brand consistency across channels" },
-			{ value: "12", label: "Story pages with product provenance" },
+			{ value: "Cleaner orders", label: "Customers send product details and totals through WhatsApp" },
+			{ value: "Less back-and-forth", label: "Prices and available products are visible before customers message" },
+			{ value: "Affordable launch", label: "Professional website without full checkout complexity" },
+			{ value: "Small-business fit", label: "Simple workflow built around how the owner already sells" },
 		],
 	},
 	{
@@ -327,59 +325,60 @@ export const projects: Project[] = [
 			"/images/aiyifen-4.png",
 		],
 		year: "2024",
-		timeline: "5 weeks",
+		timeline: "3-month growth engagement",
 		services: [
-			"Design",
-			"E-commerce",
+			"Shopify development",
 			"Payments",
-			"SEO",
+			"Delivery setup",
 			"Marketing campaigns",
+			"Ad creatives",
 		],
 		summary:
-			"Aiyifen is a Dubai-based fashion brand selling premium modest wear directly to customers across the GCC. They needed a flagship online store that felt as polished as their in-store experience and could handle Arabic-speaking shoppers from day one.",
+			"Aiyifen is a wholesaler selling kids' and women's clothing. They wanted to test whether online sales could become a real channel for the business, so we built their Shopify store, set up payments and delivery, and ran marketing campaigns for three months.",
 		challenge:
-			"The owner was selling exclusively through Instagram DMs — chasing payments manually, losing orders in chat threads, and unable to scale beyond what one person could reply to. There was no inventory tracking, no proper checkout, and customers asking for cash-on-delivery had no real way to order.",
+			"The business was built around wholesale, but the team wanted help going online. They needed a proper e-commerce store, online payments, cash on delivery, delivery-company setup, and a way to test demand through real ad campaigns instead of relying only on offline selling.",
 		solution:
-			"We built a fully bilingual (EN / AR) Shopify storefront with a custom theme matching the brand. Cash-on-delivery, Apple Pay, and card payments all work from the same checkout. Inventory syncs automatically and the team can fulfill orders from a single dashboard. Product pages were built around lifestyle photography to mirror the in-store feel.",
+			"We built a Shopify e-commerce store in about three weeks, connected Stripe and cash on delivery, and helped set up the delivery workflow. After launch, we worked with Aiyifen for three months on marketing campaigns, ad creatives, and performance testing. The store gave customers a proper place to browse, buy, and pay online, while the campaigns helped prove that online sales could work for the brand.",
 		techStack: [
 			{ name: "Shopify", icon: "logos:shopify" },
 			{ name: "Liquid", icon: "simple-icons:shopify" },
-			{ name: "Tailwind CSS", icon: "logos:tailwindcss-icon" },
 			{ name: "Stripe", icon: "logos:stripe" },
+			{ name: "Cash on delivery", icon: "mdi:cash" },
+			{ name: "Delivery integration", icon: "mdi:truck-delivery-outline" },
+			{ name: "Meta ads", icon: "simple-icons:meta" },
 			{ name: "Klaviyo", icon: "simple-icons:klaviyo" },
-			{ name: "Figma", icon: "logos:figma" },
 		],
 		process: [
 			{
-				phase: "Discovery",
+				phase: "Online sales plan",
 				description:
-					"Mapped the existing Instagram-DM flow, listed every step a customer goes through today, and identified where orders were getting lost.",
+					"Worked with the team to understand the wholesale business, define the online sales experiment, and decide what the store needed to launch quickly.",
 				duration: "Week 1",
 			},
 			{
-				phase: "Design",
+				phase: "Shopify store",
 				description:
-					"Designed the storefront in Figma with full RTL Arabic support, then iterated on the homepage and product pages with the client.",
-				duration: "Week 2",
+					"Built the Shopify storefront for kids' and women's clothing, structured the catalogue, and prepared the buying flow for retail customers.",
+				duration: "Weeks 1–3",
 			},
 			{
-				phase: "Build",
+				phase: "Payments & delivery",
 				description:
-					"Set up the Shopify store, built the custom theme, integrated payments, and connected Klaviyo for automated order emails.",
-				duration: "Weeks 3–4",
+					"Implemented Stripe, cash on delivery, and the delivery-company workflow so the store could accept and fulfill real orders.",
+				duration: "Week 3",
 			},
 			{
-				phase: "Launch",
+				phase: "Campaigns & creatives",
 				description:
-					"Migrated existing customers, ran the team through fulfillment, and stayed on call for the first week of orders to fix anything that came up.",
-				duration: "Week 5",
+					"Ran marketing campaigns for three months, created ad creatives, tested offers, and helped grow online sales and customer acquisition.",
+				duration: "Months 1–3",
 			},
 		],
 		results: [
-			{ value: "+62%", label: "More orders in first 30 days vs Instagram DMs" },
-			{ value: "0", label: "Orders lost since launch" },
-			{ value: "1.4s", label: "Average page load on mobile" },
-			{ value: "EN + AR", label: "Bilingual from day one" },
+			{ value: "AED 12k/mo", label: "Monthly online sales during the campaign period" },
+			{ value: "300+ customers", label: "Buyers generated through the online store and campaigns" },
+			{ value: "500+ contacts", label: "Newsletter and customer audience built for remarketing" },
+			{ value: "3-month test", label: "Proved online sales could work for the wholesale brand" },
 		],
 	},
 	{

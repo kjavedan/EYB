@@ -3,6 +3,8 @@
 import type React from "react";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const variants = {
 	hidden: { opacity: 0, y: 10 },
@@ -10,7 +12,15 @@ const variants = {
 };
 
 export const MenuItem = ({ label, link }: { label: string; link: string }) => {
+	const pathname = usePathname();
+	const isHome = pathname === "/";
+	// On home → smooth-scroll within page (link is a hash like `#services`).
+	// Off home → route to `/#services` so the browser lands on home and
+	// scrolls to the anchor on its own.
+	const href = isHome ? link : `/${link}`;
+
 	const handleClick = (e: React.MouseEvent) => {
+		if (!isHome) return; // let Next.js Link handle navigation
 		e.preventDefault();
 		const target = document.querySelector(link);
 		if (target) {
@@ -24,13 +34,13 @@ export const MenuItem = ({ label, link }: { label: string; link: string }) => {
 			whileTap={{ scale: 1 }}
 			variants={variants}
 		>
-			<a
+			<Link
 				className="px-3 py-2 cursor-pointer text-[--text-color]"
-				href={link}
+				href={href}
 				onClick={handleClick}
 			>
 				{label}
-			</a>
+			</Link>
 		</motion.li>
 	);
 };

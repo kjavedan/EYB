@@ -1,5 +1,4 @@
 import Footer from "@/components/layout/footer";
-import { Header } from "@/components/layout/header";
 import About from "@/components/sections/about";
 import Concerns from "@/components/sections/concerns";
 import DomainSearch from "@/components/sections/domain-search";
@@ -24,8 +23,6 @@ export default function HomePage() {
 			<PricingStructuredData />
 
 			<div className="container mx-auto">
-				<Header />
-
 				<main className="home-page px-4 max-w-screen-xl pt-16 mx-auto">
 					<Hero />
 					<Service />

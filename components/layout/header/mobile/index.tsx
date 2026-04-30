@@ -7,12 +7,16 @@ import LanguageSelector from "@/components/ui/language-selector";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { AnimatePresence, motion, useCycle } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { Links } from "./links";
 import { MenuToggle } from "./menu-toggle";
 
 export default function NavMobile() {
 	const [isOpen, toggleOpen] = useCycle(false, true);
+	const pathname = usePathname();
+	const isHome = pathname === "/";
 
 	const navVariants = {
 		open: {
@@ -34,6 +38,9 @@ export default function NavMobile() {
 	};
 
 	const handleClick = (event: React.MouseEvent) => {
+		// On home page, smooth-scroll to top instead of triggering a hash
+		// jump. Off home, let Next.js handle navigation back to `/`.
+		if (!isHome) return;
 		event.preventDefault();
 		const target = document.getElementById("hero");
 		if (target) {
@@ -57,7 +64,11 @@ export default function NavMobile() {
 			animate={isOpen ? "open" : "closed"}
 			className="p-4 pt-3.5 pr-4.2 w-full flex items-center justify-between"
 		>
-			<a href="#hero" className="" onClick={handleClick}>
+			<Link
+				href={isHome ? "#hero" : "/"}
+				aria-label="Home"
+				onClick={handleClick}
+			>
 				<Image
 					src={logoSrc}
 					alt="logo"
@@ -65,7 +76,7 @@ export default function NavMobile() {
 					width={64}
 					height={32}
 				/>
-			</a>
+			</Link>
 
 			<MenuToggle toggle={() => toggleOpen()} isOpen={isOpen} />
 

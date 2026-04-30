@@ -45,7 +45,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 	}));
 
 	return (
-		<main className="min-h-screen text-[--text-color]">
+		<main className="min-h-screen text-[--text-color] pt-16">
 			<div className="max-w-screen-lg mx-auto px-4 py-12 lg:py-20">
 				<Link
 					href="/#Testimonials"

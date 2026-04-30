@@ -3,6 +3,7 @@ import { Montserrat, Noto_Sans_Arabic, Poppins } from "next/font/google";
 import type React from "react";
 import "./globals.css";
 import { KeyboardShortcuts } from "@/components/keyboard-shortcuts";
+import { Header } from "@/components/layout/header";
 import { I18nProvider } from "@/components/providers/i18n-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
@@ -260,7 +261,10 @@ export default function RootLayout({
 			<body>
 				<ThemeProvider>
 					<KeyboardShortcuts />
-					<I18nProvider>{children}</I18nProvider>
+					<I18nProvider>
+						<Header />
+						{children}
+					</I18nProvider>
 				</ThemeProvider>
 				<Analytics />
 				<Toaster />

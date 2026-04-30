@@ -3,6 +3,8 @@
 import type React from "react";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const variants = {
 	open: {
@@ -30,7 +32,16 @@ export const MenuItem = ({
 	link: string;
 	toggleOpen: () => void;
 }) => {
+	const pathname = usePathname();
+	const isHome = pathname === "/";
+	const href = isHome ? link : `/${link}`;
+
 	const handleClick = (event: React.MouseEvent) => {
+		if (!isHome) {
+			// Off home — close drawer and let Next.js route to `/#section`.
+			toggleOpen();
+			return;
+		}
 		event.preventDefault();
 		toggleOpen();
 		setTimeout(() => {
@@ -52,13 +63,13 @@ export const MenuItem = ({
 			className="h-20"
 		>
 			<div className="h-full w-full text-4xl pl-8 capitalize flex font-bold items-center rounded-3xl bg-[--clr-gray] cursor-pointer">
-				<a
-					href={link}
+				<Link
+					href={href}
 					onClick={handleClick}
 					className="text-[--text-color] font-300"
 				>
 					{label}
-				</a>
+				</Link>
 			</div>
 		</motion.li>
 	);
