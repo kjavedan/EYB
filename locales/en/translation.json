@@ -29,18 +29,17 @@
 			"part1": "Meet",
 			"part2": "The Team"
 		},
-		"description": {
-			"part1": "We're three friends brought together by our shared passion for creativity, building, and meaningful connection. Each of us specializes in a different field—web development, digital marketing, and content creation—and together, we craft top-tier digital experiences for business owners. Whether it's a website, an eCommerce store, or compelling digital content, we combine our skills to help your brand stand out online."
-		},
 		"name": {
 			"khaled": "Khaled",
 			"faiz": "Faiz",
-			"sajad": "Sajad"
+			"sajad": "Sajad",
+			"anshid": "Anshid"
 		},
 		"role": {
 			"khaled": "Software Engineer",
-			"faiz": "Digital Marketing Specialist",
-			"sajad": "Content Creator and Designer"
+			"faiz": "Digital Marketer",
+			"sajad": "Content Creator",
+			"anshid": "Designer"
 		}
 	},
 	"contact": {

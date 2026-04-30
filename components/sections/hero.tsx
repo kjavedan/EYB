@@ -21,7 +21,7 @@ export default function Hero() {
 			className="h-100dvh flex items-center justify-center lg:max-h-[900px] pb-0 pt-0"
 		>
 			<div className="flex flex-col mt-[-100px] lg:mt-[0px]">
-				<h1 className="heading text-center font-[var(--font-primary)] max-w-screen-xl mx-auto text-[40px] leading-[60px] md:text-5xl md:leading-[70px] lg:text-6xl lg:leading-[80px] xl:text-7xl xl:leading-[100px] 2xl:text-8xl 2xl:leading-[120px]">
+				<h1 className="heading text-center font-[var(--font-primary)] max-w-screen-xl mx-auto text-[40px] leading-[60px] md:text-5xl md:leading-[70px] lg:text-6xl lg:leading-[80px] xl:text-7xl xl:leading-[100px] 2xl:text-7xl 2xl:leading-[110px]">
 					<span className="text-[--text-color]">
 						{t("hero.title.part1", { defaultValue: "We Take Businesses" })}
 					</span>

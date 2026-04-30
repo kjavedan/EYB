@@ -69,14 +69,14 @@ export default function LanguageSelector() {
 							<button
 								type="button"
 								onClick={() => changeLanguage("en")}
-								className="w-full px-4 py-2 text-left text-[--text-color] hover:bg-[--secondary-color] rounded-xl transition-colors text-sm"
+								className="w-full px-4 py-2 text-left text-[--text-color] hover:bg-[--secondary-color] hover:text-white rounded-xl transition-colors text-sm"
 							>
 								English
 							</button>
 							<button
 								type="button"
 								onClick={() => changeLanguage("ar")}
-								className="w-full px-4 py-2 text-left text-[--text-color] hover:bg-[--secondary-color] rounded-xl transition-colors text-sm"
+								className="w-full px-4 py-2 text-left text-[--text-color] hover:bg-[--secondary-color] hover:text-white rounded-xl transition-colors text-sm"
 							>
 								العربيه
 							</button>
