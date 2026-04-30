@@ -20,7 +20,7 @@ const FAQItem = ({
 		<div className="relative w-full">
 			<button
 				type="button"
-				className="relative py-8 cursor-pointer w-full text-left bg-transparent border-0 p-0"
+				className="relative py-8 cursor-pointer w-full text-start bg-transparent border-0 p-0"
 				onClick={() => setIsOpen(!isOpen)}
 			>
 				{/* Question */}

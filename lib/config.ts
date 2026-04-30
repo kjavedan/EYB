@@ -10,7 +10,7 @@
 export const PHONE_E164 = "+971502597949";
 export const PHONE_DIGITS = "971502597949";
 
-export const SCHEDULING_URL = "https://cal.com/khaled-2wiu0n/30min";
+export const SCHEDULING_URL = "https://cal.com/khaled-eyb";
 export const WHATSAPP_URL = `https://wa.me/${PHONE_DIGITS}`;
 export const INSTAGRAM_URL = "https://www.instagram.com/eyb.ae";
 export const LINKEDIN_URL = "https://www.linkedin.com/company/eyb-ae";

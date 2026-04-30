@@ -135,7 +135,7 @@ const PricingCard = ({
 				{description}
 			</p>
 
-			<ul className="space-y-3 mb-6">
+			<ul className="space-y-3 mb-6 flex-1">
 				{features.map((feature, index) => (
 					<li key={index} className="flex items-start gap-2">
 						<Icon icon="mdi:check" className="w-4 h-4 mt-0.5 flex-shrink-0" />
@@ -144,7 +144,7 @@ const PricingCard = ({
 				))}
 			</ul>
 
-			<div className="mt-auto pt-4 border-t border-[--border-color]">
+			<div className="pt-4 border-t border-[--border-color]">
 				<div className="flex items-center gap-2 mb-2">
 					<Icon
 						icon="mdi:shield-check-outline"

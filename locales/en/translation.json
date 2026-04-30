@@ -5,7 +5,7 @@
 			"part2": "You Grow the Business."
 		},
 		"cta": "Schedule a call",
-		"subtitle": "Websites, mobile apps, and custom software designed to take the busywork off your plate."
+		"subtitle": "Websites, AI-powered automations, and custom software designed to take the busywork off your plate."
 	},
 	"services": {
 		"title": "Services",
@@ -14,9 +14,9 @@
 				"title": "Web Development",
 				"description": "Landing pages, business websites & e-commerce stores built to convert"
 			},
-			"mobile_development": {
-				"title": "Mobile Development",
-				"description": "Custom iOS & Android apps tailored to your business"
+			"automation": {
+				"title": "AI Automation",
+				"description": "Automate repetitive tasks with AI and focus on growing your business"
 			},
 			"marketing": {
 				"title": "Marketing",
@@ -69,59 +69,60 @@
 				"title": "Launchpad",
 				"price": "6,999 AED",
 				"duration": "~2 weeks",
-				"description": "A clean, professional website to give your business a real online presence. A good fit if you mainly need to look credible and capture inquiries.",
+				"description": "Businesses that need a strong first impression and professional online presence.",
 				"features": [
-					"Custom-designed website up to 5 pages",
-					"Mobile-first responsive design (desktop, tablet, mobile)",
-					"Contact form + WhatsApp & Cal.com booking integration",
-					"On-page SEO, sitemap, robots.txt & schema markup",
-					"Google Analytics & Search Console setup",
-					"Open Graph tags for social sharing previews",
-					"SSL certificate, hosting and domain setup",
-					"Page speed & Core Web Vitals optimization",
-					"2 rounds of design revisions",
-					"Up to 5 royalty-free images & basic copy assistance",
-					"30 days of post-launch tweaks and bug fixes"
+					"Premium custom website up to 5 pages",
+					"Mobile-friendly on all devices",
+					"Contact forms",
+					"WhatsApp + booking integration",
+					"SEO setup so Google can find you",
+					"Google Analytics + Search Console",
+					"Fast loading speed",
+					"SSL + hosting + domain setup",
+					"2 rounds of revisions",
+					"Images + basic copy support",
+					"30 days post-launch support"
 				],
-				"guarantee": "Fixed scope, fixed price, and a clear delivery date. We stay reachable after launch."
+				"guarantee": "Fixed scope, fixed price, clear delivery date, and a website you'll be proud to share."
 			},
 			"growth_engine": {
 				"title": "Growth Engine",
 				"price": "14,299 AED",
 				"duration": "3–4 weeks",
-				"description": "For when you want your website to do more than just exist. We add the lead-capture, ads, and tracking pieces that turn traffic into actual conversations.",
+				"description": "Businesses that want their website to generate leads and grow sales.",
 				"features": [
 					"Everything in Launchpad",
-					"Up to 12 pages, blog, or basic e-commerce store",
-					"Email capture + automated welcome & follow-up sequences",
-					"One Meta or Google ad campaign (setup, audiences & creatives)",
-					"GA4, Meta Pixel & Google Tag Manager with conversion tracking",
-					"CRM integration (HubSpot, Mailchimp, Zoho, or similar)",
-					"WhatsApp Business or live chat integration",
-					"Heatmaps & user behavior tracking (Hotjar)",
-					"Headless CMS so you can edit content yourself",
-					"Advanced technical SEO & rich-snippet schema",
-					"60 days of post-launch support + first-month performance report"
+					"Up to 12 pages, blog or basic store",
+					"Landing pages for ads",
+					"Email capture + automated follow-up",
+					"Meta or Google ad campaign setup",
+					"CRM integration",
+					"GA4 + Meta Pixel + GTM tracking",
+					"WhatsApp chat",
+					"Heatmaps",
+					"Editable CMS",
+					"Advanced SEO",
+					"60 days support",
+					"First month growth report"
 				],
-				"guarantee": "Weekly check-ins during the build, and we stay involved post-launch to tune what's working."
+				"guarantee": "Weekly progress updates, smoother launch process, and ongoing support to improve results."
 			},
 			"custom_build": {
 				"title": "Custom Build",
-				"price": "Based on scope",
-				"duration": "Varies by project",
-				"description": "For teams replacing manual work with software, or launching a product idea. We need to understand the size and scope of what you're building before we can quote a price and timeline.",
+				"price": "Custom Quote",
+				"duration": "Based on scope",
+				"description": "Businesses building apps, portals, dashboards, or custom systems.",
 				"features": [
-					"Custom web or mobile app (iOS + Android)",
-					"Backend, APIs and database design",
-					"User authentication, roles and permissions",
-					"Internal tools, dashboards and automations",
-					"Integrations with your CRM, payments, and third-party APIs",
-					"Admin panel built around your workflow",
-					"Full source code, documentation and ownership transfer",
-					"Deployment, CI/CD and monitoring setup",
-					"3 months of post-launch support included"
+					"Custom web or mobile app",
+					"Backend systems, APIs, database setup",
+					"User accounts, dashboards, automations",
+					"Payment integrations",
+					"Admin panel built for your workflow",
+					"Full source code ownership",
+					"Deployment setup, monitoring",
+					"3 months support after launch"
 				],
-				"guarantee": "Weekly demos throughout the build. If a milestone isn't right, we fix it before moving on."
+				"guarantee": "Weekly demos, milestone delivery, changes handled fast, and full ownership when complete."
 			}
 		}
 	},

@@ -14,8 +14,8 @@ const servicesData = [
 	},
 	{
 		id: 2,
-		key: "mobile_development",
-		icon: "akar-icons:mobile-device",
+		key: "automation",
+		icon: "hugeicons:ai-brain-04",
 	},
 	{
 		id: 3,
