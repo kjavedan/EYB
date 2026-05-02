@@ -11,12 +11,6 @@ import { SectionHeading } from "@/components/section-heading";
 const PACKAGE_KEYS = ["launchpad", "growth_engine", "custom_build"] as const;
 type PackageKey = (typeof PACKAGE_KEYS)[number];
 
-const SPOTS_BY_PACKAGE: Record<PackageKey, number> = {
-	launchpad: 5,
-	growth_engine: 1,
-	custom_build: 2,
-};
-
 const HIGHLIGHTED: PackageKey = "growth_engine";
 const AED_TO_USD_RATE = 3.67;
 
@@ -70,30 +64,29 @@ const resolvePrice = ({
 const PricingCard = ({
 	title,
 	price,
-	duration,
+	support,
 	description,
 	features,
-	guarantee,
-	availableSpot,
+	outcome,
 	isHighlighted,
 }: {
 	title: string;
 	price: ResolvedPrice;
-	duration: string;
+	support: string;
 	description: string;
 	features: string[];
-	guarantee: string;
-	availableSpot: number;
+	outcome: string;
 	isHighlighted?: boolean;
 }) => {
 	const { t } = useTranslation();
 
 	return (
-		<div
-			className={`relative h-full p-8 flex flex-col ${
-				availableSpot === 0 ? "text-[--text-gray]" : ""
-			} ${isHighlighted ? "lg:scale-[1.02]" : ""}`}
-		>
+		<div className="relative h-full p-8 flex flex-col">
+			{isHighlighted && (
+				<span className="absolute top-4 end-4 w-fit rounded-full border border-brand-violet/30 bg-gradient-to-r from-brand-blue/20 via-brand-violet/20 to-brand-mint/20 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wide text-[--text-color]">
+					{t("pricing.popular_badge", { defaultValue: "Popular" })}
+				</span>
+			)}
 			<h4 className="text-4xl font-bold mb-2">
 				{price.kind === "numeric" ? (
 					<NumberFlow
@@ -111,30 +104,15 @@ const PricingCard = ({
 			</h4>
 			<div className="flex items-center justify-between mb-4">
 				<h4 className="text-2xl font-semibold">{title}</h4>
-				<h5 className="text-xs text-[--text-gray]">{duration}</h5>
+				<h5 className="text-xs text-[--text-gray]">{support}</h5>
 			</div>
-			<motion.span
-				className={`w-fit text-xs font-semibold mb-4 px-3 py-1.5 rounded-full inline-block border ${
-					availableSpot === 0
-						? "border-gray-600 text-[--text-gray]"
-						: isHighlighted
-							? "bg-gradient-to-r from-brand-blue/25 via-brand-violet/25 to-brand-mint/25 border-brand-violet/50 text-brand-blue dark:text-white"
-							: "bg-gradient-to-r from-brand-blue/15 via-brand-violet/15 to-brand-mint/15 border-brand-violet/30 text-brand-blue/85 dark:text-white/85"
-				}`}
-				initial={{ opacity: 0, scale: 0.8 }}
-				animate={{ opacity: 1, scale: 1 }}
-				exit={{ opacity: 0, scale: 0.8 }}
-				transition={{ duration: 0.4, ease: "easeInOut" }}
-			>
-				{availableSpot}{" "}
-				{availableSpot <= 1
-					? t("pricing.spots.single")
-					: t("pricing.spots.multiple")}
-			</motion.span>
-			<p className="mb-6 text-[--text-gray] text-sm min-h-[5rem]">
+			<p className="mb-6 text-[--text-gray] text-sm min-h-[3rem]">
 				{description}
 			</p>
 
+			<h5 className="mb-3 text-xs font-semibold uppercase tracking-wide text-[--text-gray]">
+				{t("pricing.includes_label", { defaultValue: "Includes" })}
+			</h5>
 			<ul className="space-y-3 mb-6 flex-1">
 				{features.map((feature, index) => (
 					<li key={index} className="flex items-start gap-2">
@@ -144,19 +122,19 @@ const PricingCard = ({
 				))}
 			</ul>
 
-			<div className="pt-4 border-t border-[--border-color]">
-				<div className="flex items-center gap-2 mb-2">
-					<Icon
-						icon="mdi:shield-check-outline"
-						className="w-4 h-4 flex-shrink-0 text-[--text-color]"
-					/>
-					<span className="text-sm font-semibold">
-						{t("pricing.guarantee_heading")}
+			<div className="pt-4 border-t border-[--border-color] space-y-3">
+				<div className="flex items-start justify-between gap-4">
+					<span className="text-xs uppercase tracking-wide text-[--text-gray]">
+						{t("pricing.support_label", { defaultValue: "Support" })}
 					</span>
+					<span className="text-sm text-right">{support}</span>
 				</div>
-				<p className="text-sm text-[--text-gray] leading-relaxed">
-					{guarantee}
-				</p>
+				<div className="flex items-start justify-between gap-4">
+					<span className="text-xs uppercase tracking-wide text-[--text-gray]">
+						{t("pricing.outcome_label", { defaultValue: "Outcome" })}
+					</span>
+					<p className="text-sm text-right max-w-[80%]">{outcome}</p>
+				</div>
 			</div>
 		</div>
 	);
@@ -186,13 +164,20 @@ export default function Pricing() {
 				}),
 				currency,
 			}),
-			duration: t(`pricing.packages.${key}.duration`, { defaultValue: "" }),
+			support: t(`pricing.packages.${key}.support`, {
+				defaultValue: t(`pricing.packages.${key}.duration`, {
+					defaultValue: "",
+				}),
+			}),
 			description: t(`pricing.packages.${key}.description`, {
 				defaultValue: "",
 			}),
 			features: Array.isArray(features) ? features : [],
-			guarantee: t(`pricing.packages.${key}.guarantee`, { defaultValue: "" }),
-			availableSpot: SPOTS_BY_PACKAGE[key],
+			outcome: t(`pricing.packages.${key}.outcome`, {
+				defaultValue: t(`pricing.packages.${key}.guarantee`, {
+					defaultValue: "",
+				}),
+			}),
 			isHighlighted: key === HIGHLIGHTED,
 		};
 	});
@@ -251,11 +236,10 @@ export default function Pricing() {
 									<PricingCard
 										title={pkg.title}
 										price={pkg.price}
-										duration={pkg.duration}
+										support={pkg.support}
 										description={pkg.description}
 										features={pkg.features}
-										guarantee={pkg.guarantee}
-										availableSpot={pkg.availableSpot}
+										outcome={pkg.outcome}
 										isHighlighted={pkg.isHighlighted}
 									/>
 								</div>

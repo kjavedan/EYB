@@ -34,30 +34,14 @@ export default function WorkProcess() {
 	const { t } = useTranslation();
 
 	const steps = [
-		{
-			number: 1,
-			key: "meeting",
-		},
-		{
-			number: 2,
-			key: "goals",
-		},
-		{
-			number: 3,
-			key: "design",
-		},
-		{
-			number: 4,
-			key: "develop",
-		},
-		{
-			number: 5,
-			key: "training",
-		},
-		{
-			number: 6,
-			key: "launch",
-		},
+		{ number: 1, key: "understand" },
+		{ number: 2, key: "growthPlan" },
+		{ number: 3, key: "onlineSystem" },
+		{ number: 4, key: "marketingLaunch" },
+		{ number: 5, key: "contentGrowth" },
+		{ number: 6, key: "followupAutomation" },
+		{ number: 7, key: "optimize" },
+		{ number: 8, key: "clientFocus" },
 	];
 
 	return (

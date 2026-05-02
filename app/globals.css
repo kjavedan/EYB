@@ -334,7 +334,33 @@ h2 {
 }
 
 .hero-cta-secondary {
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
 	background: transparent;
+}
+
+.hero-cta-secondary::before {
+	position: absolute;
+	content: "";
+	background: var(--brand-gradient);
+	width: 200%;
+	height: 300%;
+	z-index: -1;
+	border-radius: 50%;
+	top: 100%;
+	left: 100%;
+	transition: 0.3s all;
+}
+
+.hero-cta-secondary:hover::before {
+	top: -100%;
+	left: -50%;
+}
+
+.hero-cta-secondary:hover {
+	color: var(--button-hover-text);
+	border-color: transparent;
 }
 
 @media (min-width: 1024px) {

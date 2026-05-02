@@ -12,17 +12,17 @@ const concernsData = [
 	{
 		id: 1,
 		key: "expertise",
-		icon: "hugeicons:laptop-programming",
+		icon: "hugeicons:web-design-02",
 	},
 	{
 		id: 2,
 		key: "security",
-		icon: "mdi:security",
+		icon: "hugeicons:marketing",
 	},
 	{
 		id: 3,
 		key: "design",
-		icon: "fluent:design-ideas-48-regular",
+		icon: "hugeicons:workflow-square-01",
 	},
 ];
 

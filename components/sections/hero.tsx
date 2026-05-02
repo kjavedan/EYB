@@ -86,7 +86,7 @@ export default function Hero() {
 						target="_blank"
 						rel="noopener noreferrer"
 						whileHover={{ scale: 1.05 }}
-						className="hero-cta-button hero-cta-secondary group inline-flex items-center justify-center gap-2 rounded-full border border-[--border-color] text-sm font-semibold text-[--text-color] hover:border-[--brand-mint] hover:bg-[--brand-mint] hover:text-white lg:text-base"
+						className="hero-cta-button hero-cta-secondary group inline-flex items-center justify-center gap-2 rounded-full border border-[--border-color] text-sm font-semibold text-[--text-color] lg:text-base"
 					>
 						<Icon
 							icon="mingcute:whatsapp-fill"

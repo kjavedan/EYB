@@ -5,6 +5,7 @@ import DomainSearch from "@/components/sections/domain-search";
 import FAQs from "@/components/sections/faqs";
 import Hero from "@/components/sections/hero";
 import Pricing from "@/components/sections/pricing";
+import ProblemJourney from "@/components/sections/problem-journey";
 import Service from "@/components/sections/service";
 import Testimonials from "@/components/sections/testimonials";
 import WorkProcess from "@/components/sections/work-process";
@@ -25,6 +26,7 @@ export default function HomePage() {
 			<div className="container mx-auto">
 				<main className="home-page px-4 max-w-screen-xl pt-16 mx-auto">
 					<Hero />
+					<ProblemJourney />
 					<Service />
 					<Concerns />
 					<WorkProcess />

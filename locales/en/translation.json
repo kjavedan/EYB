@@ -10,19 +10,71 @@
 	},
 	"services": {
 		"title": "Services",
+		"subtitle": "One integrated system that gets you customers — not four disconnected services.",
+		"footer": "We don't sell a website, an ad campaign, or a content plan in isolation. We connect them so they actually work together for your business.",
 		"items": {
-			"web_development": {
-				"title": "Web Development",
-				"description": "Landing pages, business websites & e-commerce stores built to convert"
-			},
-			"automation": {
-				"title": "AI Automation",
-				"description": "Automate repetitive tasks with AI and focus on growing business"
+			"website": {
+				"title": "Website + Conversion System",
+				"description": "A site built to turn visitors into customers — clear offer, smart layout, lead capture, WhatsApp and booking wired in."
 			},
 			"marketing": {
-				"title": "Marketing",
-				"description": "We create content and run effective marketing campaigns"
+				"title": "Marketing + Lead Generation",
+				"description": "Targeted campaigns that bring the right people to your offer, with tracking that shows what's actually working."
+			},
+			"content": {
+				"title": "Content + Brand Consistency",
+				"description": "Posts, reels, and visuals that show up regularly and look like one brand — not random posts from random tools."
+			},
+			"automation": {
+				"title": "Automation + Follow-up Systems",
+				"description": "AI and automations that follow up with leads, answer common questions, and handle the repetitive work for you."
 			}
+		}
+	},
+	"problemJourney": {
+		"title": "Sound familiar?",
+		"subtitle": "Here's the path almost every business owner walks when trying to grow online — until something breaks.",
+		"steps": {
+			"professional": {
+				"title": "I need to look professional online",
+				"description": "No brand, no identity, no clear place to start. Everyone says you need a presence, but no one shows you how."
+			},
+			"scattered": {
+				"title": "I guess I need social media and a website",
+				"description": "You set up Instagram, a basic site, maybe a logo from Fiverr. Nothing connects, nothing matches."
+			},
+			"visibility": {
+				"title": "I need people to see my business",
+				"description": "The site is live, the page is up — and almost no one visits. No traffic, no visibility, no leads."
+			},
+			"ads": {
+				"title": "Let's run ads",
+				"description": "You start spending on Meta and Google with no system behind it, hoping ads alone will fix it."
+			},
+			"no_customers": {
+				"title": "Why am I not getting customers?",
+				"description": "Some clicks, some messages, but barely any real customers. The funnel leaks everywhere."
+			},
+			"more_content": {
+				"title": "Maybe I need more content",
+				"description": "You start posting more — reels, stories, blogs — without a clear plan. It feels busy, not effective."
+			},
+			"overwhelmed": {
+				"title": "Everything is too much",
+				"description": "Five tools, three logins, two freelancers, and a hundred unread DMs. You can't tell what's working."
+			},
+			"breaking_point": {
+				"title": "I just want customers, not all this",
+				"description": "You didn't start a business to manage software, ads, and content all at once. You wanted to serve clients."
+			}
+		},
+		"summary": {
+			"title": "WE GOT YOU",
+			"description": "Tools, content, ads, and tasks pile up — and the business owner is stuck doing all of it alone."
+		},
+		"positioning": {
+			"title": "We fix this entire process for you.",
+			"body": "We act as your digital team. We build your website, manage your marketing, create your content, and set up your systems — so you can grow your business without hiring a full-time team or doing it yourself."
 		}
 	},
 	"about": {
@@ -59,70 +111,59 @@
 	},
 	"pricing": {
 		"title": "Pricing",
-		"spots": {
-			"single": "spot left this month",
-			"multiple": "spots left this month"
-		},
-		"guarantee_heading": "What you can expect",
+		"includes_label": "Includes",
+		"support_label": "Support",
+		"outcome_label": "Outcome",
 		"packages": {
 			"launchpad": {
-				"title": "Launchpad",
-				"price": "6,999 AED",
-				"duration": "~2 weeks",
-				"description": "Businesses that need a strong first impression and professional online presence.",
+				"title": "Foundation",
+				"price": "7,000 AED",
+				"price_aed": "7,000 AED",
+				"question": "Do I look legit online?",
+				"description": "Make me look professional online.",
+				"support": "1 month",
+				"outcome": "You now have a professional online presence people can trust.",
 				"features": [
-					"Premium custom website up to 5 pages",
-					"Mobile-friendly on all devices",
-					"Contact forms",
-					"WhatsApp + booking integration",
-					"SEO setup so Google can find you",
-					"Google Analytics + Search Console",
-					"Fast loading speed",
-					"SSL + hosting + domain setup",
-					"2 rounds of revisions",
-					"Images + basic copy support",
-					"30 days post-launch support"
-				],
-				"guarantee": "Fixed scope, fixed price, clear delivery date, and a website you'll be proud to share."
+					"Website built for conversion",
+					"Lead capture (WhatsApp + forms)",
+					"Analytics setup (GA4 / tracking)",
+					"Mobile optimized structure",
+					"Logo + brand colors setup"
+				]
 			},
 			"growth_engine": {
-				"title": "Growth Engine",
-				"price": "14,299 AED",
-				"duration": "3–4 weeks",
-				"description": "Businesses that want their website to generate leads and grow sales.",
+				"title": "Growth",
+				"price": "14,000 AED",
+				"price_aed": "14,000 AED",
+				"question": "Do I get customers from this?",
+				"description": "Bring me customers consistently.",
+				"support": "2 months",
+				"outcome": "Your business now has a system that attracts and converts customers.",
 				"features": [
-					"Everything in Launchpad",
-					"Up to 12 pages, blog or basic store",
-					"Landing pages for ads",
-					"Email capture + automated follow-up",
-					"Meta or Google ad campaign setup",
-					"CRM integration",
-					"GA4 + Meta Pixel + GTM tracking",
-					"WhatsApp chat",
-					"Heatmaps",
-					"Editable CMS",
-					"Advanced SEO",
-					"60 days support",
-					"First month growth report"
-				],
-				"guarantee": "Weekly progress updates, smoother launch process, and ongoing support to improve results."
+					"Everything in Foundation",
+					"Marketing setup (ads structure + tracking)",
+					"Lead tracking system (CRM setup)",
+					"Follow-up system (automation + WhatsApp flow)",
+					"Content execution system based on your business voice",
+					"Ongoing optimization of conversion + marketing system"
+				]
 			},
 			"custom_build": {
-				"title": "Custom Build",
-				"price": "Custom Quote",
-				"duration": "Based on scope",
-				"description": "Businesses building apps, portals, dashboards, or custom systems.",
+				"title": "Elite",
+				"price": "35,000 AED",
+				"price_aed": "35,000 AED",
+				"question": "Do I want everything done for me?",
+				"description": "Do everything for me completely.",
+				"support": "3 months",
+				"outcome": "Your entire digital business system is handled for you end-to-end.",
 				"features": [
-					"Custom web or mobile app",
-					"Backend systems, APIs, database setup",
-					"User accounts, dashboards, automations",
-					"Payment integrations",
-					"Admin panel built for your workflow",
-					"Full source code ownership",
-					"Deployment setup, monitoring",
-					"3 months support after launch"
-				],
-				"guarantee": "Weekly demos, milestone delivery, changes handled fast, and full ownership when complete."
+					"Everything in Growth",
+					"Advanced custom systems (dashboards / workflows / portals)",
+					"Full automation architecture",
+					"High-level scaling setup",
+					"Expanded execution system for content + marketing at scale",
+					"Deep business integration"
+				]
 			}
 		}
 	},
@@ -278,29 +319,37 @@
 	"workProcess": {
 		"title": "How we work?",
 		"steps": {
-			"meeting": {
-				"title": "Set Up a Meeting",
-				"description": "We'll connect however you prefer—messaging, online, or in person."
+			"understand": {
+				"title": "Understand Your Business",
+				"description": "We understand your business, goals, and how you currently get customers."
 			},
-			"goals": {
-				"title": "Understand Customer Goals",
-				"description": "We'll sit down together to understand your goals, vision, requirements, and pick a plan that suits you best."
+			"growthPlan": {
+				"title": "Build Your Growth Plan",
+				"description": "We map your website, marketing, content, and lead flow into one system."
 			},
-			"design": {
-				"title": "Confirm Design & Timeline",
-				"description": "We'll agree on the design, and set a delivery date."
+			"onlineSystem": {
+				"title": "Set Up Your Online System",
+				"description": "We build and connect your website, tracking, and lead capture system."
 			},
-			"develop": {
-				"title": "Develop the Website",
-				"description": "Your site will be ready on time, with any tweaks you need."
+			"marketingLaunch": {
+				"title": "Launch Your Marketing System",
+				"description": "We connect your business to the market with ads, content direction, and traffic setup."
 			},
-			"training": {
-				"title": "Training & Setup",
-				"description": "We'll show you how to manage everything—from activating your bank account to receive payments, tracking sales and analytics to updating products and handling orders on any device."
+			"contentGrowth": {
+				"title": "Content & Growth Execution",
+				"description": "We handle content creation, campaigns, and ongoing improvements."
 			},
-			"launch": {
-				"title": "Launch Your Website",
-				"description": "Your site will be available for users to use it."
+			"followupAutomation": {
+				"title": "Follow-Up & Automation System",
+				"description": "We set up systems that follow up with leads and reduce manual work."
+			},
+			"optimize": {
+				"title": "Optimize & Improve",
+				"description": "We improve conversion, marketing performance, and messaging over time."
+			},
+			"clientFocus": {
+				"title": "You Focus on Your Business",
+				"description": "We handle the execution so you can focus on decisions and growth."
 			}
 		}
 	},
@@ -331,16 +380,16 @@
 		"title": "You don't need to worry about these?",
 		"items": {
 			"expertise": {
-				"label": "Expertise in technology",
-				"description": "We handle the tech side for you and teach what you need"
+				"label": "Everything Technical",
+				"description": "We handle your website, setup, and system integrations so you don't deal with any technical work."
 			},
 			"security": {
-				"label": "Security",
-				"description": "We make sure your website stays safe and secure 24/7."
+				"label": "Marketing & Growth",
+				"description": "We manage your marketing, content, and lead generation so your business gets real customers online."
 			},
 			"design": {
-				"label": "Design",
-				"description": "We give your site a personality that speaks for itself."
+				"label": "Operations & Follow-up",
+				"description": "We set up automation, tracking, and follow-up systems so you never lose leads or manage things manually."
 			}
 		},
 		"bottom_text": {
