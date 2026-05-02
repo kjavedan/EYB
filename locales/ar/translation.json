@@ -637,6 +637,45 @@
 			}
 		}
 	},
+	"brandChecker": {
+		"title": "اسم مشروعك متاح؟",
+		"subtitle": "تأكد من الدومينات وحسابات السوشيال دفعة وحدة — وشوف وين اسمك متاح قبل ما تثبت عليه.",
+		"placeholder": "eyb أو eyb.com",
+		"helper": "اكتب اسم مشروعك أو دومين كامل (مثل eyb أو eyb.com). لو كتبت دومين، نفحصه بالضبط. لو كتبت اسم، نفحص الدومينات المشهورة وحسابات السوشيال.",
+		"check": "ابحث",
+		"checking": "نفحص...",
+		"groups": {
+			"domains": "الدومينات",
+			"socials": "حسابات السوشيال"
+		},
+		"status": {
+			"available": "متاح",
+			"taken": "محجوز",
+			"unknown": "ما عرفنا",
+			"invalid": "ما يقبله"
+		},
+		"reasons": {
+			"no_hyphens": "ما يقبل الشرطة (-)",
+			"no_underscores": "ما يقبل الخط السفلي (_)",
+			"too_short": "قصير زيادة",
+			"too_long": "طويل زيادة",
+			"must_start_with_letter": "لازم يبدأ بحرف",
+			"must_contain_letter": "لازم فيه حرف على الأقل",
+			"no_consecutive_dots": "ما تجي نقطتين متتاليتين",
+			"no_leading_trailing_dot": "ما يبدأ ولا ينتهي بنقطة",
+			"invalid_chars": "فيه رموز ما تنفع"
+		},
+		"platforms": {
+			"instagram": "إنستقرام",
+			"facebook": "فيسبوك",
+			"tiktok": "تيك توك",
+			"snapchat": "سناب شات"
+		},
+		"errors": {
+			"invalid": "اكتب اسم مشروع أو دومين صحيح.",
+			"generic": "صار خطأ. جرب مرة ثانية."
+		}
+	},
 	"domainSearch": {
 		"title": "اجعل موقعك رسمياً مع اسم نطاقك الخاص",
 		"search": {

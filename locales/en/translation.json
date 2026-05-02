@@ -353,6 +353,45 @@
 			}
 		}
 	},
+	"brandChecker": {
+		"title": "Is your brand name available?",
+		"subtitle": "Check domains and social handles in one go — see where your name is free before you commit.",
+		"placeholder": "eyb or eyb.com",
+		"helper": "Enter your brand name or a full domain (e.g. eyb or eyb.com). If you enter a domain, we check that exact domain. If you enter a name, we check common domains and social usernames.",
+		"check": "Check",
+		"checking": "Checking...",
+		"groups": {
+			"domains": "Domains",
+			"socials": "Socials"
+		},
+		"status": {
+			"available": "Available",
+			"taken": "Already in use",
+			"unknown": "Unknown",
+			"invalid": "Not allowed"
+		},
+		"reasons": {
+			"no_hyphens": "Hyphens (-) not allowed",
+			"no_underscores": "Underscores (_) not allowed",
+			"too_short": "Too short",
+			"too_long": "Too long",
+			"must_start_with_letter": "Must start with a letter",
+			"must_contain_letter": "Must contain a letter",
+			"no_consecutive_dots": "No double dots",
+			"no_leading_trailing_dot": "Can't start or end with a dot",
+			"invalid_chars": "Has unsupported characters"
+		},
+		"platforms": {
+			"instagram": "Instagram",
+			"facebook": "Facebook",
+			"tiktok": "TikTok",
+			"snapchat": "Snapchat"
+		},
+		"errors": {
+			"invalid": "Please enter a valid brand name or domain.",
+			"generic": "Something went wrong. Please try again."
+		}
+	},
 	"domainSearch": {
 		"title": "Make your website official with your own domain name",
 		"search": {

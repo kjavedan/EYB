@@ -1,7 +1,7 @@
 import Footer from "@/components/layout/footer";
 import About from "@/components/sections/about";
+import BrandAvailabilityChecker from "@/components/sections/brand-availability-checker";
 import Concerns from "@/components/sections/concerns";
-import DomainSearch from "@/components/sections/domain-search";
 import FAQs from "@/components/sections/faqs";
 import Hero from "@/components/sections/hero";
 import Pricing from "@/components/sections/pricing";
@@ -31,7 +31,7 @@ export default function HomePage() {
 					<Concerns />
 					<WorkProcess />
 					<Pricing />
-					<DomainSearch />
+					<BrandAvailabilityChecker />
 					<About />
 					<Testimonials />
 					<FAQs />
