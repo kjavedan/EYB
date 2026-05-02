@@ -1,5 +1,7 @@
 import { sql } from "@/lib/db";
 
+const DEFAULT_LIST_LIMIT = 100;
+
 export type CreateContactMessageInput = {
 	first_name: string;
 	last_name: string | null;
@@ -24,4 +26,25 @@ export async function createContactMessage(
 		console.error("createContactMessage error:", err);
 		return { ok: false, reason: "error" };
 	}
+}
+
+export type ContactMessageRow = {
+	id: number;
+	first_name: string;
+	last_name: string | null;
+	email: string;
+	message: string;
+	created_at: string;
+};
+
+export async function listContactMessages(
+	limit = DEFAULT_LIST_LIMIT,
+): Promise<ContactMessageRow[]> {
+	const rows = await sql`
+		SELECT id, first_name, last_name, email, message, created_at
+		FROM contact_messages
+		ORDER BY created_at DESC
+		LIMIT ${limit}
+	`;
+	return rows as ContactMessageRow[];
 }

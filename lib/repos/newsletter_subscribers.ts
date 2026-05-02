@@ -1,6 +1,7 @@
 import { sql } from "@/lib/db";
 
 const POSTGRES_UNIQUE_VIOLATION = "23505";
+const DEFAULT_LIST_LIMIT = 100;
 
 export type CreateSubscriberInput = {
 	first_name: string;
@@ -35,4 +36,24 @@ export async function createSubscriber(
 		console.error("createSubscriber error:", err);
 		return { ok: false, reason: "error" };
 	}
+}
+
+export type SubscriberRow = {
+	id: number;
+	first_name: string;
+	last_name: string | null;
+	email: string;
+	created_at: string;
+};
+
+export async function listSubscribers(
+	limit = DEFAULT_LIST_LIMIT,
+): Promise<SubscriberRow[]> {
+	const rows = await sql`
+		SELECT id, first_name, last_name, email, created_at
+		FROM newsletter_subscribers
+		ORDER BY created_at DESC
+		LIMIT ${limit}
+	`;
+	return rows as SubscriberRow[];
 }

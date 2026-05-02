@@ -8,6 +8,7 @@
 import { sql } from "@/lib/db";
 
 const POSTGRES_UNIQUE_VIOLATION = "23505";
+const DEFAULT_LIST_LIMIT = 100;
 
 export type CreateUserInput = {
 	first_name: string;
@@ -22,8 +23,8 @@ export type CreateUserResult =
 
 /**
  * Insert a user. If the email already exists we return `{ duplicate: true }`
- * rather than an error — both call sites (subscribe, contact) treat this as
- * a known case, not a failure.
+ * rather than an error — the contact flow treats that as a known case (existing
+ * lead sending again), not a failure.
  */
 export async function createUser(
 	input: CreateUserInput,
@@ -42,4 +43,22 @@ export async function createUser(
 		console.error("createUser error:", err);
 		return { ok: false, reason: "error" };
 	}
+}
+
+export type UserRow = {
+	first_name: string;
+	last_name: string | null;
+	email: string;
+};
+
+export async function listUsers(
+	limit = DEFAULT_LIST_LIMIT,
+): Promise<UserRow[]> {
+	const rows = await sql`
+		SELECT first_name, last_name, email
+		FROM users
+		ORDER BY email ASC
+		LIMIT ${limit}
+	`;
+	return rows as UserRow[];
 }
