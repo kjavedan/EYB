@@ -1,11 +1,5 @@
 import { z } from "zod";
 
-/**
- * Schemas for user-facing form actions. Both `subscribe` and `contact` accept
- * the same fields, so we define one base schema and reuse it. Splitting them
- * makes future divergence (e.g., a "message" field on contact only) simple.
- */
-
 const baseUserSchema = z.object({
 	first_name: z.string().trim().min(1, "first_name is required").max(80),
 	last_name: z
@@ -18,7 +12,10 @@ const baseUserSchema = z.object({
 });
 
 export const subscribeSchema = baseUserSchema;
-export const contactSchema = baseUserSchema;
+
+export const contactSchema = baseUserSchema.extend({
+	message: z.string().trim().min(1, "message is required").max(2000),
+});
 
 export type SubscribeInput = z.infer<typeof subscribeSchema>;
 export type ContactInput = z.infer<typeof contactSchema>;

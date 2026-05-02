@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
 const journeySteps = [
-	{ id: 1, key: "professional", icon: "hugeicons:alert-02" },
+	{ id: 1, key: "professional", icon: "hugeicons:globe-02" },
 	{ id: 2, key: "scattered", icon: "hugeicons:dashboard-square-01" },
 	{ id: 3, key: "visibility", icon: "hugeicons:eye" },
 	{ id: 4, key: "ads", icon: "hugeicons:megaphone-01" },

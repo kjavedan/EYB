@@ -30,14 +30,11 @@ const SOCIAL_ICONS: Record<SocialPlatform, string> = {
 	snapchat: "mdi:snapchat",
 };
 
-const STATUS_PILL: Record<Status, string> = {
-	available:
-		"bg-emerald-500/10 text-emerald-500 border-emerald-500/30",
-	taken: "bg-rose-500/10 text-rose-500 border-rose-500/30",
-	unknown:
-		"bg-[--bg-overlay] text-[--text-muted] border-[--border-color]",
-	invalid:
-		"bg-[--bg-overlay] text-[--text-muted] border-[--border-color]",
+const STATUS_TEXT: Record<Status, string> = {
+	available: "text-emerald-500",
+	taken: "text-rose-500",
+	unknown: "text-[--text-muted]",
+	invalid: "text-[--text-muted]",
 };
 
 const STATUS_ICONS: Record<Status, string> = {
@@ -192,63 +189,72 @@ function ResultGroup({
 }) {
 	const gridClass =
 		columns === "domains"
-			? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3"
-			: "grid grid-cols-2 lg:grid-cols-4 gap-3";
+			? "grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"
+			: "grid grid-cols-2 lg:grid-cols-4";
 
 	return (
 		<div>
-			<h3 className="text-lg lg:text-xl font-bold text-[--text-color] mb-4 flex items-center gap-2">
-				<span className="h-px flex-1 bg-gradient-to-r from-transparent to-[--border-color]" />
-				<span>{title}</span>
-				<span className="h-px flex-1 bg-gradient-to-l from-transparent to-[--border-color]" />
+			<h3 className="text-center text-sm lg:text-base font-bold text-[--text-muted] mb-5 uppercase tracking-[0.2em]">
+				{title}
 			</h3>
-			<div className={gridClass}>{children}</div>
+			<div className="grid-wrapper">
+				<div className="relative grid-container">
+					<div className={gridClass}>{children}</div>
+				</div>
+			</div>
 		</div>
 	);
 }
 
-function StatusPill({ status }: { status: Status }) {
+function StatusLine({
+	status,
+	reason,
+}: {
+	status: Status;
+	reason?: string;
+}) {
 	const { t } = useTranslation();
 	return (
-		<div
-			className={cn(
-				"inline-flex items-center gap-1 px-2 py-1 rounded-full border text-xs font-medium",
-				STATUS_PILL[status],
+		<div className="flex flex-col items-center gap-1">
+			<div
+				className={cn(
+					"flex items-center gap-1 text-xs lg:text-sm font-medium",
+					STATUS_TEXT[status],
+				)}
+			>
+				<Icon icon={STATUS_ICONS[status]} className="text-base" />
+				<span>{t(`brandChecker.status.${status}`)}</span>
+			</div>
+			{status === "invalid" && reason && (
+				<span className="text-[10px] lg:text-xs text-[--text-muted] leading-snug">
+					{t(`brandChecker.reasons.${reason}`)}
+				</span>
 			)}
-		>
-			<Icon icon={STATUS_ICONS[status]} className="text-sm" />
-			<span>{t(`brandChecker.status.${status}`)}</span>
 		</div>
 	);
 }
 
-function CardShell({
+function ResultCell({
 	index,
-	status,
 	children,
 }: {
 	index: number;
-	status: Status;
 	children: React.ReactNode;
 }) {
-	const accent =
-		status === "available"
-			? "before:opacity-100 before:bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.18),transparent_60%)]"
-			: "before:opacity-0";
-
 	return (
 		<motion.div
-			initial={{ opacity: 0, y: 12 }}
+			initial={{ opacity: 0, y: 6 }}
 			animate={{ opacity: 1, y: 0 }}
-			transition={{ duration: 0.3, delay: index * 0.05, ease: "easeOut" }}
-			whileHover={{ y: -2 }}
-			className={cn(
-				"relative overflow-hidden rounded-2xl border border-[--border-color] bg-[--bg-elevated] p-4 lg:p-5",
-				"before:absolute before:inset-0 before:pointer-events-none before:transition-opacity",
-				accent,
-			)}
+			transition={{ duration: 0.25, delay: index * 0.04, ease: "easeOut" }}
+			className="relative flex flex-col items-center text-center gap-3 px-3 py-6 lg:px-4 lg:py-8"
 		>
-			<div className="relative">{children}</div>
+			{/* Vertical gradient divider on the right of every cell. The
+			    rightmost cells overlap with grid-container::after, which is the
+			    same gradient — visually a single line. */}
+			<div className="absolute top-0 end-0 h-full w-px bg-gradient-to-b from-[--bg-color] via-[--border-color] to-[--bg-color]" />
+			{/* Horizontal gradient divider on the bottom of every cell. */}
+			<div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-[--bg-color] via-[--border-color] to-[--bg-color]" />
+			{children}
 		</motion.div>
 	);
 }
@@ -260,31 +266,31 @@ function DomainCard({
 	domain: DomainResult;
 	index: number;
 }) {
-	const { t } = useTranslation();
 	const dot = domain.name.lastIndexOf(".");
 	const name = dot >= 0 ? domain.name.slice(0, dot) : domain.name;
 	const tld = dot >= 0 ? domain.name.slice(dot) : "";
-	const tldColor =
-		domain.status === "available"
-			? "text-emerald-500"
-			: "text-[--secondary-color]";
+	const isAvailable = domain.status === "available";
 
 	return (
-		<CardShell index={index} status={domain.status}>
-			<div className="flex flex-col items-start gap-3" style={{ direction: "ltr" }}>
-				<Icon icon="mdi:web" className="text-2xl text-[--text-muted]" />
-				<div className="text-base lg:text-lg font-semibold text-[--text-color] truncate w-full">
-					<span className="text-[--text-color]">{name}</span>
-					<span className={tldColor}>{tld}</span>
-				</div>
-				<StatusPill status={domain.status} />
-				{domain.status === "invalid" && domain.reason && (
-					<span className="text-xs text-[--text-muted]">
-						{t(`brandChecker.reasons.${domain.reason}`)}
-					</span>
-				)}
+		<ResultCell index={index}>
+			<Icon icon="mdi:web" className="text-2xl text-[--text-muted]" />
+			<div
+				className="text-sm lg:text-base font-semibold truncate w-full"
+				style={{ direction: "ltr" }}
+			>
+				<span className="text-[--text-color]">{name}</span>
+				<span
+					className={
+						isAvailable
+							? "text-[--secondary-color]"
+							: "text-[--text-muted]"
+					}
+				>
+					{tld}
+				</span>
 			</div>
-		</CardShell>
+			<StatusLine status={domain.status} reason={domain.reason} />
+		</ResultCell>
 	);
 }
 
@@ -297,22 +303,15 @@ function SocialCard({
 }) {
 	const { t } = useTranslation();
 	return (
-		<CardShell index={index} status={social.status}>
-			<div className="flex flex-col items-center text-center gap-2">
-				<Icon
-					icon={SOCIAL_ICONS[social.platform]}
-					className="text-4xl lg:text-5xl text-[--text-color]"
-				/>
-				<span className="text-sm lg:text-base font-semibold text-[--text-color]">
-					{t(`brandChecker.platforms.${social.platform}`)}
-				</span>
-				<StatusPill status={social.status} />
-				{social.status === "invalid" && social.reason && (
-					<span className="text-xs text-[--text-muted] leading-snug">
-						{t(`brandChecker.reasons.${social.reason}`)}
-					</span>
-				)}
-			</div>
-		</CardShell>
+		<ResultCell index={index}>
+			<Icon
+				icon={SOCIAL_ICONS[social.platform]}
+				className="text-3xl lg:text-4xl text-[--text-color]"
+			/>
+			<span className="text-sm lg:text-base font-semibold text-[--text-color]">
+				{t(`brandChecker.platforms.${social.platform}`)}
+			</span>
+			<StatusLine status={social.status} reason={social.reason} />
+		</ResultCell>
 	);
 }

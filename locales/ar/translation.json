@@ -733,10 +733,12 @@
 		"send": "إرسال",
 		"subscibe": "اشتراك",
 		"email": "البريد الإلكتروني",
+		"message": "رسالتك",
 		"placeholder": {
 			"first_name": "محمد",
 			"last_name": "أبراهیم",
-			"email": "mohammed@example.com"
+			"email": "mohammed@example.com",
+			"message": "اكتب لنا شو في بالك — فكرة المشروع، الميزانية، التوقيت، أي شي يساعدنا نفهم احتياجك."
 		},
 		"success": {
 			"subscribe": {

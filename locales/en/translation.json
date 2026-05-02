@@ -449,10 +449,12 @@
 		"send": "Send",
 		"subscibe": "Subscribe",
 		"email": "Email",
+		"message": "Message",
 		"placeholder": {
 			"first_name": "John",
 			"last_name": "Doe",
-			"email": "john.doe@example.com"
+			"email": "john.doe@example.com",
+			"message": "Tell me a bit about your project — goals, timeline, anything you have in mind."
 		},
 		"success": {
 			"subscribe": {

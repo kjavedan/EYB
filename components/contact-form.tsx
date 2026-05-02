@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
+import { Textarea } from "./ui/textarea";
 
 type Flow = "subscribe" | "contact";
 
@@ -116,6 +117,18 @@ export function ContactForm({
 						required
 					/>
 				</LabelInputContainer>
+
+				{flow === "contact" && (
+					<LabelInputContainer className="mb-4">
+						<Label htmlFor="message">{t("contact_form.message")}</Label>
+						<Textarea
+							name="message"
+							placeholder={t("contact_form.placeholder.message")}
+							required
+							maxLength={2000}
+						/>
+					</LabelInputContainer>
+				)}
 
 				<button
 					className="group/btn mt-6 relative block h-10 w-full rounded-xl font-medium bg-[--button-bg] text-[--button-text] hover:opacity-90 transition-opacity"

@@ -1,7 +1,13 @@
 "use server";
 
-import { FROM_ADDRESS, resend, welcomeEmailHtml } from "@/lib/email";
-import { createUser } from "@/lib/repos/users";
+import {
+	FROM_ADDRESS,
+	NEWSLETTER_DISCOUNT_TEMPLATE_ID,
+	SUPPORT_EMAIL,
+	ownerSubscribeNotificationHtml,
+	resend,
+} from "@/lib/email";
+import { createSubscriber } from "@/lib/repos/newsletter_subscribers";
 import { formDataToObject, subscribeSchema } from "@/lib/validation";
 
 export type SubscribeResult =
@@ -14,22 +20,44 @@ export async function subscribe(formData: FormData): Promise<SubscribeResult> {
 		return { ok: false, reason: "error" };
 	}
 
-	const result = await createUser(parsed.data);
+	const result = await createSubscriber(parsed.data);
 	if (!result.ok) return { ok: false, reason: "error" };
 	if (result.duplicate) return { ok: false, reason: "duplicate" };
 
-	const { error } = await resend.emails.send(
+	const discountPromise = resend.emails.send(
 		{
 			from: FROM_ADDRESS,
 			to: [parsed.data.email],
-			subject: "Welcome to EYB — your 10% discount is inside",
-			html: welcomeEmailHtml(parsed.data.first_name),
+			template: {
+				id: NEWSLETTER_DISCOUNT_TEMPLATE_ID,
+				variables: { name: parsed.data.first_name },
+			},
 		},
-		{ idempotencyKey: `subscribe-welcome/${parsed.data.email}` },
+		{ idempotencyKey: `subscribe-discount/${parsed.data.email}` },
 	);
 
-	if (error) {
-		console.error("subscribe email error:", error);
+	const ownerPromise = resend.emails.send({
+		from: FROM_ADDRESS,
+		to: [SUPPORT_EMAIL],
+		replyTo: parsed.data.email,
+		subject: `New newsletter subscriber: ${parsed.data.first_name}`,
+		html: ownerSubscribeNotificationHtml({
+			firstName: parsed.data.first_name,
+			lastName: parsed.data.last_name,
+			email: parsed.data.email,
+		}),
+	});
+
+	const [discountResult, ownerResult] = await Promise.all([
+		discountPromise,
+		ownerPromise,
+	]);
+
+	if (discountResult.error) {
+		console.error("subscribe discount email error:", discountResult.error);
+	}
+	if (ownerResult.error) {
+		console.error("owner subscribe notification error:", ownerResult.error);
 	}
 
 	return { ok: true };
