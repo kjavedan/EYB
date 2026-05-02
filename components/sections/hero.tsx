@@ -73,11 +73,11 @@ export default function Hero() {
 					</span>
 				</h1>
 
-				<p className="mt-6 mx-auto max-w-2xl px-6 text-center text-lg lg:text-xl xl:text-2xl text-[--text-gray] leading-relaxed">
+				<p className="mt-8 mx-auto max-w-2xl px-6 text-center text-lg lg:text-xl xl:text-2xl text-[--text-gray] leading-relaxed">
 					{t("hero.subtitle", { defaultValue: "see if I can help you" })}
 				</p>
 
-				<div className="mt-8 flex flex-col items-center justify-center gap-3 lg:gap-6 px-6 sm:flex-row">
+				<div className="mt-12 flex flex-col items-center justify-center gap-3 lg:gap-6 px-6 sm:flex-row">
 					<Button className="hero-cta-button mt-0">
 						{t("hero.cta", { defaultValue: "Schedule a call" })}
 					</Button>
