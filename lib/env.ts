@@ -9,10 +9,17 @@
 type EnvSchema = {
 	DATABASE_URL: string;
 	RESEND_API_KEY: string;
+	ADMIN_PASSWORD: string;
+	ADMIN_SESSION_SECRET: string;
 };
 
 function readEnv(): EnvSchema {
-	const required = ["DATABASE_URL", "RESEND_API_KEY"] as const;
+	const required = [
+		"DATABASE_URL",
+		"RESEND_API_KEY",
+		"ADMIN_PASSWORD",
+		"ADMIN_SESSION_SECRET",
+	] as const;
 	const missing = required.filter((key) => !process.env[key]);
 
 	if (missing.length > 0) {
@@ -24,6 +31,8 @@ function readEnv(): EnvSchema {
 	return {
 		DATABASE_URL: process.env.DATABASE_URL as string,
 		RESEND_API_KEY: process.env.RESEND_API_KEY as string,
+		ADMIN_PASSWORD: process.env.ADMIN_PASSWORD as string,
+		ADMIN_SESSION_SECRET: process.env.ADMIN_SESSION_SECRET as string,
 	};
 }
 

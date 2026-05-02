@@ -2,11 +2,15 @@
 
 import { useResponsive } from "@/hooks/use-responsive";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 import NavDesktop from "./desktop";
 import NavMobile from "./mobile";
 
 export function Header() {
 	const { isDesktop } = useResponsive();
+	const pathname = usePathname();
+
+	if (pathname?.startsWith("/admin")) return null;
 
 	return (
 		<header
