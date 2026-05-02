@@ -66,10 +66,6 @@ export default function FAQs() {
 		"pricing",
 		"design_approach",
 		"post_launch",
-		"ecommerce",
-		"process",
-		"integrations",
-		"mobile_friendly",
 	];
 
 	return (

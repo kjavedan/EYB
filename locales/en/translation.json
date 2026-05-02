@@ -171,36 +171,36 @@
 		"title": "FAQs",
 		"questions": {
 			"starter_example": {
-				"question": "Can you show me an example of a Starter package website?",
-				"answer": "Yes, this website that you are scrolling right now is an example of a Starter package, which is perfect for starting personal or business websites."
+				"question": "What exactly does EYB do for my business?",
+				"answer": "We build and run your digital system including your website, marketing, content, and customer follow-up so your business can get customers online without you managing everything yourself."
 			},
 			"development_time": {
-				"question": "How long does it take to develop a website?",
-				"answer": "The timeline depends on the package chosen and specific project requirements. Typically, a Starter package takes 1-2 weeks to deliver, while more complex sites may take longer."
+				"question": "Do I need technical knowledge to work with you?",
+				"answer": "No. We handle everything for you. You only focus on your business direction while we manage the execution."
 			},
 			"support": {
-				"question": "What kind of support do you offer after the website is live?",
-				"answer": "We offer ongoing support including updates, troubleshooting, and training for managing your website. Each package comes with a specific duration of free support, and additional support can be arranged as needed."
+				"question": "Is this just a website service or something more?",
+				"answer": "It's much more than a website. We build a complete system that helps your business attract, track, and convert customers online."
 			},
 			"customization": {
-				"question": "Can the website be customized to fit my specific business needs?",
-				"answer": "Absolutely! We tailor each website to meet the unique requirements of your business, ensuring it aligns with your goals and brand identity."
+				"question": "How does the process work?",
+				"answer": "We understand your business, build your system, launch it, and continuously improve it so it brings results over time."
 			},
 			"training": {
-				"question": "Do you provide training for managing the website?",
-				"answer": "Yes, we provide training sessions to help you and your team manage and update your website efficiently, empowering you to take control of your online presence."
+				"question": "Will this help me get more customers?",
+				"answer": "Yes. The goal of everything we build is to turn your online presence into a system that generates real customer inquiries and leads."
 			},
 			"pricing": {
-				"question": "Are these are fixed prices?",
-				"answer": "No. After our meeting and understanding your needs, we will provide a more accurate quote tailored to your business goals."
+				"question": "What if I already have a website or marketing?",
+				"answer": "We integrate or improve what you already have and build the missing parts so everything works together as one system."
 			},
 			"design_approach": {
-				"question": "Do you offer custom design, or do you use templates?",
-				"answer": "We offer both custom designs and template-based solutions, depending on your needs and budget. Custom designs provide a unique look tailored to your brand, while templates offer a faster and more cost-effective option."
+				"question": "What do I need to start working with you?",
+				"answer": "Just your business idea, goals, and basic information. We handle the rest."
 			},
 			"post_launch": {
-				"question": "What happens if I need changes or updates after the project is finished?",
-				"answer": "We offer post-launch support and maintenance services. If you need changes or updates, we can arrange ongoing support or a separate maintenance package to ensure your website remains up-to-date and functional."
+				"question": "Can I start small and upgrade later?",
+				"answer": "Yes. You can start with a basic setup and scale into a full growth system when you're ready."
 			},
 			"ecommerce": {
 				"question": "Do you handle e-commerce functionality, such as payment processing and product management?",
