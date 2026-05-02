@@ -39,11 +39,11 @@ const notoSansArabic = Noto_Sans_Arabic({
 
 export const metadata: Metadata = {
 	title: {
-		default: "EYB — Websites, Mobile Apps & Custom Software in Dubai, UAE",
+		default: "Get More Customers Online | EYB",
 		template: "%s | EYB",
 	},
 	description:
-		"EYB builds websites, mobile apps, and custom software for businesses in Dubai and across the UAE. Practical digital tools that take busywork off your plate and help your business grow.",
+		"We build and manage your website, marketing, content, and systems so your business can get more customers online without the complexity.",
 	keywords: [
 		"EYB",
 		"EYB Dubai",
