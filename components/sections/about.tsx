@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import { SectionHeading } from "@/components/section-heading";
 import Button from "@/components/ui/button";
 
+import anshidSrc from "@/public/images/anshid.jpg";
 import faizSrc from "@/public/images/faiz.jpeg";
 import khaledSrc from "@/public/images/khaled.png";
 import sajadSrc from "@/public/images/sajad.jpg";
@@ -96,8 +97,7 @@ const teamMembers: Member[] = [
 	{
 		id: 4,
 		key: "anshid",
-		// TODO: add a photo to public/images/ and import it here
-		image: null,
+		image: anshidSrc,
 		alt: "Anshid — Designer",
 		socials: [
 			{

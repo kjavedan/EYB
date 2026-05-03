@@ -4,6 +4,7 @@ import { SectionHeading } from "@/components/section-heading";
 import Button from "@/components/ui/button";
 import ArrowDown from "@/components/ui/icons/arrow-down";
 import CircleIcon from "@/components/ui/icons/circle";
+import SocialFlow from "@/components/ui/social-flow";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
@@ -174,7 +175,12 @@ export default function ProblemJourney() {
 					<p className="mt-6 text-base leading-relaxed text-[--text-gray] lg:text-lg">
 						{t("problemJourney.positioning.body")}
 					</p>
-					<div className="mt-8 flex justify-center">
+					<div className="mt-12 lg:mt-16">
+						<SocialFlow
+							destinationLabel={t("problemJourney.positioning.destination")}
+						/>
+					</div>
+					<div className="mt-10 flex justify-center">
 						<Button />
 					</div>
 				</div>
