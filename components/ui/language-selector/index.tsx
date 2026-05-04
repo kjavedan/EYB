@@ -8,35 +8,30 @@ import { useTranslation } from "react-i18next";
 export default function LanguageSelector() {
 	const { i18n } = useTranslation();
 	const [open, setOpen] = useState(false);
-	const [currentLanguage, setCurrentLanguage] = useState("en");
+	const [mounted, setMounted] = useState(false);
 
 	useEffect(() => {
-		if (typeof window !== "undefined") {
-			const savedLanguage = localStorage.getItem("language") || "en";
-			setCurrentLanguage(savedLanguage);
-			if (savedLanguage !== i18n.language) {
-				changeLanguage(savedLanguage);
-			}
-		}
-	}, [i18n]);
+		setMounted(true);
+	}, []);
+
+	useEffect(() => {
+		if (typeof document === "undefined") return;
+		const isAr = i18n.language?.startsWith("ar");
+		document.documentElement.dir = isAr ? "rtl" : "ltr";
+		document.documentElement.lang = isAr ? "ar" : "en";
+	}, [i18n.language]);
 
 	const changeLanguage = async (lng: string) => {
 		try {
 			await i18n.changeLanguage(lng);
-			setCurrentLanguage(lng);
-
-			if (typeof document !== "undefined") {
-				document.documentElement.dir = lng === "ar" ? "rtl" : "ltr";
-				document.documentElement.lang = lng;
-			}
-			if (typeof window !== "undefined") {
-				localStorage.setItem("language", lng);
-			}
 			setOpen(false);
 		} catch (error) {
 			console.error("Failed to change language:", error);
 		}
 	};
+
+	const isAr = mounted && i18n.language?.startsWith("ar");
+	const display = isAr ? "AR" : "EN";
 
 	return (
 		<div className="relative">
@@ -45,9 +40,7 @@ export default function LanguageSelector() {
 				onClick={() => setOpen(!open)}
 				className="flex items-center justify-center gap-2 h-8 px-3 rounded-full border border-[--border-color] bg-[--bg-color] text-[--text-color] hover:border-[--secondary-color] transition-colors text-sm"
 			>
-				<span className="whitespace-nowrap">
-					{currentLanguage === "en" ? "EN" : "AR"}
-				</span>
+				<span className="whitespace-nowrap">{display}</span>
 				<motion.div
 					animate={{ rotate: open ? 180 : 0 }}
 					transition={{ duration: 0.2 }}
