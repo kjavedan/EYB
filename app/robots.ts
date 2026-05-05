@@ -5,8 +5,8 @@ export default function robots(): MetadataRoute.Robots {
 		rules: {
 			userAgent: "*",
 			allow: "/",
-			disallow: ["/private/", "/admin/"],
+			disallow: ["/admin/", "/api/"],
 		},
-		sitemap: "https://khaled-javdan.com/sitemap.xml",
+		sitemap: "https://eyb.ae/sitemap.xml",
 	};
 }

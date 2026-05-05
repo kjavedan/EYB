@@ -8,30 +8,33 @@ export function ServiceStructuredData() {
 	const structuredData = {
 		"@context": "https://schema.org",
 		"@type": "Service",
-		name: t("services.title", { defaultValue: "Web Development Services" }),
+		name: t("services.title", { defaultValue: "Digital Growth Services" }),
 		provider: {
-			"@type": "Person",
-			name: "Khaled Javdan",
+			"@type": "Organization",
+			name: "EYB",
+			url: "https://eyb.ae",
 		},
-		serviceType: "Web Development",
+		serviceType: "Digital Marketing & Customer Acquisition",
 		description:
-			"Professional web development services including custom websites, e-commerce stores, and web applications",
+			"Done-for-you digital growth — website, marketing, content, and follow-up systems built to bring small businesses more customers online.",
 		areaServed: {
 			"@type": "Place",
 			name: "Dubai, UAE",
 		},
 		hasOfferCatalog: {
 			"@type": "OfferCatalog",
-			name: "Web Development Services",
+			name: "EYB Services",
 			itemListElement: [
 				{
 					"@type": "Offer",
 					itemOffered: {
 						"@type": "Service",
-						name: "Personal & Business Websites",
-						description: t("services.items.personal_business.description", {
+						name: t("services.items.website.title", {
+							defaultValue: "Website + Conversion System",
+						}),
+						description: t("services.items.website.description", {
 							defaultValue:
-								"Website to showcase your personal brand or business",
+								"A site built to turn visitors into customers — clear offer, smart layout, lead capture, WhatsApp and booking wired in.",
 						}),
 					},
 				},
@@ -39,9 +42,12 @@ export function ServiceStructuredData() {
 					"@type": "Offer",
 					itemOffered: {
 						"@type": "Service",
-						name: "E-commerce Stores",
-						description: t("services.items.store_owners.description", {
-							defaultValue: "Professional online stores for business owners",
+						name: t("services.items.marketing.title", {
+							defaultValue: "Marketing + Lead Generation",
+						}),
+						description: t("services.items.marketing.description", {
+							defaultValue:
+								"Targeted campaigns that bring the right people to your offer, with tracking that shows what's actually working.",
 						}),
 					},
 				},
@@ -49,9 +55,25 @@ export function ServiceStructuredData() {
 					"@type": "Offer",
 					itemOffered: {
 						"@type": "Service",
-						name: "Product Marketing",
-						description: t("services.items.product_sellers.description", {
-							defaultValue: "Marketing solutions for product sellers",
+						name: t("services.items.content.title", {
+							defaultValue: "Content + Brand Consistency",
+						}),
+						description: t("services.items.content.description", {
+							defaultValue:
+								"Posts, reels, and visuals that show up regularly and look like one brand — not random posts from random tools.",
+						}),
+					},
+				},
+				{
+					"@type": "Offer",
+					itemOffered: {
+						"@type": "Service",
+						name: t("services.items.automation.title", {
+							defaultValue: "Automation + Follow-up Systems",
+						}),
+						description: t("services.items.automation.description", {
+							defaultValue:
+								"AI and automations that follow up with leads, answer common questions, and handle the repetitive work for you.",
 						}),
 					},
 				},
@@ -109,48 +131,49 @@ export function FAQStructuredData() {
 }
 
 export function PricingStructuredData() {
-	const { t } = useTranslation();
-
 	const structuredData = {
 		"@context": "https://schema.org",
 		"@type": "Product",
-		name: "Web Development Services",
-		description: "Professional web development packages for businesses",
+		name: "EYB Growth Packages",
+		description:
+			"Done-for-you digital growth packages for small businesses — website, marketing, content, and follow-up systems combined into one monthly engagement.",
+		brand: {
+			"@type": "Brand",
+			name: "EYB",
+		},
 		offers: [
 			{
 				"@type": "Offer",
-				name: "Starter Package",
-				price: "4999",
+				name: "Foundation",
+				price: "7000",
 				priceCurrency: "AED",
-				description: "Perfect for starting personal or business websites",
-				seller: {
-					"@type": "Person",
-					name: "Khaled Javdan",
-				},
+				description:
+					"Make your business look professional online — a conversion-ready website with WhatsApp and form lead capture, GA4 tracking, and brand setup. Includes 1 month of support.",
+				url: "https://eyb.ae/#pricing",
+				availability: "https://schema.org/InStock",
+				seller: { "@type": "Organization", name: "EYB" },
 			},
 			{
 				"@type": "Offer",
-				name: "Growth Package",
-				price: "9400",
+				name: "Growth",
+				price: "14000",
 				priceCurrency: "AED",
 				description:
-					"Ideal for businesses aiming to grow with custom solutions",
-				seller: {
-					"@type": "Person",
-					name: "Khaled Javdan",
-				},
+					"Bring customers consistently — everything in Foundation plus ad campaigns, lead tracking (CRM), follow-up automation, and ongoing optimization. Includes 2 months of support.",
+				url: "https://eyb.ae/#pricing",
+				availability: "https://schema.org/InStock",
+				seller: { "@type": "Organization", name: "EYB" },
 			},
 			{
 				"@type": "Offer",
-				name: "Elite Package",
-				price: "17999",
+				name: "Elite",
+				price: "35000",
 				priceCurrency: "AED",
 				description:
-					"Premium custom designs & solutions for top-tier businesses",
-				seller: {
-					"@type": "Person",
-					name: "Khaled Javdan",
-				},
+					"Done-for-you end-to-end digital business system — everything in Growth plus advanced custom systems, full automation architecture, and content + marketing at scale. Includes 3 months of support.",
+				url: "https://eyb.ae/#pricing",
+				availability: "https://schema.org/InStock",
+				seller: { "@type": "Organization", name: "EYB" },
 			},
 		],
 	};
