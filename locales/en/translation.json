@@ -254,6 +254,13 @@
 			"E-commerce": "E-commerce"
 		},
 		"items": {
+			"alpha": {
+				"quote": "A cinematic concept site for a premium powerlifting and bodybuilding gym — monochrome, editorial, and built to make a serious brand feel like a place worth walking into.",
+				"name": "EYB",
+				"designation": "In-house showcase",
+				"address": "Dubai, UAE",
+				"description": ""
+			},
 			"streak": {
 				"quote": "One quiet app for the things you do every day — streaks, focus, todos, and ideas. Free forever, installable anywhere.",
 				"name": "EYB",

@@ -50,6 +50,71 @@ export type Project = {
 
 export const projects: Project[] = [
 	{
+		slug: "alpha",
+		projectType: "Websites",
+		domainName: "Alpha Gym",
+		siteUrl: "https://alpha-gym-mu.vercel.app/en",
+		videoUrl: "/videos/alpha.mp4",
+		screenshots: [
+			"/images/alpha-1.png",
+			"/images/alpha-2.png",
+			"/images/alpha-3.png",
+			"/images/alpha-4.png",
+			"/images/alpha-5.png",
+			"/images/alpha-6.png",
+		],
+		year: "2026",
+		timeline: "Internal showcase",
+		services: ["Web design", "Brand", "Engineering", "Multilingual"],
+		summary:
+			"Alpha is a concept site for a premium powerlifting and bodybuilding gym — a cinematic, monochrome experience built to make a serious, no-noise brand feel like a place you'd actually walk into. It's a showcase of how far a fitness brand can move beyond the usual stock-photo template.",
+		challenge:
+			"Most gym websites look the same: bright photography, motivational stock copy, busy plan grids. They sell a feeling of intensity through volume — the opposite of how a serious lifting space actually feels. The challenge was to design a site that communicated quiet discipline and craft, while still doing the practical job of presenting disciplines, coaches, plans, and meals clearly.",
+		solution:
+			"A cinematic, scroll-driven Next.js site with a parallax hero, an introductory animation, a manifesto block, and modular sections for disciplines, coaches, the space, meals, voices, and membership. Everything is monochrome — ink, bone, a grain overlay — and the typography carries the brand instead of stock imagery. English and Arabic ship from a single codebase with locale-aware routing and RTL support. Built with Next.js 16, React 19, Tailwind v4, Motion and GSAP for the cinematic moments.",
+		techStack: [
+			{ name: "Next.js", icon: "logos:nextjs-icon" },
+			{ name: "React", icon: "logos:react" },
+			{ name: "TypeScript", icon: "logos:typescript-icon" },
+			{ name: "Tailwind CSS", icon: "logos:tailwindcss-icon" },
+			{ name: "Motion", icon: "simple-icons:framer" },
+			{ name: "GSAP", icon: "simple-icons:greensock" },
+			{ name: "i18n (EN / AR)", icon: "mdi:translate" },
+		],
+		process: [
+			{
+				phase: "Brand direction",
+				description:
+					"Set the tone before touching code: monochrome palette, display typography, grain texture, and a single message — 'No crowds. No noise. Just work.' — to anchor every section.",
+				duration: "Phase 1",
+			},
+			{
+				phase: "Cinematic hero",
+				description:
+					"Built the intro animation, parallax hero, and scroll-driven reveals so the first ten seconds of the site feel like a film opener rather than a landing page.",
+				duration: "Phase 2",
+			},
+			{
+				phase: "Section system",
+				description:
+					"Designed and shipped the disciplines, coaches, space, meals, voices, and membership sections as a consistent vertical rhythm — each one editorial, none of them noisy.",
+				duration: "Phase 3",
+			},
+			{
+				phase: "Bilingual delivery",
+				description:
+					"Wired locale-aware routing and dictionary-driven copy so the whole experience reads natively in English and Arabic, with RTL handled at the layout level.",
+				duration: "Phase 4",
+			},
+		],
+		results: [
+			{ value: "Cinematic feel", label: "Scroll-driven hero, intro animation, and grain texture set the tone" },
+			{ value: "Editorial, not generic", label: "Monochrome typography carries the brand without stock imagery" },
+			{ value: "EN · AR", label: "Bilingual from one codebase with native RTL support" },
+			{ value: "Concept showcase", label: "A reference for how a fitness brand can move beyond the template look" },
+		],
+	},
+	{
 		slug: "streak",
 		projectType: "Software",
 		domainName: "Streak",
