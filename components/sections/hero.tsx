@@ -4,6 +4,7 @@ import Button from "@/components/ui/button";
 import ArrowDown from "@/components/ui/icons/arrow-down";
 import Underline from "@/components/ui/icons/underline";
 import { WHATSAPP_URL } from "@/lib/config";
+import { trackEvent } from "@/lib/meta-pixel";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
@@ -85,6 +86,9 @@ export default function Hero() {
 						href={whatsappHref}
 						target="_blank"
 						rel="noopener noreferrer"
+						onClick={() =>
+							trackEvent("Contact", { method: "whatsapp", source: "hero" })
+						}
 						whileHover={{ scale: 1.05 }}
 						className="hero-cta-button hero-cta-secondary group inline-flex items-center justify-center gap-2 rounded-full border border-[--border-color] text-sm font-semibold text-[--text-color] lg:text-base"
 					>

@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import { contact } from "@/app/actions/contact";
 import { subscribe } from "@/app/actions/subscribe";
 import { useToast } from "@/hooks/use-toast";
+import { trackEvent } from "@/lib/meta-pixel";
 import { cn } from "@/lib/utils";
 
 import { Input } from "./ui/input";
@@ -49,6 +50,9 @@ export function ContactForm({
 			const result = await FLOW_ACTIONS[flow](formData);
 
 			if (result.ok) {
+				trackEvent(flow === "contact" ? "Lead" : "CompleteRegistration", {
+					source: flow,
+				});
 				toast({
 					title: t(`contact_form.success.${flow}.title`),
 					description: t(`contact_form.success.${flow}.description`, {

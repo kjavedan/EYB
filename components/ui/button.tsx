@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
 import { SCHEDULING_URL } from "@/lib/config";
+import { trackEvent } from "@/lib/meta-pixel";
 
 interface ButtonProps {
 	text?: string;
@@ -25,6 +26,7 @@ export default function Button({
 	const { t } = useTranslation();
 
 	const handleClick = () => {
+		trackEvent("Schedule", { source: "primary_cta" });
 		window.open(SCHEDULING_URL, "_blank");
 	};
 

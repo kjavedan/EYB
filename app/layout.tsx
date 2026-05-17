@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat, Noto_Sans_Arabic, Poppins } from "next/font/google";
 import type React from "react";
 import "./globals.css";
+import { MetaPixel } from "@/components/analytics/meta-pixel";
 import { KeyboardShortcuts } from "@/components/keyboard-shortcuts";
 import { Header } from "@/components/layout/header";
 import { I18nProvider } from "@/components/providers/i18n-provider";
@@ -261,6 +262,7 @@ export default function RootLayout({
 				/>
 			</head>
 			<body>
+				<MetaPixel />
 				<ThemeProvider>
 					<KeyboardShortcuts />
 					<I18nProvider>

@@ -4,6 +4,7 @@ import { Icon } from "@iconify/react";
 import { useTranslation } from "react-i18next";
 
 import { INSTAGRAM_URL, LINKEDIN_URL, WHATSAPP_URL } from "@/lib/config";
+import { trackEvent } from "@/lib/meta-pixel";
 import { ContactForm } from "../contact-form";
 import { SectionHeading } from "../section-heading";
 
@@ -34,7 +35,13 @@ export default function Contact() {
 						<Icon
 							icon={"mingcute:whatsapp-fill"}
 							className="hover:text-[#25D366] cursor-pointer transition-colors duration-300"
-							onClick={() => window.open(WHATSAPP_URL, "_blank")}
+							onClick={() => {
+								trackEvent("Contact", {
+									method: "whatsapp",
+									source: "contact_section",
+								});
+								window.open(WHATSAPP_URL, "_blank");
+							}}
 						/>
 
 						{/* LinkedIn Icon */}
