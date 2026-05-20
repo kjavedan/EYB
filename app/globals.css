@@ -327,10 +327,11 @@ h2 {
 }
 
 .hero-cta-button {
-	width: min(100%, 260px);
+	width: min(100%, 320px);
 	min-height: 54px;
 	margin: 0;
 	padding: 1.2rem 1.75rem;
+	white-space: nowrap;
 }
 
 .hero-cta-secondary {
@@ -365,7 +366,7 @@ h2 {
 
 @media (min-width: 1024px) {
 	.hero-cta-button {
-		width: 300px;
+		width: 320px;
 		min-height: 58px;
 		padding: 1.5rem 2rem;
 	}

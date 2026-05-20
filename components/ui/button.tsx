@@ -5,7 +5,7 @@ import type React from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
-import { SCHEDULING_URL } from "@/lib/config";
+import { WHATSAPP_URL } from "@/lib/config";
 import { trackEvent } from "@/lib/meta-pixel";
 
 interface ButtonProps {
@@ -13,6 +13,7 @@ interface ButtonProps {
 	className?: string;
 	disabled?: boolean;
 	children?: React.ReactNode;
+	eventSource?: string;
 	[key: string]: any;
 }
 
@@ -21,13 +22,20 @@ export default function Button({
 	className,
 	disabled,
 	children,
+	eventSource = "primary_cta",
 	...others
 }: ButtonProps) {
 	const { t } = useTranslation();
 
 	const handleClick = () => {
-		trackEvent("Schedule", { source: "primary_cta" });
-		window.open(SCHEDULING_URL, "_blank");
+		const whatsappMessage = t("contact.whatsapp.message", {
+			defaultValue: "Hi, I want a simple system for my business. Can we talk?",
+		});
+		trackEvent("Contact", { method: "whatsapp", source: eventSource });
+		window.open(
+			`${WHATSAPP_URL}?text=${encodeURIComponent(whatsappMessage)}`,
+			"_blank",
+		);
 	};
 
 	return (

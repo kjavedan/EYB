@@ -8,15 +8,15 @@ export function ServiceStructuredData() {
 	const structuredData = {
 		"@context": "https://schema.org",
 		"@type": "Service",
-		name: t("services.title", { defaultValue: "Digital Growth Services" }),
+		name: t("services.title", { defaultValue: "Simple Business Systems" }),
 		provider: {
 			"@type": "Organization",
 			name: "EYB",
 			url: "https://eyb.ae",
 		},
-		serviceType: "Digital Marketing & Customer Acquisition",
+		serviceType: "Order, booking, and WhatsApp automation systems",
 		description:
-			"Done-for-you digital growth — website, marketing, content, and follow-up systems built to bring small businesses more customers online.",
+			"We build simple systems for local businesses that still handle orders and bookings manually.",
 		areaServed: {
 			"@type": "Place",
 			name: "Dubai, UAE",
@@ -29,12 +29,12 @@ export function ServiceStructuredData() {
 					"@type": "Offer",
 					itemOffered: {
 						"@type": "Service",
-						name: t("services.items.website.title", {
-							defaultValue: "Website + Conversion System",
+						name: t("services.items.order_management.title", {
+							defaultValue: "Order Management System",
 						}),
-						description: t("services.items.website.description", {
+						description: t("services.items.order_management.description", {
 							defaultValue:
-								"A site built to turn visitors into customers — clear offer, smart layout, lead capture, WhatsApp and booking wired in.",
+								"A simple order flow that replaces manual order-taking, missing details, and staff back-and-forth.",
 						}),
 					},
 				},
@@ -42,12 +42,12 @@ export function ServiceStructuredData() {
 					"@type": "Offer",
 					itemOffered: {
 						"@type": "Service",
-						name: t("services.items.marketing.title", {
-							defaultValue: "Marketing + Lead Generation",
+						name: t("services.items.booking_system.title", {
+							defaultValue: "Booking System",
 						}),
-						description: t("services.items.marketing.description", {
+						description: t("services.items.booking_system.description", {
 							defaultValue:
-								"Targeted campaigns that bring the right people to your offer, with tracking that shows what's actually working.",
+								"A clear booking system that helps customers book faster and reduces missed appointments.",
 						}),
 					},
 				},
@@ -55,12 +55,12 @@ export function ServiceStructuredData() {
 					"@type": "Offer",
 					itemOffered: {
 						"@type": "Service",
-						name: t("services.items.content.title", {
-							defaultValue: "Content + Brand Consistency",
+						name: t("services.items.whatsapp_automation.title", {
+							defaultValue: "WhatsApp Ordering Automation",
 						}),
-						description: t("services.items.content.description", {
+						description: t("services.items.whatsapp_automation.description", {
 							defaultValue:
-								"Posts, reels, and visuals that show up regularly and look like one brand — not random posts from random tools.",
+								"Structured WhatsApp flows that collect the right details, send confirmations, and cut message chaos.",
 						}),
 					},
 				},
@@ -68,12 +68,12 @@ export function ServiceStructuredData() {
 					"@type": "Offer",
 					itemOffered: {
 						"@type": "Service",
-						name: t("services.items.automation.title", {
-							defaultValue: "Automation + Follow-up Systems",
+						name: t("services.items.internal_tool.title", {
+							defaultValue: "Simple Internal Tool",
 						}),
-						description: t("services.items.automation.description", {
+						description: t("services.items.internal_tool.description", {
 							defaultValue:
-								"AI and automations that follow up with leads, answer common questions, and handle the repetitive work for you.",
+								"Lightweight staff tools for daily order lists, booking boards, status tracking, and simple operations.",
 						}),
 					},
 				},
@@ -93,20 +93,14 @@ export function FAQStructuredData() {
 	const { t } = useTranslation();
 
 	const faqKeys = [
-		"starter_example",
-		"development_time",
-		"support",
-		"customization",
-		"training",
-		"pricing",
-		"why_me",
-		"platforms",
-		"design_approach",
-		"post_launch",
-		"ecommerce",
-		"process",
-		"integrations",
-		"mobile_friendly",
+		"what_do_you_build",
+		"who_is_this_for",
+		"do_i_need_to_change_whatsapp",
+		"how_long_does_it_take",
+		"will_my_staff_need_training",
+		"can_we_start_small",
+		"what_if_i_already_use_something",
+		"how_do_we_start",
 	];
 
 	const structuredData = {
@@ -120,62 +114,6 @@ export function FAQStructuredData() {
 				text: t(`faq.questions.${key}.answer`, { defaultValue: "Answer" }),
 			},
 		})),
-	};
-
-	return (
-		<script
-			type="application/ld+json"
-			dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-		/>
-	);
-}
-
-export function PricingStructuredData() {
-	const structuredData = {
-		"@context": "https://schema.org",
-		"@type": "Product",
-		name: "EYB Growth Packages",
-		description:
-			"Done-for-you digital growth packages for small businesses — website, marketing, content, and follow-up systems combined into one monthly engagement.",
-		brand: {
-			"@type": "Brand",
-			name: "EYB",
-		},
-		offers: [
-			{
-				"@type": "Offer",
-				name: "Foundation",
-				price: "7000",
-				priceCurrency: "AED",
-				description:
-					"Make your business look professional online — a conversion-ready website with WhatsApp and form lead capture, GA4 tracking, and brand setup. Includes 1 month of support.",
-				url: "https://eyb.ae/#pricing",
-				availability: "https://schema.org/InStock",
-				seller: { "@type": "Organization", name: "EYB" },
-			},
-			{
-				"@type": "Offer",
-				name: "Growth",
-				price: "14000",
-				priceCurrency: "AED",
-				description:
-					"Bring customers consistently — everything in Foundation plus ad campaigns, lead tracking (CRM), follow-up automation, and ongoing optimization. Includes 2 months of support.",
-				url: "https://eyb.ae/#pricing",
-				availability: "https://schema.org/InStock",
-				seller: { "@type": "Organization", name: "EYB" },
-			},
-			{
-				"@type": "Offer",
-				name: "Elite",
-				price: "35000",
-				priceCurrency: "AED",
-				description:
-					"Done-for-you end-to-end digital business system — everything in Growth plus advanced custom systems, full automation architecture, and content + marketing at scale. Includes 3 months of support.",
-				url: "https://eyb.ae/#pricing",
-				availability: "https://schema.org/InStock",
-				seller: { "@type": "Organization", name: "EYB" },
-			},
-		],
 	};
 
 	return (

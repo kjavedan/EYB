@@ -2,116 +2,64 @@
 
 import { SectionHeading } from "@/components/section-heading";
 import Button from "@/components/ui/button";
-import Arrow from "@/components/ui/icons/arrow";
-import CircleIcon from "@/components/ui/icons/circle";
-import Underline from "@/components/ui/icons/underline";
 import { Icon } from "@iconify/react";
 import { useTranslation } from "react-i18next";
 
-const concernsData = [
-	{
-		id: 1,
-		key: "expertise",
-		icon: "hugeicons:web-design-02",
-	},
-	{
-		id: 2,
-		key: "security",
-		icon: "hugeicons:marketing",
-	},
-	{
-		id: 3,
-		key: "design",
-		icon: "hugeicons:workflow-square-01",
-	},
-];
-
-const ConcernItem = ({
-	id,
-	concernKey,
-	icon,
-}: {
-	id: number;
-	concernKey: string;
-	icon: string;
-}) => {
-	const { t } = useTranslation();
-
-	return (
-		<div className="relative h-80 w-full xl:h-96 flex items-center justify-center px-4 py-8">
-			<div className="flex flex-col items-center">
-				{/* Left Circular Number */}
-				<div className="absolute left-8 xl:left-12 top-4">
-					<CircleIcon number={id} />
-				</div>
-
-				{/* Icon */}
-				<Icon icon={icon} className="w-20 h-20 mb-2 text-[--text-color]" />
-
-				{/* Title */}
-				<h4 className="font-bold text-xl xl:text-2xl">
-					{t(`concerns.items.${concernKey}.label`)}
-				</h4>
-
-				{/* Description */}
-				<p className="text-sm xl:text-base text-center text-[--text-gray] mt-2 w-[75%]">
-					{t(`concerns.items.${concernKey}.description`)}
-				</p>
-			</div>
-		</div>
-	);
-};
+const solutionItems = [
+	{ key: "orders", icon: "hugeicons:package-process" },
+	{ key: "bookings", icon: "hugeicons:calendar-03" },
+	{ key: "staff_tools", icon: "hugeicons:dashboard-square-03" },
+] as const;
 
 export default function Concerns() {
 	const { t } = useTranslation();
 
 	return (
-		<section id="concerns" className="py-20 flex flex-col">
+		<section id="solution" className="py-20">
 			<div className="w-full">
-				{/* Title */}
 				<SectionHeading>{t("concerns.title")}</SectionHeading>
+				<p className="mx-auto mt-6 max-w-3xl px-4 text-center text-base text-[--text-gray] lg:text-lg">
+					{t("concerns.subtitle")}
+				</p>
 
-				{/* Content Section */}
-				<div className="relative flex flex-col items-center mt-8 max-w-screen-xl mx-auto grid-wrapper">
-					{/* Services */}
-					<div className="text-[--text-color] flex flex-col w-full lg:flex-row relative grid-container">
-						{concernsData.map((service, index) => (
-							<div key={service.id} className="relative w-full lg:w-1/3">
-								{/* Gradient Dividers */}
-								{index < concernsData.length - 1 && (
+				<div className="relative mt-10 overflow-hidden grid-wrapper">
+					<div className="grid-container flex flex-col text-[--text-color] lg:flex-row">
+						{solutionItems.map((item, index) => (
+							<div key={item.key} className="relative w-full lg:w-1/3">
+								{index < solutionItems.length - 1 && (
 									<>
-										<div className="absolute bottom-0 start-0 w-full h-[1px] lg:hidden bg-gradient-to-r from-[--bg-color] via-[--border-color] to-[--bg-color]" />
+										<div className="absolute bottom-0 start-0 h-[1px] w-full bg-gradient-to-r from-[--bg-color] via-[--border-color] to-[--bg-color] lg:hidden" />
 										<div className="hidden lg:block absolute top-0 end-0 h-full w-[1px] bg-gradient-to-b from-[--bg-color] via-[--border-color] to-[--bg-color]" />
 									</>
 								)}
-								{/* Service Item */}
-								<ConcernItem
-									id={service.id}
-									concernKey={service.key}
-									icon={service.icon}
-								/>
+								<div className="h-full px-6 py-10 text-center lg:px-8 lg:py-12">
+									<Icon
+										icon={item.icon}
+										className="mx-auto block h-12 w-12 text-[--text-color]"
+									/>
+									<h3 className="mt-5 text-2xl font-semibold">
+										{t(`concerns.items.${item.key}.label`)}
+									</h3>
+									<p className="mt-3 text-base leading-relaxed text-[--text-gray]">
+										{t(`concerns.items.${item.key}.description`)}
+									</p>
+								</div>
 							</div>
 						))}
 					</div>
 				</div>
 
-				{/* Arrow and Underline */}
-				<div className="text-xs flex flex-col items-start">
-					<Arrow viewBox={"0 0 46 46"} className="ml-56" />
-					<div className="w-60 max-w-sm mt-4">
-						<p className="inline">
-							<span>
-								{t("concerns.bottom_text.part1")}{" "}
-								<b>{t("concerns.bottom_text.part2")}</b>
-							</span>
-						</p>
-						<Underline viewBox={"0 0 220 11"} />
-					</div>
+				<div className="mx-auto mt-10 max-w-3xl text-center">
+					<p className="text-base leading-relaxed text-[--text-gray] lg:text-lg">
+						{t("concerns.bottom_text.part1")}{" "}
+						<strong className="text-[--text-color]">
+							{t("concerns.bottom_text.part2")}
+						</strong>
+					</p>
 				</div>
 
 				<div className="flex">
-					{/* CTA Button */}
-					<Button className="lg:mt-[-64px]" />
+					<Button />
 				</div>
 			</div>
 		</section>

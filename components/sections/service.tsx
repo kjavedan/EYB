@@ -9,23 +9,23 @@ import { useTranslation } from "react-i18next";
 const servicesData = [
 	{
 		id: 1,
-		key: "website",
-		icon: "fluent-mdl2:website",
+		key: "order_management",
+		icon: "hugeicons:package-process",
 	},
 	{
 		id: 2,
-		key: "marketing",
-		icon: "hugeicons:marketing",
+		key: "booking_system",
+		icon: "hugeicons:calendar-03",
 	},
 	{
 		id: 3,
-		key: "content",
-		icon: "hugeicons:image-add-02",
+		key: "whatsapp_automation",
+		icon: "mingcute:whatsapp-fill",
 	},
 	{
 		id: 4,
-		key: "automation",
-		icon: "hugeicons:ai-brain-04",
+		key: "internal_tool",
+		icon: "hugeicons:dashboard-square-03",
 	},
 ];
 
@@ -69,7 +69,7 @@ export default function Service() {
 	const { t } = useTranslation();
 
 	return (
-		<section id="services" className="pb-20 flex flex-col pt-10 lg:pt-0">
+		<section id="services" className="py-20">
 			<div className="w-full">
 				<SectionHeading>{t("services.title")}</SectionHeading>
 				<p className="mx-auto mt-6 max-w-2xl px-4 text-center text-base text-[--text-gray] lg:text-lg">
@@ -105,7 +105,7 @@ export default function Service() {
 						})}
 					</div>
 				</div>
-				<p className="mt-10 mx-auto max-w-2xl px-4 text-center text-sm italic text-[--text-gray] lg:text-base">
+				<p className="mt-10 mx-auto max-w-2xl px-4 text-center text-sm text-[--text-gray] lg:text-base">
 					{t("services.footer")}
 				</p>
 				<div className="w-fit mx-auto">

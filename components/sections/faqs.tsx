@@ -58,14 +58,14 @@ const FAQItem = ({
 export default function FAQs() {
 	const { t } = useTranslation();
 	const faqKeys = [
-		"starter_example",
-		"development_time",
-		"support",
-		"customization",
-		"training",
-		"pricing",
-		"design_approach",
-		"post_launch",
+		"what_do_you_build",
+		"who_is_this_for",
+		"do_i_need_to_change_whatsapp",
+		"how_long_does_it_take",
+		"will_my_staff_need_training",
+		"can_we_start_small",
+		"what_if_i_already_use_something",
+		"how_do_we_start",
 	];
 
 	return (

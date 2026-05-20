@@ -40,32 +40,27 @@ const notoSansArabic = Noto_Sans_Arabic({
 
 export const metadata: Metadata = {
 	title: {
-		default: "EYB — Get More Customers Online | Done-for-You Growth in Dubai, UAE",
+		default:
+			"EYB — Simple Order and Booking Systems for Local Businesses in Dubai",
 		template: "%s | EYB",
 	},
 	description:
-		"EYB is your done-for-you digital team in Dubai. We build your website, run your marketing, create your content, and set up the systems that turn visitors into customers — so you can focus on your business.",
+		"EYB builds simple systems for local businesses in Dubai that still manage orders and bookings manually. We fix WhatsApp chaos, missed bookings, and messy day-to-day operations.",
 	keywords: [
 		"EYB",
 		"EYB Dubai",
-		"digital marketing agency Dubai",
-		"marketing agency UAE",
-		"lead generation Dubai",
-		"lead generation UAE",
-		"customer acquisition Dubai",
-		"small business marketing Dubai",
-		"done-for-you marketing",
-		"growth marketing Dubai",
-		"performance marketing UAE",
-		"social media marketing Dubai",
-		"content marketing UAE",
-		"Meta ads Dubai",
-		"Google ads Dubai",
-		"WhatsApp marketing UAE",
-		"marketing automation Dubai",
-		"website and marketing package Dubai",
-		"business growth packages UAE",
-		"conversion website Dubai",
+		"restaurant ordering system Dubai",
+		"restaurant booking system Dubai",
+		"WhatsApp ordering system UAE",
+		"WhatsApp automation Dubai",
+		"small business systems Dubai",
+		"manual order system replacement UAE",
+		"booking management system UAE",
+		"salon booking system Dubai",
+		"barber booking system Dubai",
+		"cafe ordering system Dubai",
+		"gym booking system Dubai",
+		"local business automation UAE",
 	],
 	authors: [{ name: "EYB", url: "https://eyb.ae" }],
 	creator: "EYB",
@@ -84,24 +79,25 @@ export const metadata: Metadata = {
 		locale: "en_US",
 		alternateLocale: ["ar_AE"],
 		url: "https://eyb.ae",
-		title: "EYB — Get More Customers Online | Done-for-You Growth in Dubai, UAE",
+		title:
+			"EYB — Simple Order and Booking Systems for Local Businesses in Dubai",
 		description:
-			"We act as your digital team in Dubai — website, marketing, content, and follow-up systems built to bring you customers, not just clicks.",
+			"We build simple systems for restaurants, cafes, salons, barbers, and studios that still handle orders or bookings manually.",
 		siteName: "EYB",
 		images: [
 			{
 				url: "/images/og-image.jpg",
 				width: 1200,
 				height: 630,
-				alt: "EYB — Get more customers online with a done-for-you digital growth team in Dubai",
+				alt: "EYB builds simple order and booking systems for local businesses in Dubai",
 			},
 		],
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "EYB — Get More Customers Online | Dubai, UAE",
+		title: "EYB — Simple Business Systems | Dubai, UAE",
 		description:
-			"Your done-for-you digital team in Dubai — website, marketing, content, and follow-up systems that bring you customers.",
+			"We fix manual orders, missed bookings, and WhatsApp chaos with simple systems built for local businesses.",
 		images: ["/images/twitter-image.jpg"],
 		creator: "@eyb_ae",
 	},
@@ -145,7 +141,7 @@ export default function RootLayout({
 							name: "EYB",
 							legalName: "EYB",
 							description:
-								"EYB is a done-for-you digital growth team in Dubai. We build your website, run your marketing, create your content, and set up the systems that bring small businesses more customers online.",
+								"EYB builds simple order, booking, and WhatsApp systems for local businesses in Dubai.",
 							url: "https://eyb.ae",
 							logo: "https://eyb.ae/icon.svg",
 							email: SUPPORT_EMAIL,
@@ -169,18 +165,13 @@ export default function RootLayout({
 							},
 							sameAs: [LINKEDIN_URL, INSTAGRAM_URL, WHATSAPP_URL],
 							knowsAbout: [
-								"Digital Marketing",
-								"Lead Generation",
-								"Customer Acquisition",
-								"Conversion-Optimized Websites",
-								"Content Marketing",
-								"Social Media Marketing",
-								"Performance Marketing",
-								"Meta Ads",
-								"Google Ads",
-								"WhatsApp Marketing",
-								"Marketing Automation",
-								"Small Business Growth",
+								"Restaurant Ordering Systems",
+								"Booking Systems",
+								"WhatsApp Automation",
+								"Small Business Operations",
+								"Internal Business Tools",
+								"Salon Booking Systems",
+								"Cafe Ordering Systems",
 							],
 						}),
 					}}
@@ -195,7 +186,7 @@ export default function RootLayout({
 							"@type": "ProfessionalService",
 							name: "EYB",
 							description:
-								"Done-for-you digital growth team in Dubai — website, marketing, content, and follow-up systems that bring small businesses more customers online.",
+								"Simple order, booking, and WhatsApp systems for local businesses in Dubai.",
 							url: "https://eyb.ae",
 							telephone: PHONE_E164,
 							email: SUPPORT_EMAIL,
@@ -210,7 +201,7 @@ export default function RootLayout({
 								longitude: "55.2708",
 							},
 							openingHours: "Mo-Su 09:00-18:00",
-							priceRange: "AED 7,000 – AED 35,000",
+							priceRange: "Contact for quote",
 							areaServed: {
 								"@type": "Country",
 								name: "United Arab Emirates",
@@ -223,36 +214,36 @@ export default function RootLayout({
 										"@type": "Offer",
 										itemOffered: {
 											"@type": "Service",
-											name: "Website + Conversion System",
+											name: "Order Management System",
 											description:
-												"A site built to turn visitors into customers — clear offer, smart layout, lead capture, WhatsApp and booking wired in.",
+												"A simple order system for businesses still handling orders manually.",
 										},
 									},
 									{
 										"@type": "Offer",
 										itemOffered: {
 											"@type": "Service",
-											name: "Marketing + Lead Generation",
+											name: "Booking System",
 											description:
-												"Targeted Meta and Google campaigns that bring the right people to your offer, with tracking that shows what's actually working.",
+												"A booking flow that reduces back-and-forth messages and missed appointments.",
 										},
 									},
 									{
 										"@type": "Offer",
 										itemOffered: {
 											"@type": "Service",
-											name: "Content + Brand Consistency",
+											name: "WhatsApp Ordering Automation",
 											description:
-												"Posts, reels, and visuals that show up regularly and look like one brand — not random posts from random tools.",
+												"WhatsApp automation that collects order or booking details and sends clear confirmations.",
 										},
 									},
 									{
 										"@type": "Offer",
 										itemOffered: {
 											"@type": "Service",
-											name: "Automation + Follow-up Systems",
+											name: "Simple Internal Tool",
 											description:
-												"WhatsApp flows, AI replies, and CRM follow-ups that handle leads and repetitive work for you.",
+												"Lightweight tools for staff to track orders, bookings, and day-to-day status in one place.",
 										},
 									},
 								],

@@ -1,112 +1,60 @@
 "use client";
 
 import Button from "@/components/ui/button";
-import ArrowDown from "@/components/ui/icons/arrow-down";
 import Underline from "@/components/ui/icons/underline";
-import { WHATSAPP_URL } from "@/lib/config";
-import { trackEvent } from "@/lib/meta-pixel";
-import { Icon } from "@iconify/react";
-import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 
 export default function Hero() {
 	const { t } = useTranslation();
 
-	const part2 = t("hero.title.part2", { defaultValue: "Online" });
-	const part2Words = part2.split(" ");
-	const part2Before = part2Words.slice(0, 2).join(" ");
-	const part2After = part2Words.slice(2).join(" ");
-	const whatsappMessage = t("contact.whatsapp.message", {
-		defaultValue:
-			"Hi Khaled! We're interested in starting a project with you. Can you share more details?",
-	});
-	const whatsappHref = `${WHATSAPP_URL}?text=${encodeURIComponent(
-		whatsappMessage,
-	)}`;
-
 	return (
 		<section
 			id="hero"
-			className="h-100dvh flex items-center justify-center lg:max-h-[900px] pb-0 pt-0"
+			className="flex min-h-[calc(100dvh-4rem)] items-center justify-center py-16 lg:min-h-[760px]"
 		>
-			<div className="flex flex-col mt-[-100px] lg:mt-[0px]">
-				<h1 className="heading text-center font-[var(--font-primary)] max-w-screen-xl mx-auto text-3xl leading-[50px] md:text-5xl md:leading-[70px] lg:text-6xl lg:leading-[80px] xl:text-7xl xl:leading-[100px] 2xl:text-7xl 2xl:leading-[110px]">
-					<span className="text-[--text-color]">
-						{t("hero.title.part1", { defaultValue: "We Take Businesses" })}
-					</span>
-					<span className="store-section relative block mx-2 lg:mr-4">
-						<span className="font-bold text-[--text-color]">
-							{part2Before}{" "}
-						</span>
-
-						<motion.span
-							initial={{ rotate: -25 }}
-							animate={{ rotate: 0 }}
-							transition={{
-								type: "spring",
-								duration: 2,
-								bounce: 0.5,
-								damping: 3,
-							}}
-							whileHover={{
-								rotate: [0, -15, 15, -15, 15, 0],
-								transition: {
-									duration: 0.5,
-									ease: "easeInOut",
-								},
-							}}
-							style={{ display: "inline-block", verticalAlign: "middle" }}
-						>
-							<Icon
-								icon="streamline:money-graph-arrow-increase-ascend-growth-up-arrow-stats-graph-right-grow"
-								id="store-icon"
-								className="lg:w-16 lg:h-16 me-4 text-[--text-color]"
-								aria-label="Growth icon"
-							/>
-						</motion.span>
-
-						<span className="font-bold text-[--text-color]">{part2After}</span>
-
-						<Underline
-							viewBox={"-25 -5 250 18"}
-							className="underline-svg block"
+			<div className="flex max-w-5xl flex-col items-center">
+				<h1 className="heading max-w-5xl text-center font-[var(--font-primary)] text-4xl leading-[1.08] md:text-5xl lg:text-6xl xl:text-[5rem]">
+					<span className="block text-[--text-color]">
+						<Trans
+							i18nKey="hero.title.part1"
+							components={[
+								<span
+									key="highlight"
+									className="relative inline-block font-bold text-[--brand-blue]"
+								>
+									<Underline
+										viewBox="0 0 280 15"
+										className="pointer-events-none absolute inset-x-0 -bottom-3 h-3 w-full"
+										preserveAspectRatio="none"
+									/>
+								</span>,
+							]}
 						/>
+					</span>
+					<span className="mt-3 block whitespace-nowrap text-[--text-color]">
+						{t("hero.title.part2", {
+							defaultValue: "and bookings manually",
+						})}
 					</span>
 				</h1>
 
-				<p className="mt-8 mx-auto max-w-2xl px-6 text-center text-lg lg:text-xl xl:text-2xl text-[--text-gray] leading-relaxed">
-					{t("hero.subtitle", { defaultValue: "see if I can help you" })}
+				<p className="mt-8 mx-auto max-w-3xl px-6 text-center text-lg leading-relaxed text-[--text-gray] lg:text-xl xl:text-2xl">
+					{t("hero.subtitle", {
+						defaultValue:
+							"If orders come through WhatsApp, bookings get missed, or staff keep asking what to do next, we build a simple system that fixes it.",
+					})}
 				</p>
 
-				<div className="mt-12 flex flex-col items-center justify-center gap-3 lg:gap-6 px-6 sm:flex-row">
+				<div className="mt-12 flex flex-col items-center justify-center gap-3 px-6">
 					<Button className="hero-cta-button mt-0">
-						{t("hero.cta", { defaultValue: "Schedule a call" })}
+						{t("hero.cta", { defaultValue: "Talk to us on WhatsApp" })}
 					</Button>
-					<motion.a
-						href={whatsappHref}
-						target="_blank"
-						rel="noopener noreferrer"
-						onClick={() =>
-							trackEvent("Contact", { method: "whatsapp", source: "hero" })
-						}
-						whileHover={{ scale: 1.05 }}
-						className="hero-cta-button hero-cta-secondary group inline-flex items-center justify-center gap-2 rounded-full border border-[--border-color] text-sm font-semibold text-[--text-color] lg:text-base"
-					>
-						<Icon
-							icon="mingcute:whatsapp-fill"
-							className="h-5 w-5 text-[#25D366] transition-colors duration-300 group-hover:text-white"
-							aria-hidden="true"
-						/>
-						<span>
-							{t("hero.whatsapp_cta", { defaultValue: "Prefer WhatsApp?" })}
-						</span>
-					</motion.a>
-				</div>
-
-				<div className="hidden md:flex flex-col items-center mt-12">
-					<div className="w-fit">
-						<ArrowDown className={"relative"} color={"gray"} />
-					</div>
+					<p className="text-center text-sm text-[--text-gray]">
+						{t("hero.helper", {
+							defaultValue:
+								"Less manual work. Fewer missed orders. Clearer daily operations.",
+						})}
+					</p>
 				</div>
 			</div>
 		</section>

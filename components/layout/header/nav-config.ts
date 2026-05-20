@@ -6,23 +6,23 @@ export const useNavConfig = () => {
 	return [
 		{
 			id: 1,
+			label: t("navigation.problem"),
+			link: "#problem",
+		},
+		{
+			id: 2,
+			label: t("navigation.solution"),
+			link: "#solution",
+		},
+		{
+			id: 3,
 			label: t("navigation.services"),
 			link: "#services",
 		},
 		{
-			id: 2,
-			label: t("navigation.pricing"),
-			link: "#pricing",
-		},
-		{
-			id: 3,
-			label: t("navigation.about"),
-			link: "#about",
-		},
-		{
 			id: 4,
-			label: t("navigation.faqs"),
-			link: "#faqs",
+			label: t("navigation.process"),
+			link: "#process",
 		},
 		{
 			id: 5,
