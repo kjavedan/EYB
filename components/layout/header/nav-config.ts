@@ -11,18 +11,18 @@ export const useNavConfig = () => {
 		},
 		{
 			id: 2,
-			label: t("navigation.solution"),
-			link: "#solution",
-		},
-		{
-			id: 3,
 			label: t("navigation.services"),
 			link: "#services",
 		},
 		{
-			id: 4,
+			id: 3,
 			label: t("navigation.process"),
 			link: "#process",
+		},
+		{
+			id: 4,
+			label: t("navigation.pricing"),
+			link: "#pricing",
 		},
 		{
 			id: 5,

@@ -108,6 +108,12 @@ export default function Service() {
 				<p className="mt-10 mx-auto max-w-2xl px-4 text-center text-sm text-[--text-gray] lg:text-base">
 					{t("services.footer")}
 				</p>
+				<p className="mx-auto mt-6 max-w-3xl px-4 text-center text-base leading-relaxed text-[--text-gray] lg:text-lg">
+					{t("concerns.bottom_text.part1")}{" "}
+					<strong className="text-[--text-color]">
+						{t("concerns.bottom_text.part2")}
+					</strong>
+				</p>
 				<div className="w-fit mx-auto">
 					<Button />
 				</div>

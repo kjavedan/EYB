@@ -10,8 +10,8 @@
 		"helper": "Less manual work. Fewer missed orders. Clearer daily operations."
 	},
 	"services": {
-		"title": "What We Can Build",
-		"subtitle": "Clear systems you can buy based on the problem you need to fix first.",
+		"title": "What We Build Instead",
+		"subtitle": "We replace the messy manual process with clear systems your staff can actually use.",
 		"footer": "Start with one system. Fix the biggest bottleneck first. Add the next piece only when you need it.",
 		"items": {
 			"order_management": {
@@ -94,57 +94,57 @@
 	"pricing": {
 		"title": "Pricing",
 		"includes_label": "Includes",
-		"support_label": "Support",
+		"support_label": "Timeline",
 		"outcome_label": "Outcome",
+		"starting_at_label": "Starting at",
+		"guarantee_label": "Guarantee",
+		"guarantee": "100% money-back if we don't solve the problem we agreed to fix.",
 		"packages": {
 			"launchpad": {
 				"title": "Foundation",
-				"price": "7,000 AED",
-				"price_aed": "7,000 AED",
-				"question": "Do I look legit online?",
-				"description": "Make me look professional online.",
-				"support": "1 month",
-				"outcome": "You now have a professional online presence people can trust.",
+				"price": "3,000 AED",
+				"price_aed": "3,000 AED",
+				"description": "Fix the one process that's costing you the most right now.",
+				"support": "2 weeks",
+				"outcome": "Your messiest daily process now runs on a system, not memory.",
 				"features": [
-					"Website built for conversion",
-					"Lead capture (WhatsApp + forms)",
-					"Analytics setup (GA4 / tracking)",
-					"Mobile optimized structure",
-					"Logo + brand colors setup"
+					"One focused system (WhatsApp ordering, booking flow, or order intake)",
+					"Clear flow so staff know what to do next",
+					"Built around how your business actually works today",
+					"Setup, staff handoff, and walkthrough",
+					"2 weeks of fixes after launch"
 				]
 			},
 			"growth_engine": {
 				"title": "Growth",
-				"price": "14,000 AED",
-				"price_aed": "14,000 AED",
-				"question": "Do I get customers from this?",
-				"description": "Bring me customers consistently.",
-				"support": "2 months",
-				"outcome": "Your business now has a system that attracts and converts customers.",
+				"price": "7,000 AED",
+				"price_aed": "7,000 AED",
+				"description": "Connect the pieces so your whole day runs through one place.",
+				"support": "3 months",
+				"outcome": "Orders, bookings, and staff tasks all live in one clean flow.",
 				"features": [
 					"Everything in Foundation",
-					"Marketing setup (ads structure + tracking)",
-					"Lead tracking system (CRM setup)",
-					"Follow-up system (automation + WhatsApp flow)",
-					"Content execution system based on your business voice",
-					"Ongoing optimization of conversion + marketing system"
+					"Connected order + booking + WhatsApp flow",
+					"Staff dashboard to see and manage incoming work",
+					"Status tracking so nothing gets lost",
+					"Reminders and follow-ups that run on their own",
+					"3 months of refinement based on how your team uses it"
 				]
 			},
 			"custom_build": {
 				"title": "Elite",
-				"price": "35,000 AED",
-				"price_aed": "35,000 AED",
-				"question": "Do I want everything done for me?",
-				"description": "Do everything for me completely.",
-				"support": "3 months",
-				"outcome": "Your entire digital business system is handled for you end-to-end.",
+				"price": "30,000 AED",
+				"price_aed": "30,000 AED",
+				"description": "Full operational system tailored to how your business actually works.",
+				"support": "4 months",
+				"outcome": "Your entire daily operation runs on a system built for you.",
 				"features": [
 					"Everything in Growth",
-					"Advanced custom systems (dashboards / workflows / portals)",
-					"Full automation architecture",
-					"High-level scaling setup",
-					"Expanded execution system for content + marketing at scale",
-					"Deep business integration"
+					"Custom internal tools (dashboards, workflows, role-based access)",
+					"Multi-staff or multi-location workflows",
+					"Full integration: WhatsApp + orders + bookings + internal tools",
+					"Owner reports so you see what's happening without asking",
+					"4 months of close support and iteration"
 				]
 			}
 		}
@@ -416,6 +416,7 @@
 		"solution": "Solution",
 		"services": "Systems",
 		"process": "How It Works",
+		"pricing": "Pricing",
 		"contact": "Contact"
 	},
 	"contact_form": {

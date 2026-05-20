@@ -39,7 +39,7 @@ export default function Contact() {
 
 	return (
 		<section id="contact" className="mt-40">
-			<div className="mx-auto max-w-3xl pb-12 pt-20 text-center">
+			<div className="mx-auto max-w-3xl px-4 pb-12 pt-20 text-center sm:px-6">
 				<p className="text-xs font-semibold uppercase tracking-[0.25em] text-[--text-gray]">
 					{t("contact.subtitle")}
 				</p>
@@ -67,7 +67,7 @@ export default function Contact() {
 					{t("contact.whatsapp_cta")}
 				</a>
 
-				<ul className="mt-10 flex items-center justify-center gap-3">
+				<ul className="mt-10 flex items-center justify-center gap-3 pb-[200px]">
 					{socials.map((s) => (
 						<li key={s.key}>
 							<a

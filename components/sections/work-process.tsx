@@ -50,11 +50,17 @@ export default function WorkProcess() {
 				</p>
 
 				<div className="relative mt-10 overflow-hidden grid-wrapper">
-					<div className="grid-container">
+					<div className="grid-container grid grid-cols-1 lg:grid-cols-2">
 						{steps.map((step, index) => (
 							<div key={step.number} className="relative">
+								{index % 2 === 0 && (
+									<div className="hidden lg:block absolute top-0 end-0 h-full w-[1px] bg-gradient-to-b from-[--bg-color] via-[--border-color] to-[--bg-color]" />
+								)}
+								{index < steps.length - 2 && (
+									<div className="hidden lg:block absolute bottom-0 start-0 h-[1px] w-full bg-gradient-to-r from-[--bg-color] via-[--border-color] to-[--bg-color]" />
+								)}
 								{index < steps.length - 1 && (
-									<div className="absolute bottom-0 start-0 h-[1px] w-full bg-gradient-to-r from-[--bg-color] via-[--border-color] to-[--bg-color]" />
+									<div className="absolute bottom-0 start-0 h-[1px] w-full bg-gradient-to-r from-[--bg-color] via-[--border-color] to-[--bg-color] lg:hidden" />
 								)}
 								<WorkProcessItem number={step.number} stepKey={step.key} />
 							</div>

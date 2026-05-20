@@ -18,6 +18,7 @@ type Currency = "AED" | "USD";
 
 type ResolvedPrice =
 	| { kind: "numeric"; amount: number; currency: Currency }
+	| { kind: "range"; min: number; max: number; currency: Currency }
 	| { kind: "text"; value: string };
 
 const parseAmount = (value: string) => {
@@ -25,6 +26,17 @@ const parseAmount = (value: string) => {
 	const amount = Number.parseFloat(normalized);
 	return Number.isNaN(amount) ? null : amount;
 };
+
+const parseRange = (value: string): { min: number; max: number } | null => {
+	const parts = value.split(/[-–—]/);
+	if (parts.length !== 2) return null;
+	const min = parseAmount(parts[0]);
+	const max = parseAmount(parts[1]);
+	if (min === null || max === null) return null;
+	return { min, max };
+};
+
+const convertToUsd = (amount: number) => Math.round(amount / AED_TO_USD_RATE);
 
 const resolvePrice = ({
 	priceAed,
@@ -36,6 +48,10 @@ const resolvePrice = ({
 	currency: Currency;
 }): ResolvedPrice => {
 	if (currency === "AED") {
+		const range = parseRange(priceAed);
+		if (range) {
+			return { kind: "range", min: range.min, max: range.max, currency: "AED" };
+		}
 		const amount = parseAmount(priceAed);
 		return amount !== null
 			? { kind: "numeric", amount, currency: "AED" }
@@ -43,10 +59,29 @@ const resolvePrice = ({
 	}
 
 	if (priceUsd && priceUsd !== "—") {
+		const usdRange = parseRange(priceUsd);
+		if (usdRange) {
+			return {
+				kind: "range",
+				min: usdRange.min,
+				max: usdRange.max,
+				currency: "USD",
+			};
+		}
 		const usdAmount = parseAmount(priceUsd);
 		if (usdAmount !== null) {
 			return { kind: "numeric", amount: usdAmount, currency: "USD" };
 		}
+	}
+
+	const aedRange = parseRange(priceAed);
+	if (aedRange) {
+		return {
+			kind: "range",
+			min: convertToUsd(aedRange.min),
+			max: convertToUsd(aedRange.max),
+			currency: "USD",
+		};
 	}
 
 	const parsedAedAmount = parseAmount(priceAed);
@@ -56,7 +91,7 @@ const resolvePrice = ({
 
 	return {
 		kind: "numeric",
-		amount: Math.round(parsedAedAmount / AED_TO_USD_RATE),
+		amount: convertToUsd(parsedAedAmount),
 		currency: "USD",
 	};
 };
@@ -87,8 +122,13 @@ const PricingCard = ({
 					{t("pricing.popular_badge", { defaultValue: "Popular" })}
 				</span>
 			)}
+			{price.kind !== "text" && (
+				<span className="text-xs font-semibold uppercase tracking-wide text-[--text-gray] mb-1">
+					{t("pricing.starting_at_label", { defaultValue: "Starting at" })}
+				</span>
+			)}
 			<h4 className="text-4xl font-bold mb-2">
-				{price.kind === "numeric" ? (
+				{price.kind === "numeric" && (
 					<NumberFlow
 						value={price.amount}
 						format={{
@@ -98,9 +138,26 @@ const PricingCard = ({
 						}}
 						locales="en-US"
 					/>
-				) : (
-					price.value
 				)}
+				{price.kind === "range" && (
+					<span className="flex items-baseline gap-1.5 flex-wrap">
+						<NumberFlow
+							value={price.min}
+							format={{ style: "decimal", maximumFractionDigits: 0 }}
+							locales="en-US"
+						/>
+						<span className="text-[--text-gray]">–</span>
+						<NumberFlow
+							value={price.max}
+							format={{ style: "decimal", maximumFractionDigits: 0 }}
+							locales="en-US"
+						/>
+						<span className="text-2xl text-[--text-gray]">
+							{price.currency}
+						</span>
+					</span>
+				)}
+				{price.kind === "text" && price.value}
 			</h4>
 			<div className="flex items-center justify-between mb-4">
 				<h4 className="text-2xl font-semibold">{title}</h4>
@@ -125,7 +182,7 @@ const PricingCard = ({
 			<div className="pt-4 border-t border-[--border-color] space-y-3">
 				<div className="flex items-start justify-between gap-4">
 					<span className="text-xs uppercase tracking-wide text-[--text-gray]">
-						{t("pricing.support_label", { defaultValue: "Support" })}
+						{t("pricing.support_label", { defaultValue: "Timeline" })}
 					</span>
 					<span className="text-sm text-right">{support}</span>
 				</div>
@@ -135,6 +192,22 @@ const PricingCard = ({
 					</span>
 					<p className="text-sm text-right max-w-[80%]">{outcome}</p>
 				</div>
+			</div>
+
+			<div className="mt-4 pt-4 border-t border-[--border-color] flex items-start gap-2.5">
+				<Icon
+					icon="mdi:shield-check"
+					className="w-5 h-5 mt-0.5 flex-shrink-0 text-brand-mint"
+				/>
+				<p className="text-xs leading-relaxed text-[--text-gray]">
+					<span className="font-semibold text-[--text-color]">
+						{t("pricing.guarantee_label", { defaultValue: "Guarantee" })}:
+					</span>{" "}
+					{t("pricing.guarantee", {
+						defaultValue:
+							"100% money-back if we don't solve the problem we agreed to fix.",
+					})}
+				</p>
 			</div>
 		</div>
 	);

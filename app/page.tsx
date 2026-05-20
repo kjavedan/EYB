@@ -1,7 +1,8 @@
 import Footer from "@/components/layout/footer";
-import Concerns from "@/components/sections/concerns";
+import About from "@/components/sections/about";
 import FAQs from "@/components/sections/faqs";
 import Hero from "@/components/sections/hero";
+import Pricing from "@/components/sections/pricing";
 import ProblemJourney from "@/components/sections/problem-journey";
 import Service from "@/components/sections/service";
 import WorkProcess from "@/components/sections/work-process";
@@ -20,9 +21,10 @@ export default function HomePage() {
 				<main className="home-page px-4 max-w-screen-xl pt-16 mx-auto">
 					<Hero />
 					<ProblemJourney />
-					<Concerns />
 					<Service />
 					<WorkProcess />
+					<Pricing />
+					<About />
 					<FAQs />
 				</main>
 				<Footer />
